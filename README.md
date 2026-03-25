@@ -98,7 +98,7 @@ Hot-Stay/
 
 ### 1. Clone Repository  
 
-git clone https://github.com/your-username/hot-stay.git
+git clone https://github.com/shravan01-01/hot-stay.git
 
 cd hot-stay
 
@@ -185,7 +185,7 @@ This project is licensed under the MIT License.
 ## 👨‍💻 Author  
 
 **Shravan Sadawarte**  
-GitHub: https://github.com/your-username  
+GitHub: https://github.com/shravan01-01 
 
 ---
 
