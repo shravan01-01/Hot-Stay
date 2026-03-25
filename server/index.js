@@ -1,16 +1,17 @@
 const express = require("express");
+const path = require("path");
+
 const app = express();
 
-// route
-app.get("/", (req, res) => {
-    res.send("Hello World 🚀");
-});
+app.set("view engine", "ejs");
+
+// 👇 point to frontend folder
+app.set("views", path.join(__dirname, "../frontend"));
 
 app.get("/Hot-Stay", (req, res) => {
-    res.send("Welcome to Hot Stay! 🚀");
+  res.render("landing"); // landing.ejs
 });
 
-// server start
 app.listen(3000, () => {
-    console.log("Server running on port 3000");
+  console.log("Server running on http://localhost:3000");
 });
