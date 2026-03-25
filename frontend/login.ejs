@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Hot-Stay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #ff385c;
+            --primary-dark: #d70466;
+            --text-main: #222222;
+            --text-light: #717171;
+            --bg-color: #f7f7f7; 
+            --border-color: #dddddd;
+            /* Snappy Transition Speed */
+            --speed-fast: 0.15s;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+            padding: 20px;
+        }
+
+        .login-container {
+            background: #fff;
+            width: 100%;
+            max-width: 400px;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform var(--speed-fast) ease-out, box-shadow var(--speed-fast) ease-out;
+        }
+
+        /* Snappy hover interaction */
+        .login-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .logo-area { text-align: center; margin-bottom: 20px; }
+        .logo-area a {
+            font-family: 'Poppins';
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        h2 { font-family: 'Poppins'; font-size: 1.3rem; margin-bottom: 4px; text-align: center; }
+        p.subtitle { color: var(--text-light); font-size: 0.85rem; margin-bottom: 24px; text-align: center; }
+
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; }
+
+        input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color var(--speed-fast);
+            outline: none;
+        }
+
+        input:focus { border-color: var(--text-main); }
+
+        .login-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background var(--speed-fast);
+        }
+
+        .login-submit:active { transform: scale(0.98); }
+
+        .divider {
+            display: flex; align-items: center; text-align: center;
+            margin: 20px 0; color: #ccc; font-size: 0.75rem;
+        }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #eee; }
+        .divider:not(:empty)::before { margin-right: 1em; }
+        .divider:not(:empty)::after { margin-left: 1em; }
+
+        .social-btn {
+            width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 11px; border: 1px solid var(--text-main);
+            border-radius: 8px; background: white; cursor: pointer;
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 10px;
+            transition: background var(--speed-fast);
+        }
+        .social-btn:hover { background: #f9f9f9; }
+
+        .signup-link { text-align: center; margin-top: 20px; font-size: 0.85rem; }
+        .signup-link a { color: var(--text-main); font-weight: 600; }
+
+        .back-home {
+            position: absolute; top: 20px; left: 20px;
+            color: var(--text-main); text-decoration: none; font-size: 0.85rem; font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/" class="back-home"><i class="fa-solid fa-arrow-left"></i> Home</a>
+
+    <div class="login-container">
+        <div class="logo-area"><a href="#">Hot-Stay</a></div>
+        <h2>Log in</h2>
+        <p class="subtitle">Welcome back.</p>
+
+        <form id="loginForm">
+            <div class="form-group"><label>Email</label><input type="email" placeholder="Email" required></div>
+            <div class="form-group"><label>Password</label><input type="password" placeholder="Password" required></div>
+            <button type="submit" class="login-submit">Continue</button>
+        </form>
+
+        <div class="divider">or</div>
+
+        <button class="social-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_常务_Logo.svg" width="16"> Google</button>
+        <button class="social-btn"><i class="fa-brands fa-apple"></i> Apple</button>
+
+        <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+
+    <script>
+        // High-speed snappy entrance
+        gsap.from(".login-container", { 
+            duration: 0.35, 
+            y: 15, 
+            opacity: 0, 
+            ease: "power4.out" 
+        });
+
+        // Instant response on submit
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.querySelector('.login-submit');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            setTimeout(() => { location.reload(); }, 600);
+        });
+    </script>
+</body>
+</html>

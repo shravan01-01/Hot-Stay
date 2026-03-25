@@ -3,278 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hot-Stay | Find Your Perfect Stay</title>
+  <title>Hot-Stay | Professional</title>
   <style>
+    :root {
+      --primary: #e63946;
+      --navy: #1d3557;
+      --border: #e0e0e0;
+      --bg: #f8f9fa;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     body {
-      background: #f8f9fa;
-      color: #222;
+      background-color: #fff;
+      color: #333;
+      /* Standard font size for professional sites */
+      font-size: 14px; 
+      line-height: 1.5;
     }
 
+    /* --- Constraints the width so it doesn't look "too big" on wide screens --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- Slim Header --- */
     header {
-      background: #ffffff;
-      padding: 18px 60px;
+      height: 60px;
+      border-bottom: 1px solid var(--border);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: #fff;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    header h1 {
-      color: #e63946;
-      font-size: 28px;
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
     }
 
     nav a {
       text-decoration: none;
+      color: #444;
       margin-left: 20px;
-      color: #333;
-      font-weight: 600;
-      transition: 0.3s;
+      font-size: 13px;
+      font-weight: 500;
     }
 
-    nav a:hover {
-      color: #e63946;
-    }
+    nav a:hover { color: var(--primary); }
 
+    /* --- Compact Hero Section --- */
     .hero {
-      min-height: 90vh;
+      background: #f1f4f8;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-flex {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 60px;
-      background: linear-gradient(to right, #fff5f5, #ffecec);
-      flex-wrap: wrap;
+      gap: 40px;
     }
 
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
-      padding-right: 30px;
-    }
-
+    .hero-text { flex: 1; }
+    
     .hero-text h2 {
-      font-size: 52px;
-      margin-bottom: 20px;
-      color: #1d1d1d;
+      font-size: 28px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
     }
 
     .hero-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 25px;
-      max-width: 550px;
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 20px;
     }
 
-    .hero-text .btn {
+    .btn {
       display: inline-block;
-      background: #e63946;
-      color: white;
-      padding: 14px 28px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.3s;
+      font-weight: 600;
+      font-size: 13px;
+      transition: 0.2s;
     }
 
-    .hero-text .btn:hover {
-      background: #c92d3a;
-    }
+    .btn:hover { background: #d62839; }
 
-    .hero-image {
+    .hero-img {
       flex: 1;
-      min-width: 300px;
-      text-align: center;
+      max-width: 450px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .hero-image img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
+    /* --- Grid Section --- */
     .features {
-      padding: 70px 60px;
-      text-align: center;
-      background: #fff;
+      padding: 50px 0;
     }
 
-    .features h3 {
-      font-size: 36px;
-      margin-bottom: 40px;
-      color: #222;
+    .features-title {
+      font-size: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .feature-card {
-      background: #f9f9f9;
-      padding: 30px 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: 0.3s;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: 0.2s;
+      background: #fff;
     }
 
     .feature-card:hover {
-      transform: translateY(-8px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-color: var(--primary);
     }
 
     .feature-card h4 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #e63946;
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: var(--primary);
     }
 
     .feature-card p {
-      color: #555;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: 13px;
+      color: #777;
     }
 
-    .cta {
-      background: #e63946;
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .cta h3 {
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .cta p {
-      font-size: 18px;
-      margin-bottom: 24px;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: white;
-      color: #e63946;
-      padding: 14px 28px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .cta a:hover {
-      background: #f1f1f1;
-    }
-
+    /* --- Simple Footer --- */
     footer {
-      background: #222;
-      color: #ddd;
-      text-align: center;
-      padding: 18px;
-      font-size: 14px;
+      background: #333;
+      color: #bbb;
+      padding: 30px 0;
+      font-size: 12px;
     }
 
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      header {
-        padding: 18px 20px;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .hero {
-        padding: 40px 20px;
-        text-align: center;
-      }
-
-      .hero-text {
-        padding-right: 0;
-        margin-bottom: 30px;
-      }
-
-      .hero-text h2 {
-        font-size: 38px;
-      }
-
-      .features {
-        padding: 50px 20px;
-      }
+      .hero-flex { flex-direction: column; text-align: center; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .hero-img { width: 100%; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Hot-Stay</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/listings">Listings</a>
-      <a href="/about">About</a>
-      <a href="/login">Login</a>
-    </nav>
+    <div class="container header-content">
+      <a href="#" class="logo">Hot-Stay</a>
+      <nav>
+        <a href="#">Find Stays</a>
+        <a href="#">About Us</a>
+        <a href="#">Support</a>
+        <a href="/login" style="border: 1px solid var(--primary); padding: 5px 12px; border-radius: 4px; color: var(--primary);">Login</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <div class="hero-text">
-      <h2>Find Your Perfect Stay Anywhere</h2>
-      <p>
-        Hot-Stay helps travelers discover comfortable, affordable, and unique
-        places to stay around the world. Explore top locations, compare options,
-        and book your next unforgettable experience.
-      </p>
-      <a href="/listings" class="btn">Explore Stays</a>
-    </div>
-
-    <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="Stay image">
+    <div class="container hero-flex">
+      <div class="hero-text">
+        <h2>Book Better, Travel Simpler</h2>
+        <p>Curated stays with transparent pricing. Join 50k+ travelers booking with Hot-Stay this year.</p>
+        <a href="#" class="btn">Browse Properties</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" class="hero-img" alt="Hotel Room">
     </div>
   </section>
 
   <section class="features">
-    <h3>Why Choose Hot-Stay?</h3>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h4>Affordable Rooms</h4>
-        <p>Find stays that fit your budget without compromising on comfort and quality.</p>
-      </div>
-
-      <div class="feature-card">
-        <h4>Best Locations</h4>
-        <p>Discover properties in top cities, tourist spots, and hidden travel gems.</p>
-      </div>
-
-      <div class="feature-card">
-        <h4>Easy Booking</h4>
-        <p>Enjoy a simple and smooth booking process with user-friendly navigation.</p>
-      </div>
-
-      <div class="feature-card">
-        <h4>Trusted Hosts</h4>
-        <p>Book with confidence through verified listings and reliable host profiles.</p>
+    <div class="container">
+      <h3 class="features-title">Why Travelers Choose Us</h3>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4>Vetted Listings</h4>
+          <p>Every home is verified for quality and safety standards.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Best Rates</h4>
+          <p>We work directly with hosts to ensure the lowest possible prices.</p>
+        </div>
+        <div class="feature-card">
+          <h4>24/7 Support</h4>
+          <p>Real people are available to help you via chat at any hour.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Easy Returns</h4>
+          <p>Simple cancellation policies for your peace of mind.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
-    <h3>Start Your Journey Today</h3>
-    <p>Browse hundreds of beautiful stays and book your next trip with ease.</p>
-    <a href="/listings">Book Now</a>
-  </section>
-
   <footer>
-    <p>&copy; 2026 Hot-Stay. All rights reserved.</p>
+    <div class="container footer-flex">
+      <p>&copy; 2026 Hot-Stay International. All rights reserved.</p>
+      <div>
+        <a href="#" style="color: inherit; margin-left: 15px; text-decoration: none;">Privacy</a>
+        <a href="#" style="color: inherit; margin-left: 15px; text-decoration: none;">Terms</a>
+      </div>
+    </div>
   </footer>
 
 </body>
