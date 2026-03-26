@@ -1,167 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hot-Stay | Home</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot-Stay | Luxury Reimagined</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF385C;
+            --primary-hover: #D70466;
+            --text-main: #222222;
+            --text-light: #717171;
+            --border-soft: #f1f1f1;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 6px 16px rgba(0,0,0,0.12);
+            --radius-lg: 24px;
+            --radius-md: 12px;
+        }
 
-    body {
-      background: #f8f9fa;
-      color: #333;
-    }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-    header {
-      background: #ff5a5f;
-      color: white;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background: #fff;
+            color: var(--text-main);
+        }
 
-    header h1 {
-      font-size: 28px;
-    }
+        /* --- STICKY TOP NAV --- */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-soft);
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 16px;
-      font-weight: bold;
-    }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .hero {
-      height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85") center/cover no-repeat;
-      color: white;
-      padding: 20px;
-    }
+        .logo { 
+            color: var(--primary); 
+            font-weight: 800; 
+            font-size: 24px; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .hero-content {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 40px;
-      border-radius: 15px;
-      max-width: 700px;
-    }
+        /* --- ENHANCED SEARCH BAR --- */
+        .search-container {
+            border: 1px solid #ddd;
+            border-radius: 40px;
+            padding: 8px 10px 8px 24px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
+            cursor: pointer;
+        }
 
-    .hero h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
+        .search-container:hover { box-shadow: var(--shadow-md); }
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
+        .search-section {
+            padding: 0 16px;
+            border-right: 1px solid #ddd;
+            font-size: 14px;
+            font-weight: 600;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      margin: 10px;
-      background: #ff5a5f;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+        .search-section:last-of-type { border-right: none; color: var(--text-light); font-weight: 400; }
 
-    .btn:hover {
-      background: #e14b50;
-    }
+        .search-icon-circle {
+            background: var(--primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
 
-    .features {
-      padding: 60px 30px;
-      text-align: center;
-    }
+        /* --- CATEGORIES BAR --- */
+        .categories-bar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 40px;
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
 
-    .features h2 {
-      margin-bottom: 30px;
-      font-size: 32px;
-    }
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 56px;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 10px;
+        }
 
-    .feature-boxes {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        .category-item:hover { opacity: 1; border-bottom: 2px solid #ddd; }
+        .category-item.active { opacity: 1; border-bottom: 2px solid #000; }
 
-    .box {
-      background: white;
-      padding: 25px;
-      width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+        .category-icon { font-size: 24px; }
+        .category-label { font-size: 12px; font-weight: 600; white-space: nowrap; }
 
-    .box h3 {
-      margin-bottom: 10px;
-      color: #ff5a5f;
-    }
+        /* --- MAIN GRID --- */
+        .content-wrap {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 40px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      color: white;
-    }
-  </style>
+        .listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 40px 24px;
+        }
+
+        /* --- PREMIUM CARDS --- */
+        .stay-card {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            aspect-ratio: 1/1;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f1f1f1;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .stay-card:hover .image-wrapper img { transform: scale(1.05); }
+
+        .heart-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            border: none;
+            color: rgba(0,0,0,0.5);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .stay-info {
+            padding: 12px 0;
+        }
+
+        .stay-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stay-title { font-weight: 700; font-size: 15px; }
+        .rating { font-size: 14px; display: flex; align-items: center; gap: 4px; }
+
+        .stay-desc { color: var(--text-light); font-size: 14px; margin-top: 2px; }
+        .price-tag { margin-top: 8px; font-size: 15px; }
+
+        /* --- FLOATING MAP BUTTON --- */
+        .map-trigger {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            cursor: pointer;
+            z-index: 2000;
+        }
+
+        .map-trigger:hover { transform: translateX(-50%) scale(1.05); background: #000; }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            margin-top: 100px;
+            background: #f7f7f7;
+            padding: 48px 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-links {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner { padding: 12px 24px; }
+            .search-section:not(:first-child) { display: none; }
+            .categories-bar { padding: 12px 24px; }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Hot-Stay</h1>
-    <nav>
-      <a href="/Hot-Stay">Home</a>
-      <a href="/Hot-Stay/login">Login</a>
-      <a href="/Hot-Stay/login">Signup</a>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M16 1L2 12h4v15h7v-8h6v8h7V12h4L16 1z"/></svg>
+                Hot-Stay
+            </a>
+
+            <div class="search-container">
+                <div class="search-section">Anywhere</div>
+                <div class="search-section">Any week</div>
+                <div class="search-section">Add guests</div>
+                <div class="search-icon-circle">
+                    <svg width="12" height="12" viewBox="0 0 32 32" stroke="white" stroke-width="4" fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513224-4.9248678-11-11-11-6.07513224 0-11 4.92486776-11 11 0 6.0751322 4.92486776 11 11 11zm8-3 9 9"/></svg>
+                </div>
+            </div>
+
+            <div style="font-size: 14px; font-weight: 600;">Airbnb your home</div>
+        </div>
+
+        <div class="categories-bar">
+            <div class="category-item active">
+                <span class="category-icon">🏰</span>
+                <span class="category-label">Castles</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🏖️</span>
+                <span class="category-label">Beachfront</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🏔️</span>
+                <span class="category-label">Amazing views</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🔥</span>
+                <span class="category-label">Trending</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🎨</span>
+                <span class="category-label">Design</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">⛳</span>
+                <span class="category-label">Golfing</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🍷</span>
+                <span class="category-label">Vineyards</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">❄️</span>
+                <span class="category-label">Arctic</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🌵</span>
+                <span class="category-label">Desert</span>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">⛵</span>
+                <span class="category-label">Boats</span>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Find Your Perfect Stay</h2>
-      <p>Book comfortable, affordable, and unique stays anywhere in the world with Hot-Stay.</p>
-        <a href="/Hot-Stay/login" class="btn">Login</a>
-        <a href="/Hot-Stay/login" class="btn">Sign Up</a>
+    <div class="content-wrap">
+        <div class="listing-grid">
+            <script>
+                // Dynamically generating 12 premium cards
+                const stays = [
+                    {loc: "Aspen, Colorado", host: "Professional Host", price: "840", rating: "4.98"},
+                    {loc: "Tulum, Mexico", host: "Superhost", price: "312", rating: "4.85"},
+                    {loc: "Kyoto, Japan", host: "Individual Host", price: "215", rating: "5.0"},
+                    {loc: "Amalfi Coast, Italy", host: "Luxury Collection", price: "1,200", rating: "4.92"},
+                    {loc: "Reykjavik, Iceland", host: "Adventure Co.", price: "445", rating: "4.78"},
+                    {loc: "Lake Como, Italy", host: "Superhost", price: "930", rating: "4.99"},
+                    {loc: "Bali, Indonesia", host: "Wellness Retreat", price: "180", rating: "4.91"},
+                    {loc: "Paris, France", host: "Boutique Stays", price: "520", rating: "4.88"},
+                    {loc: "Cape Town, SA", host: "Eco Stay", price: "290", rating: "4.82"},
+                    {loc: "Ibiza, Spain", host: "Party Villa", price: "760", rating: "4.75"},
+                    {loc: "Seoul, Korea", host: "Urban Modern", price: "145", rating: "4.96"},
+                    {loc: "Swiss Alps", host: "Chalet Masters", price: "680", rating: "5.0"}
+                ];
+
+                stays.forEach(s => {
+                    document.write(`
+                        <div class="stay-card">
+                            <button class="heart-btn">♡</button>
+                            <div class="image-wrapper">
+                                <div style="background: linear-gradient(135deg, #ddd, #bbb); width:100%; height:100%;"></div>
+                            </div>
+                            <div class="stay-info">
+                                <div class="stay-header">
+                                    <span class="stay-title">${s.loc}</span>
+                                    <span class="rating">★ ${s.rating}</span>
+                                </div>
+                                <div class="stay-desc">${s.host}</div>
+                                <div class="stay-desc">Available Oct 12 – 17</div>
+                                <div class="price-tag"><b>$${s.price}</b> night</div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
     </div>
-  </section>
 
-  <section class="features">
-    <h2>Why Choose Hot-Stay?</h2>
-    <div class="feature-boxes">
-      <div class="box">
-        <h3>Affordable Rooms</h3>
-        <p>Find stays that match your budget without compromising comfort.</p>
-      </div>
-      <div class="box">
-        <h3>Best Locations</h3>
-        <p>Explore stays in prime tourist and city locations.</p>
-      </div>
-      <div class="box">
-        <h3>Easy Booking</h3>
-        <p>Simple and fast booking process for a smooth experience.</p>
-      </div>
+    <div class="map-trigger">
+        Show Map
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2026 Hot-Stay. All rights reserved.</p>
-  </footer>
+    <footer class="main-footer">
+        <div class="footer-links">
+            <div>
+                <h4 style="font-size: 14px;">Support</h4>
+                <p style="font-size: 14px; color: #717171;">Help Centre<br>AirCover<br>Anti-discrimination<br>Disability support</p>
+            </div>
+            <div>
+                <h4 style="font-size: 14px;">Hosting</h4>
+                <p style="font-size: 14px; color: #717171;">Hot-Stay your home<br>AirCover for Hosts<br>Hosting resources<br>Community forum</p>
+            </div>
+            <div>
+                <h4 style="font-size: 14px;">About</h4>
+                <p style="font-size: 14px; color: #717171;">Newsroom<br>New features<br>Careers<br>Investors</p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #ddd; margin-top: 40px; padding-top: 20px; font-size: 14px; color: #717171; display: flex; justify-content: space-between;">
+            <div>© 2026 Hot-Stay, Inc. · Privacy · Terms · Sitemap</div>
+            <div>English (GB) · USD · $</div>
+        </div>
+    </footer>
 
 </body>
 </html>

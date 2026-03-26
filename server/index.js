@@ -6,6 +6,8 @@ const app = express();
 // middleware to read form data
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, "Public/ejs"))); // serve static files from frontend folder
+
 app.set("view engine", "ejs");
 
 // 👇 frontend folder as views
