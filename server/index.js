@@ -3,21 +3,47 @@ const path = require("path");
 
 const app = express();
 
+// middleware to read form data
+app.use(express.urlencoded({ extended: true }));
+
 app.set("view engine", "ejs");
 
-// 👇 point to frontend folder
+// 👇 frontend folder as views
 app.set("views", path.join(__dirname, "../frontend"));
 
-app.get("/Hot-Stay", (req, res) => {
-  res.render("landing"); // landing.ejs
+
+// Root route
+app.get("/", (req, res) => {
+  res.render("landing");
 });
 
-app.get("/login", (req, res) => {
+// Landing page
+app.get("/Hot-Stay", (req, res) => {
+  res.render("landing");
+});
+
+// Login page
+app.get("/Hot-Stay/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/Hot-Stay#", (req, res) => {
-  res.render("Homes");
+// 🔥 Handle login form
+app.post("/Hot-Stay/login", (req, res) => {
+  const { email, password } = req.body;
+
+  console.log(email, password);
+
+  // dummy validation
+  if (email === "admin@gmail.com" && password === "1234") {
+    res.redirect("/Hot-Stay/home");
+  } else {
+    res.send("Invalid credentials");
+  }
+});
+
+// Home page
+app.get("/Hot-Stay/home", (req, res) => {
+  res.render("home"); // home.ejs
 });
 
 app.listen(3000, () => {
