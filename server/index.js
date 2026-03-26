@@ -11,12 +11,6 @@ app.set("view engine", "ejs");
 // 👇 frontend folder as views
 app.set("views", path.join(__dirname, "../frontend"));
 
-
-// Root route
-app.get("/", (req, res) => {
-  res.render("landing");
-});
-
 // Landing page
 app.get("/Hot-Stay", (req, res) => {
   res.render("landing");
@@ -28,7 +22,7 @@ app.get("/Hot-Stay/login", (req, res) => {
 });
 
 // 🔥 Handle login form
-app.post("/Hot-Stay/login", (req, res) => {
+app.post("/Validation", (req, res) => {
   const { email, password } = req.body;
 
   console.log(email, password);
@@ -43,7 +37,7 @@ app.post("/Hot-Stay/login", (req, res) => {
 
 // Home page
 app.get("/Hot-Stay/home", (req, res) => {
-  res.render("home"); // home.ejs
+  res.render("home.ejs"); // home.ejs
 });
 
 app.listen(3000, () => {

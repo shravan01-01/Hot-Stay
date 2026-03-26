@@ -122,20 +122,20 @@
     <a href="/Hot-Stay" class="back-home"><i class="fa-solid fa-arrow-left"></i> Home</a>
 
     <div class="login-container">
-        <div class="logo-area"><a href="#">Hot-Stay</a></div>
+        <div class="logo-area"><a href="/Hot-Stay">Hot-Stay</a></div>
         <h2>Log in</h2>
         <p class="subtitle">Welcome back.</p>
-        <form id="loginForm" action="/Hot-Stay/login" method="POST">
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="login-submit">Continue</button>
-        </form>
+        <form id="loginForm" action="/Validation" method="POST">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password" required>
+    </div>
+    <button type="submit" class="login-submit">Continue</button>
+</form>
         <div class="divider">or</div>
 
         <button class="social-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_常务_Logo.svg" width="16"> Google</button>
@@ -153,12 +153,10 @@
             ease: "power4.out" 
         });
 
-        // Instant response on submit
+        // Show loading spinner on submit
         document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
             const btn = document.querySelector('.login-submit');
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-            setTimeout(() => { location.reload(); }, 600);
         });
     </script>
 </body>
