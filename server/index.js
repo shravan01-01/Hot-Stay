@@ -16,6 +16,10 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/Hot-Stay#", (req, res) => {
+  res.render("Homes");
+});
+
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
