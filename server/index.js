@@ -18,6 +18,10 @@ app.get("/Hot-Stay", (req, res) => {
   res.render("landing");
 });
 
+app.get("/about", (req, res) => {
+  res.render("about");
+}); 
+
 // Login page
 app.get("/Hot-Stay/login", (req, res) => {
   res.render("login");
@@ -39,7 +43,21 @@ app.post("/Validation", (req, res) => {
 
 // Home page
 app.get("/Hot-Stay/home", (req, res) => {
-  res.render("home.ejs"); // home.ejs
+  res.render("home"); // home.ejs
+});
+
+app.get('/Hot-Stay/Profile', (req, res) => {
+    // Assuming you have a logged-in user or fetched one from a DB
+    const userData = {
+        username: 'JohnDoe',
+        firstName: 'John',
+        lastName: 'Smith',
+        email: 'john@example.com',
+        bio: 'Fullstack developer and coffee enthusiast.',
+        createdAt: '2023-01-15'
+    };
+    
+    res.render('Profile', { user: userData });
 });
 
 app.listen(3000, () => {

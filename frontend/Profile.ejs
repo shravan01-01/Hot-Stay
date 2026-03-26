@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.username %>'s Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 font-sans min-h-screen">
+
+    <div class="max-w-6xl mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Profile Card -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    
+                    <!-- Top Banner -->
+                    <div class="h-32 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+
+                    <div class="px-6 pb-6 -mt-16 text-center">
+                        <img 
+                            class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg object-cover"
+                            src="<%= user.avatar || 'https://via.placeholder.com/150' %>"
+                            alt="Profile Picture"
+                        >
+
+                        <h1 class="mt-4 text-2xl font-bold text-gray-800">
+                            <%= user.username %>
+                        </h1>
+
+                        <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+                            <%= user.bio || "No bio provided." %>
+                        </p>
+
+                        <div class="mt-5 flex justify-center">
+                            <span class="bg-green-100 text-green-700 text-sm font-medium px-4 py-1 rounded-full">
+                                Active
+                            </span>
+                        </div>
+
+                        <div class="mt-6 bg-gray-50 rounded-2xl p-4 space-y-4 shadow-inner">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-500 font-medium">Member since</span>
+                                <span class="text-gray-800 font-semibold">
+                                    <%= new Date(user.createdAt).toLocaleDateString() %>
+                                </span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-500 font-medium">Email</span>
+                                <span class="text-gray-800 truncate ml-2"><%= user.email %></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Info Section -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+                    
+                    <!-- Heading -->
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm">
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Profile Information</h2>
+                            <p class="text-sm text-gray-500">Manage your personal details and contact information</p>
+                        </div>
+                    </div>
+
+                    <!-- Info Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                            <p class="text-sm text-gray-500 mb-1">First Name</p>
+                            <p class="text-lg font-semibold text-gray-800"><%= user.firstName || 'N/A' %></p>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                            <p class="text-sm text-gray-500 mb-1">Last Name</p>
+                            <p class="text-lg font-semibold text-gray-800"><%= user.lastName || 'N/A' %></p>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                            <p class="text-sm text-gray-500 mb-1">Email Address</p>
+                            <a href="mailto:<%= user.email %>" class="text-lg font-semibold text-blue-600 hover:underline break-all">
+                                <%= user.email %>
+                            </a>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+                            <p class="text-sm text-gray-500 mb-1">Contact Number</p>
+                            <p class="text-lg font-semibold text-gray-800"><%= user.phone || 'Not set' %></p>
+                        </div>
+                    </div>
+
+                    <!-- About Section -->
+                    <div class="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">About</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <%= user.bio || "This user has not added a bio yet." %>
+                        </p>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="mt-8">
+                        <button class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition duration-300">
+                            Edit Profile Information
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

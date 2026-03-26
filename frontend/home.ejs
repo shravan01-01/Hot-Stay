@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hot-Stay | Luxury Reimagined</title>
+<%- include('./includes/head'); %>
+<%- include('./includes/welc'); %>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -76,9 +72,9 @@
             font-weight: 600;
         }
 
-        .search-section:last-of-type { border-right: none; color: var(--text-light); font-weight: 400; }
+        /* .search-section:last-of-type { border-right: none; color: var(--text-light); font-weight: 400; } */
 
-        .search-icon-circle {
+        /* .search-icon-circle {
             background: var(--primary);
             width: 32px;
             height: 32px;
@@ -87,24 +83,27 @@
             align-items: center;
             justify-content: center;
             color: white;
-        }
+        } */
 
         /* --- CATEGORIES BAR --- */
         .categories-bar {
-            max-width: 1400px;
+            max-width: 20%;
+            position: fixed;
+            top: 60px;
+            height: 100%;
             margin: 0 auto;
-            padding: 12px 40px;
-            display: flex;
+            padding: 12px 20px;
             gap: 32px;
             overflow-x: auto;
             scrollbar-width: none;
+            background-color: #f7f7f7;
         }
 
         .category-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             min-width: 56px;
             opacity: 0.6;
             cursor: pointer;
@@ -124,6 +123,7 @@
             max-width: 1400px;
             margin: 20px auto;
             padding: 0 40px;
+            margin-left: 8%;
         }
 
         .listing-grid {
@@ -209,6 +209,7 @@
         .main-footer {
             margin-top: 100px;
             background: #f7f7f7;
+            margin-left: 8%;
             padding: 48px 40px;
             border-top: 1px solid #ddd;
         }
@@ -240,13 +241,13 @@
             <div class="search-container">
                 <div class="search-section">Anywhere</div>
                 <div class="search-section">Any week</div>
-                <div class="search-section">Add guests</div>
-                <div class="search-icon-circle">
+                <div class="search-section">Anytime</div>
+                <!-- <div class="search-icon-circle">
                     <svg width="12" height="12" viewBox="0 0 32 32" stroke="white" stroke-width="4" fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513224-4.9248678-11-11-11-6.07513224 0-11 4.92486776-11 11 0 6.0751322 4.92486776 11 11 11zm8-3 9 9"/></svg>
-                </div>
+                </div> -->
             </div>
 
-            <div style="font-size: 14px; font-weight: 600;">Airbnb your home</div>
+            <%- include('./includes/profile'); %>
         </div>
 
         <div class="categories-bar">

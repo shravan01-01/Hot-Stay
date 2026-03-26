@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot-Stay | Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF385C;
+            --white: #ffffff;
+            --dark: #222222;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f7f7f7;
+            /* overflow: hidden;  <-- REMOVED THIS to allow scrolling */
+            min-height: 200vh; /* Just for testing so you can scroll */
+        }
+
+        /* --- THE TOAST (Top Right & Fixed) --- */
+        #toast {
+            position: fixed; /* Keeps it in the corner even when scrolling */
+            top: 25px; 
+            right: 25px;
+            
+            /* Initial hidden state (Slide from above) */
+            transform: translateY(-120%); 
+            opacity: 0;
+
+            background: rgba(34, 34, 34, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            
+            /* Smooth drop-in transition */
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+            z-index: 9999; /* Ensure it stays above everything */
+        }
+
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Styling for your long content testing */
+        .content-placeholder {
+            padding: 100px 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="toast">
+        <span style="font-size: 18px;">✨</span> Welcome back, Traveler
+    </div>
+
+    <script>
+        window.onload = () => {
+            // Trigger the toast after a short delay
+            setTimeout(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+
+                // Optional: Auto-hide after 5 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            }, 800); 
+        };
+    </script>
+
+</body>
+</html>
