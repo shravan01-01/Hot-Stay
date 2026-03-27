@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/head'); %>
+    <title><%= hotel.name %> | Hot-Stay Booking</title>
+    
+    <style>
+        :root {
+            --primary: #FF385C; /* Hot-Stay Signature Pinkish-Red */
+            --primary-hover: #E31C5F;
+            --secondary: #717171;
+            --dark: #222222;
+            --light-bg: #F7F7F7;
+            --border: #DDDDDD;
+            --white: #FFFFFF;
+            --radius: 12px;
+            --shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--dark); line-height: 1.6; background-color: var(--white); }
+
+        /* --- Navbar --- */
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 1000;
+        }
+        .logo { color: var(--primary); font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+        .nav-links a { text-decoration: none; color: var(--dark); margin: 0 15px; font-weight: 500; font-size: 0.95rem; }
+        .nav-profile { border: 1px solid var(--border); padding: 5px 5px 5px 12px; border-radius: 30px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
+        .nav-profile:hover { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+        /* --- Layout Container --- */
+        .container { max-width: 1120px; margin: 0 auto; padding: 20px; }
+
+        /* --- Header Section --- */
+        .hotel-header { margin-bottom: 24px; }
+        .hotel-header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+        .header-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .meta-left span { margin-right: 15px; font-weight: 600; }
+        .meta-right button { background: none; border: none; text-decoration: underline; cursor: pointer; margin-left: 15px; font-family: inherit; }
+
+        /* --- Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 10px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .gallery-item:first-child { grid-row: span 2; }
+        .gallery-item img:hover { filter: brightness(0.9); }
+
+        /* --- Main Content Split --- */
+        .main-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 80px; }
+
+        /* --- Details Section --- */
+        .section-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; border-top: 1px solid var(--border); padding-top: 30px; margin-top: 30px;}
+        .section-title:first-child { border: none; margin-top: 0; padding-top: 0; }
+        
+        .host-info { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+        .specs { margin: 20px 0; display: flex; gap: 15px; color: var(--secondary); font-size: 0.95rem; }
+
+        /* Amenities Grid */
+        .amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 1rem; }
+
+        /* --- Booking Card (Sticky) --- */
+        .booking-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            background: var(--white);
+        }
+        .price-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+        .price-val { font-size: 1.4rem; font-weight: 700; }
+        .booking-inputs { border: 1px solid #999; border-radius: 8px; margin-bottom: 15px; }
+        .input-row { display: flex; border-bottom: 1px solid #999; }
+        .input-group { flex: 1; padding: 10px; }
+        .input-group:first-child { border-right: 1px solid #999; }
+        .input-group label { display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; }
+        .input-group input, .input-group select { border: none; width: 100%; outline: none; font-size: 0.9rem; margin-top: 4px; }
+        
+        .reserve-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+        .reserve-btn:hover { background: var(--primary-hover); }
+
+        .price-breakdown { margin-top: 20px; font-size: 0.95rem; }
+        .breakdown-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .total-row { border-top: 1px solid var(--border); padding-top: 15px; font-weight: 700; font-size: 1.1rem; }
+        /* --- Reviews --- */
+        .reviews-container { margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border); }
+        .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+        .review-card { margin-bottom: 20px; }
+        .reviewer-info { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .reviewer-avatar { width: 45px; height: 45px; border-radius: 50%; background: #eee; }
+
+        /* --- Similar Stays --- */
+        .similar-stays { margin-top: 60px; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .hotel-card { border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; }
+        .card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--radius); }
+        .card-info h4 { margin-top: 10px; font-size: 1rem; }
+
+        /* --- Footer --- */
+        footer { background: var(--light-bg); padding: 60px 8% 20px; margin-top: 80px; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h5 { margin-bottom: 20px; font-weight: 700; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; color: var(--secondary); cursor: pointer; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--secondary); }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .booking-card { position: relative; top: 0; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo"><i class="fa-solid fa-house-chimney-window"></i> Hot-Stay</a>
+        <div class="nav-links">
+            <a href="/stays">Stays</a>
+            <a href="/offers">Offers</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div class="nav-profile">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-circle-user fa-xl" style="color: var(--secondary)"></i>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hotel-header">
+            <h1><%= hotel.name %></h1>
+            <div class="header-meta">
+                <div class="meta-left">
+                    <span><i class="fa-solid fa-star"></i> <%= hotel.rating %></span>
+                    <a href="#reviews" style="color: var(--dark)"><%= hotel.reviewCount %> reviews</a> · 
+                    <span style="color: var(--secondary); font-weight: 400;"><%= hotel.location %></span>
+                </div>
+                <div class="meta-right">
+                    <button><i class="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
+                    <button><i class="fa-regular fa-heart"></i> Save</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="gallery-grid">
+            <% hotel.images.slice(0, 5).forEach((img, index) => { %>
+                <div class="gallery-item">
+                    <img src="<%= img %>" alt="Property Image <%= index + 1 %>">
+                </div>
+            <% }) %>
+        </section>
+
+        <main class="main-layout">
+            <div class="details-left">
+                <div class="host-info">
+                    <div>
+                        <h2 class="section-title" style="border:none; margin:0">Entire <%= hotel.type %> hosted by <%= hotel.host %></h2>
+                        <div class="specs">
+                            <span><%= hotel.guests %> guests</span> • 
+                            <span><%= hotel.bedrooms %> bedroom</span> • 
+                            <span><%= hotel.beds %> bed</span> • 
+                            <span><%= hotel.bathrooms %> bath</span>
+                        </div>
+                    </div>
+                    <img src="https://i.pravatar.cc/100?u=host" alt="Host" style="width:56px; height:56px; border-radius:50%">
+                </div>
+
+                <div class="section-title">Description</div>
+                <p><%= hotel.description %></p>
+
+                <div class="section-title">What this place offers</div>
+                <div class="amenities-grid">
+                    <% hotel.amenities.forEach(item => { %>
+                        <div class="amenity-item">
+                            <i class="fa-solid fa-check" style="color: var(--primary)"></i>
+                            <span><%= item %></span>
+                        </div>
+                    <% }) %>
+                </div>
+
+                <div class="section-title">Guest Details</div>
+                <form id="bookingForm">
+                    <div class="amenities-grid">
+                        <div class="input-group" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Your name">
+                        </div>
+                        <div class="input-group" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div class="input-group" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-top: 15px;">
+                        <label>Special Requests</label>
+                        <textarea style="width:100%; border:none; outline:none; font-family:inherit" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="details-right">
+                <div class="booking-card">
+                    <div class="price-header">
+                        <div>
+                            <span class="price-val">₹<%= hotel.price %></span>
+                            <span style="color: var(--secondary)">/ night</span>
+                        </div>
+                        <span style="text-decoration: line-through; color: var(--secondary)">₹<%= hotel.originalPrice %></span>
+                    </div>
+
+                    <div class="booking-inputs">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Check-in</label>
+                                <input type="date" value="2026-04-10">
+                            </div>
+                            <div class="input-group">
+                                <label>Check-out</label>
+                                <input type="date" value="2026-04-15">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Guests</label>
+                            <select>
+                                <option>1 guest</option>
+                                <option selected>2 guests</option>
+                                <option>3 guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="reserve-btn" onclick="alert('Proceeding to Payment...')">Reserve Now</button>
+                    <p style="text-align: center; font-size: 0.85rem; margin-top: 10px; color: var(--secondary)">You won't be charged yet</p>
+
+                    <div class="price-breakdown">
+                        <div class="breakdown-row">
+                            <span>₹<%= hotel.price %> x 5 nights</span>
+                            <span>₹<%= hotel.price * 5 %></span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Service fee</span>
+                            <span>₹1,200</span>
+                        </div>
+                        <div class="breakdown-row total-row">
+                            <span>Total</span>
+                            <span>₹<%= (hotel.price * 5) + 1200 %></span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <section class="reviews-container" id="reviews">
+            <h2 class="section-title" style="border:none"><i class="fa-solid fa-star"></i> <%= hotel.rating %> · <%= hotel.reviewCount %> reviews</h2>
+            <div class="reviews-grid">
+                <% hotel.reviews.forEach(review => { %>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <img src="<%= review.avatar %>" alt="User" class="reviewer-avatar">
+                            <div>
+                                <div style="font-weight: 600;"><%= review.userName %></div>
+                                <div style="font-size: 0.85rem; color: var(--secondary);"><%= review.date %></div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.95rem;"><%= review.comment %></p>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <section class="similar-stays">
+            <h2 class="section-title">Similar places to stay</h2>
+            <div class="card-grid">
+                <% similarHotels.forEach(stay => { %>
+                    <a href="/booking/<%= stay.id %>" class="hotel-card">
+                        <img src="<%= stay.image %>" class="card-img" alt="Similar Stay">
+                        <div class="card-info">
+                            <div style="display:flex; justify-content:space-between; margin-top:10px">
+                                <strong><%= stay.location %></strong>
+                                <span><i class="fa-solid fa-star fa-xs"></i> <%= stay.rating %></span>
+                            </div>
+                            <div style="color: var(--secondary)"><%= stay.name %></div>
+                            <div style="margin-top:5px"><strong>₹<%= stay.price %></strong> night</div>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li>Help Centre</li>
+                    <li>AirCover</li>
+                    <li>Anti-discrimination</li>
+                    <li>Cancellation options</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Hosting</h5>
+                <ul>
+                    <li>Hot-Stay your home</li>
+                    <li>Hosting resources</li>
+                    <li>Community forum</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Hot-Stay</h5>
+                <ul>
+                    <li>Newsroom</li>
+                    <li>New features</li>
+                    <li>Careers</li>
+                    <li>Investors</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Social</h5>
+                <div style="display:flex; gap:20px; font-size:1.2rem">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Hot-Stay, Inc. · Privacy · Terms · Sitemap
+        </div>
+    </footer>
+
+</body>
+</html>
