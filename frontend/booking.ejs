@@ -303,19 +303,27 @@
         <section class="similar-stays">
             <h2 class="section-title">Similar places to stay</h2>
             <div class="card-grid">
-                <% similarHotels.forEach(stay => { %>
-                    <a href="/booking/<%= stay.id %>" class="hotel-card">
-                        <img src="<%= stay.image %>" class="card-img" alt="Similar Stay">
+                <% similarHotels.forEach(s => { %>
+                    <a href="/Hot-Stay/booking/<%= s.id %>" class="hotel-card" style="text-decoration: none; color: inherit;">
+
+                        <img src="<%= s.image %>" alt="<%= s.name %>" class="card-img">
+
                         <div class="card-info">
-                            <div style="display:flex; justify-content:space-between; margin-top:10px">
-                                <strong><%= stay.location %></strong>
-                                <span><i class="fa-solid fa-star fa-xs"></i> <%= stay.rating %></span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <h4><%= s.name %></h4>
+                                <span style="font-size: 0.9rem;"><i class="fa-solid fa-star fa-xs"></i> <%= s.rating %></span>
                             </div>
-                            <div style="color: var(--secondary)"><%= stay.name %></div>
-                            <div style="margin-top:5px"><strong>₹<%= stay.price %></strong> night</div>
+
+                            <p style="color: #717171; font-size: 0.9rem;"><%= s.location %></p>
+
+                            <div style="margin-top: 8px; font-size: 1rem;">
+                                <span style="font-weight: 700;">₹<%= s.price %></span>
+                                <span style="font-weight: 400;">night</span>
+                            </div>
                         </div>
                     </a>
                 <% }) %>
+
             </div>
         </section>
     </div>

@@ -1,0 +1,154 @@
+[
+{
+    "id": "hot-stay-001",
+    "name": "The Heritage Coral Villa",
+    "location": "Udaipur, Rajasthan, India",
+    "rating": 4.92,
+    "reviewCount": 458,
+    "type": "Luxury Boutique Stay",
+    "price": 12500,
+    "originalPrice": 15000,
+    "host": "Ananya Sharma",
+    "guests": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "description": "Nestled on the banks of Lake Pichola, The Heritage Coral Villa offers a blend of traditional Mewari architecture and modern luxury. Enjoy private balconies, hand-painted murals, and a signature infinity pool overlooking the 'City of Lakes'. Perfect for couples or small families seeking a premium escape.",
+    "images": [
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400",
+        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400",
+        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=400",
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+        "Lake View", "High-speed WiFi", "Infinity Pool", 
+        "Dedicated Workspace", "Central AC", "Free Parking", 
+        "Breakfast Included", "Pet Friendly"
+    ],
+    "reviews": [
+        { 
+            "userName": "Vikram Singh", 
+            "avatar": "https://i.pravatar.cc/100?u=vikram", 
+            "date": "February 2026", 
+            "comment": "The views are even better than the photos! The staff made us feel like royalty.", 
+            "rating": 5 
+        },
+        { 
+            "userName": "Sarah Jenkins", 
+            "avatar": "https://i.pravatar.cc/100?u=sarah", 
+            "date": "January 2026", 
+            "comment": "Extremely clean and the decor is stunning. Best stay in Udaipur so far.", 
+            "rating": 4.8 
+        }
+    ]
+},
+  {
+    "id": "hot-stay-002",
+    "name": "The Glass Treehouse",
+    "location": "Munnar, Kerala, India",
+    "rating": 4.98,
+    "reviewCount": 210,
+    "type": "Eco-Luxury Cabin",
+    "price": 8500,
+    "originalPrice": 11000,
+    "host": "Kiran Nair",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "description": "Wake up literally inside the canopy. This architecturally unique treehouse features floor-to-ceiling glass walls, a private cedar wood hot tub, and organic coffee served every morning from the surrounding plantation.",
+    "images": [
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Mountain View", "Private Hot Tub", "Breakfast Included", 
+      "Fireplace", "Eco-Friendly Bath Kit", "Nature Trail Access"
+    ],
+    "reviews": [
+      { 
+        "userName": "Emily Chen", 
+        "avatar": "https://i.pravatar.cc/100?u=emily", 
+        "date": "March 2026", 
+        "comment": "Pure magic. You can see the stars from your bed through the glass roof!", 
+        "rating": 5 
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-003",
+    "name": "Azure Sands Beach Resort",
+    "location": "North Goa, India",
+    "rating": 4.75,
+    "reviewCount": 890,
+    "type": "Oceanfront Suite",
+    "price": 18200,
+    "originalPrice": 22000,
+    "host": "Marcus D'Souza",
+    "guests": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1.5,
+    "description": "Step directly from your terrace onto the white sands of Ashwem beach. Azure Sands offers a minimalist Mediterranean vibe with high ceilings, plush white linens, and sunset yoga sessions included.",
+    "images": [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1506929113614-bb92858b6721?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Beach Access", "Outdoor Shower", "Mini Bar", 
+      "Snorkeling Gear", "Yoga Deck", "Room Service"
+    ],
+    "reviews": [
+      { 
+        "userName": "Rohan Mehta", 
+        "avatar": "https://i.pravatar.cc/100?u=rohan", 
+        "date": "January 2026", 
+        "comment": "The best sunset views in Goa. Period.", 
+        "rating": 5 
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-004",
+    "name": "Royal Haveli Boutique",
+    "location": "Pink City, Jaipur",
+    "rating": 4.88,
+    "reviewCount": 512,
+    "type": "Heritage Mansion",
+    "price": 9500,
+    "originalPrice": 9500,
+    "host": "Rajveer Singh",
+    "guests": 5,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 3,
+    "description": "A 200-year-old restored Haveli that captures the soul of Rajasthan. Featuring intricate stone carvings, a central courtyard with a fountain, and a rooftop restaurant serving authentic Rajasthani thali.",
+    "images": [
+      "https://images.unsplash.com/photo-1598890777032-bde13fba5ad3?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-1590073242678-70ee3fc28e84?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1524230507669-5ff97982bb5e?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1592317540212-c1841b417242?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Traditional Courtyard", "Rooftop Dining", "Airport Shuttle", 
+      "Cultural Tours", "Silk Bedding", "Library"
+    ],
+      "reviews": [
+        { 
+          "userName": "Aditi Rao", 
+          "avatar": "https://i.pravatar.cc/100?u=aditi", 
+          "date": "December 2025", 
+          "comment": "Felt like being on a movie set. Every corner is Instagrammable!", 
+          "rating": 5 
+        }
+        ]
+      }
+]
