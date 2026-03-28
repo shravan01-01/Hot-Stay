@@ -1,259 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./includes/head'); %>
-    <title><%= hotel.name %> | Hot-Stay Booking</title>
-    
-    <style>
-        :root {
-            --primary: #FF385C; /* Hot-Stay Signature Pinkish-Red */
-            --primary-hover: #E31C5F;
-            --secondary: #717171;
-            --dark: #222222;
-            --light-bg: #F7F7F7;
-            --border: #DDDDDD;
-            --white: #FFFFFF;
-            --radius: 12px;
-            --shadow: 0 6px 16px rgba(0,0,0,0.12);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--dark); line-height: 1.6; background-color: var(--white); }
-
-        /* --- Navbar --- */
-        nav {
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 8%;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: var(--white);
-            z-index: 1000;
-        }
-        .logo { color: var(--primary); font-size: 1.5rem; font-weight: 700; text-decoration: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); margin: 0 15px; font-weight: 500; font-size: 0.95rem; }
-        .nav-profile { border: 1px solid var(--border); padding: 5px 5px 5px 12px; border-radius: 30px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
-        .nav-profile:hover { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-
-        /* --- Layout Container --- */
-        .container { max-width: 1120px; margin: 0 auto; padding: 20px; }
-
-        /* --- Header Section --- */
-        .hotel-header { margin-bottom: 24px; }
-        .hotel-header h1 { font-size: 1.8rem; margin-bottom: 8px; }
-        .header-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-        .meta-left span { margin-right: 15px; font-weight: 600; }
-        .meta-right button { background: none; border: none; text-decoration: underline; cursor: pointer; margin-left: 15px; font-family: inherit; }
-
-        /* --- Gallery --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            grid-template-rows: 200px 200px;
-            gap: 10px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .gallery-item:first-child { grid-row: span 2; }
-        .gallery-item img:hover { filter: brightness(0.9); }
-
-        /* --- Main Content Split --- */
-        .main-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 80px; }
-
-        /* --- Details Section --- */
-        .section-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; border-top: 1px solid var(--border); padding-top: 30px; margin-top: 30px;}
-        .section-title:first-child { border: none; margin-top: 0; padding-top: 0; }
-        
-        .host-info { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-        .specs { margin: 20px 0; display: flex; gap: 15px; color: var(--secondary); font-size: 0.95rem; }
-
-        /* Amenities Grid */
-        .amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-
-        /* --- Booking Card (Sticky) --- */
-        .booking-card {
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 100px;
-            background: var(--white);
-        }
-        .price-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
-        .price-val { font-size: 1.4rem; font-weight: 700; }
-        .booking-inputs { border: 1px solid #999; border-radius: 8px; margin-bottom: 15px; }
-        .input-row { display: flex; border-bottom: 1px solid #999; }
-        .input-group { flex: 1; padding: 10px; }
-        .input-group:first-child { border-right: 1px solid #999; }
-        .input-group label { display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; }
-        .input-group input, .input-group select { border: none; width: 100%; outline: none; font-size: 0.9rem; margin-top: 4px; }
-        
-        .reserve-btn {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            padding: 14px;
-            border-radius: 8px;
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: 0.2s;
-        }
-        .reserve-btn:hover { background: var(--primary-hover); }
-
-        .price-breakdown { margin-top: 20px; font-size: 0.95rem; }
-        .breakdown-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .total-row { border-top: 1px solid var(--border); padding-top: 15px; font-weight: 700; font-size: 1.1rem; }
-        /* --- Reviews --- */
-        .reviews-container { margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border); }
-        .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
-        .review-card { margin-bottom: 20px; }
-        .reviewer-info { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .reviewer-avatar { width: 45px; height: 45px; border-radius: 50%; background: #eee; }
-
-        /* --- Similar Stays --- */
-        .similar-stays { margin-top: 60px; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .hotel-card { border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; }
-        .card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--radius); }
-        .card-info h4 { margin-top: 10px; font-size: 1rem; }
-
-        /* --- Footer --- */
-        footer { background: var(--light-bg); padding: 60px 8% 20px; margin-top: 80px; border-top: 1px solid var(--border); }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
-        .footer-col h5 { margin-bottom: 20px; font-weight: 700; }
-        .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 10px; color: var(--secondary); cursor: pointer; }
-        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--secondary); }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .main-layout { grid-template-columns: 1fr; }
-            .booking-card { position: relative; top: 0; }
-            .gallery-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; }
-        }
-    </style>
+    <title><%= hotel.name %> | HotStay Booking</title>
 </head>
-<body>
+<body class="bg-background font-jakarta text-text">
 
-    <nav>
-        <a href="/" class="logo"><i class="fa-solid fa-house-chimney-window"></i> Hot-Stay</a>
-        <div class="nav-links">
-            <a href="/stays">Stays</a>
-            <a href="/offers">Offers</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+    <!-- Navigation -->
+    <nav class="h-20 flex justify-between items-center px-8 border-b border-gray-200 sticky top-0 bg-white z-50">
+        <a href="/Hot-Stay" class="text-primary text-xl font-bold flex items-center gap-2">
+            <i class="fa-solid fa-house-chimney-window"></i>
+            HotStay
+        </a>
+        <div class="hidden md:flex gap-6">
+            <a href="/stays" class="text-text hover:text-primary transition-colors font-medium">Stays</a>
+            <a href="/offers" class="text-text hover:text-primary transition-colors font-medium">Offers</a>
+            <a href="/about" class="text-text hover:text-primary transition-colors font-medium">About</a>
+            <a href="/contact" class="text-text hover:text-primary transition-colors font-medium">Contact</a>
         </div>
-        <div class="nav-profile">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-circle-user fa-xl" style="color: var(--secondary)"></i>
+        <div class="flex items-center gap-3 border border-gray-300 rounded-full px-4 py-2 hover:shadow-md transition-shadow cursor-pointer">
+            <i class="fa-solid fa-bars text-gray-600"></i>
+            <i class="fa-solid fa-circle-user fa-xl text-gray-600"></i>
         </div>
     </nav>
 
-    <div class="container">
-        <header class="hotel-header">
-            <h1><%= hotel.name %></h1>
-            <div class="header-meta">
-                <div class="meta-left">
-                    <span><i class="fa-solid fa-star"></i> <%= hotel.rating %></span>
-                    <a href="#reviews" style="color: var(--dark)"><%= hotel.reviewCount %> reviews</a> · 
-                    <span style="color: var(--secondary); font-weight: 400;"><%= hotel.location %></span>
+    <div class="max-w-6xl mx-auto px-4 py-6">
+        <!-- Hotel Header -->
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold mb-2"><%= hotel.name %></h1>
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm">
+                <div class="flex items-center gap-4">
+                    <span class="flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-star text-yellow-500"></i>
+                        <%= hotel.rating %>
+                    </span>
+                    <a href="#reviews" class="text-primary hover:underline"><%= hotel.reviewCount %> reviews</a>
+                    <span class="text-gray-600"><%= hotel.location %></span>
                 </div>
-                <div class="meta-right">
-                    <button><i class="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
-                    <button><i class="fa-regular fa-heart"></i> Save</button>
+                <div class="flex gap-4">
+                    <button class="text-text hover:text-primary transition-colors underline">
+                        <i class="fa-solid fa-arrow-up-from-bracket mr-1"></i> Share
+                    </button>
+                    <button class="text-text hover:text-primary transition-colors underline">
+                        <i class="fa-regular fa-heart mr-1"></i> Save
+                    </button>
                 </div>
             </div>
         </header>
 
-        <section class="gallery-grid">
+        <!-- Gallery -->
+        <section class="grid grid-cols-4 grid-rows-2 gap-2 rounded-xl overflow-hidden mb-10 h-96">
             <% hotel.images.slice(0, 5).forEach((img, index) => { %>
-                <div class="gallery-item">
-                    <img src="<%= img %>" alt="Property Image <%= index + 1 %>">
+                <div class="<%= index === 0 ? 'col-span-2 row-span-2' : '' %>">
+                    <img src="<%= img %>" alt="Property Image <%= index + 1 %>" class="w-full h-full object-cover hover:brightness-90 transition-all">
                 </div>
             <% }) %>
         </section>
 
-        <main class="main-layout">
-            <div class="details-left">
-                <div class="host-info">
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Details Section -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Host Info -->
+                <div class="flex justify-between items-start pb-6 border-b border-gray-200">
                     <div>
-                        <h2 class="section-title" style="border:none; margin:0">Entire <%= hotel.type %> hosted by <%= hotel.host %></h2>
-                        <div class="specs">
-                            <span><%= hotel.guests %> guests</span> • 
-                            <span><%= hotel.bedrooms %> bedroom</span> • 
-                            <span><%= hotel.beds %> bed</span> • 
+                        <h2 class="text-2xl font-bold">Entire <%= hotel.type %> hosted by <%= hotel.host %></h2>
+                        <div class="flex gap-4 text-gray-600 mt-2">
+                            <span><%= hotel.guests %> guests</span>
+                            <span><%= hotel.bedrooms %> bedroom</span>
+                            <span><%= hotel.beds %> bed</span>
                             <span><%= hotel.bathrooms %> bath</span>
                         </div>
                     </div>
-                    <img src="https://i.pravatar.cc/100?u=host" alt="Host" style="width:56px; height:56px; border-radius:50%">
+                    <img src="https://i.pravatar.cc/100?u=host" alt="Host" class="w-14 h-14 rounded-full">
                 </div>
 
-                <div class="section-title">Description</div>
-                <p><%= hotel.description %></p>
-
-                <div class="section-title">What this place offers</div>
-                <div class="amenities-grid">
-                    <% hotel.amenities.forEach(item => { %>
-                        <div class="amenity-item">
-                            <i class="fa-solid fa-check" style="color: var(--primary)"></i>
-                            <span><%= item %></span>
-                        </div>
-                    <% }) %>
+                <!-- Description -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Description</h3>
+                    <p class="text-gray-700 leading-relaxed"><%= hotel.description %></p>
                 </div>
 
-                <div class="section-title">Guest Details</div>
-                <form id="bookingForm">
-                    <div class="amenities-grid">
-                        <div class="input-group" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
-                            <label>Full Name</label>
-                            <input type="text" placeholder="Your name">
-                        </div>
-                        <div class="input-group" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px;">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="email@example.com">
-                        </div>
+                <!-- Amenities -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">What this place offers</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <% hotel.amenities.forEach(item => { %>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-accent"></i>
+                                <span><%= item %></span>
+                            </div>
+                        <% }) %>
                     </div>
-                    <div class="input-group" style="border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-top: 15px;">
-                        <label>Special Requests</label>
-                        <textarea style="width:100%; border:none; outline:none; font-family:inherit" rows="3"></textarea>
-                    </div>
-                </form>
+                </div>
+
+                <!-- Guest Details Form -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Guest Details</h3>
+                    <form id="bookingForm" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="border border-gray-300 rounded-lg p-4">
+                                <label class="block text-xs font-bold uppercase mb-2">Full Name</label>
+                                <input type="text" placeholder="Your name" class="w-full border-none outline-none">
+                            </div>
+                            <div class="border border-gray-300 rounded-lg p-4">
+                                <label class="block text-xs font-bold uppercase mb-2">Email Address</label>
+                                <input type="email" placeholder="email@example.com" class="w-full border-none outline-none">
+                            </div>
+                        </div>
+                        <div class="border border-gray-300 rounded-lg p-4">
+                            <label class="block text-xs font-bold uppercase mb-2">Special Requests</label>
+                            <textarea rows="3" class="w-full border-none outline-none resize-none" placeholder="Any special requests..."></textarea>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <aside class="details-right">
-                <div class="booking-card">
-                    <div class="price-header">
+            <!-- Booking Card -->
+            <div class="lg:col-span-1">
+                <div class="border border-gray-200 rounded-xl p-6 shadow-lg bg-white sticky top-24">
+                    <div class="flex justify-between items-baseline mb-6">
                         <div>
-                            <span class="price-val">₹<%= hotel.price %></span>
-                            <span style="color: var(--secondary)">/ night</span>
+                            <span class="text-2xl font-bold">₹<%= hotel.price %></span>
+                            <span class="text-gray-600">/ night</span>
                         </div>
-                        <span style="text-decoration: line-through; color: var(--secondary)">₹<%= hotel.originalPrice %></span>
+                        <span class="text-gray-500 line-through">₹<%= hotel.originalPrice %></span>
                     </div>
 
-                    <div class="booking-inputs">
-                        <div class="input-row">
-                            <div class="input-group">
-                                <label>Check-in</label>
-                                <input type="date" value="2026-04-10">
+                    <div class="border border-gray-300 rounded-lg mb-4">
+                        <div class="flex border-b border-gray-300">
+                            <div class="flex-1 p-4">
+                                <label class="block text-xs font-bold uppercase mb-1">Check-in</label>
+                                <input type="date" value="2026-04-10" class="w-full border-none outline-none">
                             </div>
-                            <div class="input-group">
-                                <label>Check-out</label>
-                                <input type="date" value="2026-04-15">
+                            <div class="flex-1 p-4 border-l border-gray-300">
+                                <label class="block text-xs font-bold uppercase mb-1">Check-out</label>
+                                <input type="date" value="2026-04-15" class="w-full border-none outline-none">
                             </div>
                         </div>
-                        <div class="input-group">
-                            <label>Guests</label>
-                            <select>
+                        <div class="p-4">
+                            <label class="block text-xs font-bold uppercase mb-1">Guests</label>
+                            <select class="w-full border-none outline-none">
                                 <option>1 guest</option>
                                 <option selected>2 guests</option>
                                 <option>3 guests</option>
@@ -261,112 +147,122 @@
                         </div>
                     </div>
 
-                    <button class="reserve-btn" onclick="alert('Proceeding to Payment...')">Reserve Now</button>
-                    <p style="text-align: center; font-size: 0.85rem; margin-top: 10px; color: var(--secondary)">You won't be charged yet</p>
+                    <button class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-4 rounded-lg transition-colors mb-3" onclick="alert('Proceeding to Payment...')">
+                        Reserve Now
+                    </button>
+                    <p class="text-center text-sm text-gray-600 mb-6">You won't be charged yet</p>
 
-                    <div class="price-breakdown">
-                        <div class="breakdown-row">
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
                             <span>₹<%= hotel.price %> x 5 nights</span>
                             <span>₹<%= hotel.price * 5 %></span>
                         </div>
-                        <div class="breakdown-row">
+                        <div class="flex justify-between">
                             <span>Service fee</span>
                             <span>₹1,200</span>
                         </div>
-                        <div class="breakdown-row total-row">
+                        <div class="flex justify-between font-bold text-lg border-t border-gray-200 pt-3">
                             <span>Total</span>
                             <span>₹<%= (hotel.price * 5) + 1200 %></span>
                         </div>
                     </div>
                 </div>
-            </aside>
-        </main>
+            </div>
+        </div>
 
-        <section class="reviews-container" id="reviews">
-            <h2 class="section-title" style="border:none"><i class="fa-solid fa-star"></i> <%= hotel.rating %> · <%= hotel.reviewCount %> reviews</h2>
-            <div class="reviews-grid">
+        <!-- Reviews -->
+        <section class="mt-16 pt-16 border-t border-gray-200" id="reviews">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-500"></i>
+                <%= hotel.rating %> · <%= hotel.reviewCount %> reviews
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <% hotel.reviews.forEach(review => { %>
-                    <div class="review-card">
-                        <div class="reviewer-info">
-                            <img src="<%= review.avatar %>" alt="User" class="reviewer-avatar">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <img src="<%= review.avatar %>" alt="User" class="w-12 h-12 rounded-full">
                             <div>
-                                <div style="font-weight: 600;"><%= review.userName %></div>
-                                <div style="font-size: 0.85rem; color: var(--secondary);"><%= review.date %></div>
+                                <div class="font-semibold"><%= review.userName %></div>
+                                <div class="text-sm text-gray-600"><%= review.date %></div>
                             </div>
                         </div>
-                        <p style="font-size: 0.95rem;"><%= review.comment %></p>
+                        <p class="text-gray-700"><%= review.comment %></p>
                     </div>
                 <% }) %>
             </div>
         </section>
 
-        <section class="similar-stays">
-            <h2 class="section-title">Similar places to stay</h2>
-            <div class="card-grid">
+        <!-- Similar Stays -->
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold mb-6">Similar places to stay</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <% similarHotels.forEach(s => { %>
-                    <a href="/Hot-Stay/booking/<%= s.id %>" class="hotel-card" style="text-decoration: none; color: inherit;">
-
-                        <img src="<%= s.image %>" alt="<%= s.name %>" class="card-img">
-
-                        <div class="card-info">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                                <h4><%= s.name %></h4>
-                                <span style="font-size: 0.9rem;"><i class="fa-solid fa-star fa-xs"></i> <%= s.rating %></span>
+                    <a href="/Hot-Stay/booking/<%= s.id %>" class="group block">
+                        <div class="aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
+                            <img src="<%= s.image %>" alt="<%= s.name %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-semibold text-sm"><%= s.name %></h3>
+                                <div class="flex items-center gap-1">
+                                    <i class="fa-solid fa-star text-xs"></i>
+                                    <span class="text-sm"><%= s.rating %></span>
+                                </div>
                             </div>
-
-                            <p style="color: #717171; font-size: 0.9rem;"><%= s.location %></p>
-
-                            <div style="margin-top: 8px; font-size: 1rem;">
-                                <span style="font-weight: 700;">₹<%= s.price %></span>
-                                <span style="font-weight: 400;">night</span>
-                            </div>
+                            <p class="text-gray-600 text-sm"><%= s.location %></p>
+                            <p class="text-sm">
+                                <span class="font-semibold">₹<%= s.price %></span>
+                                <span class="font-normal"> night</span>
+                            </p>
                         </div>
                     </a>
                 <% }) %>
-
             </div>
         </section>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h5>Support</h5>
-                <ul>
-                    <li>Help Centre</li>
-                    <li>AirCover</li>
-                    <li>Anti-discrimination</li>
-                    <li>Cancellation options</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Hosting</h5>
-                <ul>
-                    <li>Hot-Stay your home</li>
-                    <li>Hosting resources</li>
-                    <li>Community forum</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Hot-Stay</h5>
-                <ul>
-                    <li>Newsroom</li>
-                    <li>New features</li>
-                    <li>Careers</li>
-                    <li>Investors</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Social</h5>
-                <div style="display:flex; gap:20px; font-size:1.2rem">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-twitter"></i>
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 mt-20">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h5 class="font-bold mb-4">Support</h5>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="cursor-pointer hover:text-primary transition-colors">Help Centre</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">HotStay Cover</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">Anti-discrimination</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">Cancellation options</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Hosting</h5>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="cursor-pointer hover:text-primary transition-colors">HotStay your home</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">Hosting resources</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">Community forum</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">HotStay</h5>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="cursor-pointer hover:text-primary transition-colors">Newsroom</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">New features</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">Careers</li>
+                        <li class="cursor-pointer hover:text-primary transition-colors">Investors</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Social</h5>
+                    <div class="flex gap-4 text-xl">
+                        <i class="fa-brands fa-facebook cursor-pointer hover:text-primary transition-colors"></i>
+                        <i class="fa-brands fa-instagram cursor-pointer hover:text-primary transition-colors"></i>
+                        <i class="fa-brands fa-twitter cursor-pointer hover:text-primary transition-colors"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="copyright">
-            © 2026 Hot-Stay, Inc. · Privacy · Terms · Sitemap
+            <div class="text-center text-sm text-gray-600 border-t border-gray-200 pt-6">
+                © 2026 HotStay, Inc. · Privacy · Terms · Sitemap
+            </div>
         </div>
     </footer>
 

@@ -1,379 +1,175 @@
 <%- include('./includes/head'); %>
 <%- include('./includes/welc'); %>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #FF385C;
-            --primary-hover: #D70466;
-            --text-main: #222222;
-            --text-light: #717171;
-            --border-soft: #f1f1f1;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 6px 16px rgba(0,0,0,0.12);
-            --radius-lg: 24px;
-            --radius-md: 12px;
-        }
-
-        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            background: #fff;
-            color: var(--text-main);
-        }
-
-        /* --- STICKY TOP NAV --- */
-        .top-nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 12px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { 
-            color: var(--primary); 
-            font-weight: 800; 
-            font-size: 24px; 
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* --- ENHANCED SEARCH BAR --- */
-        .search-container {
-            border: 1px solid #ddd;
-            border-radius: 40px;
-            padding: 8px 10px 8px 24px;
-            display: flex;
-            align-items: center;
-            box-shadow: var(--shadow-sm);
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        .search-container:hover { box-shadow: var(--shadow-md); }
-
-        .search-section {
-            padding: 0 16px;
-            border-right: 1px solid #ddd;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* .search-section:last-of-type { border-right: none; color: var(--text-light); font-weight: 400; } */
-
-        /* .search-icon-circle {
-            background: var(--primary);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        } */
-
-        /* --- CATEGORIES BAR --- */
-        .categories-bar {
-            max-width: 20%;
-            position: fixed;
-            top: 60px;
-            height: 100%;
-            margin: 0 auto;
-            padding: 12px 20px;
-            gap: 32px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            background-color: #f7f7f7;
-        }
-
-        .category-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            min-width: 56px;
-            opacity: 0.6;
-            cursor: pointer;
-            transition: 0.2s;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 10px;
-        }
-
-        .category-item:hover { opacity: 1; border-bottom: 2px solid #ddd; }
-        .category-item.active { opacity: 1; border-bottom: 2px solid #000; }
-
-        .category-icon { font-size: 24px; }
-        .category-label { font-size: 12px; font-weight: 600; white-space: nowrap; }
-
-        /* --- MAIN GRID --- */
-        .content-wrap {
-            max-width: 1400px;
-            margin: 20px auto;
-            padding: 0 40px;
-            margin-left: 8%;
-        }
-
-        .listing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 40px 24px;
-        }
-
-        /* --- PREMIUM CARDS --- */
-        .stay-card {
-            cursor: pointer;
-            position: relative;
-        }
-
-        .image-wrapper {
-            position: relative;
-            aspect-ratio: 1/1;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #f1f1f1;
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.4s ease;
-        }
-
-        .stay-card:hover .image-wrapper img { transform: scale(1.05); }
-
-        .heart-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: transparent;
-            border: none;
-            color: rgba(0,0,0,0.5);
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .stay-info {
-            padding: 12px 0;
-        }
-
-        .stay-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stay-title { font-weight: 700; font-size: 15px; }
-        .rating { font-size: 14px; display: flex; align-items: center; gap: 4px; }
-
-        .stay-desc { color: var(--text-light); font-size: 14px; margin-top: 2px; }
-        .price-tag { margin-top: 8px; font-size: 15px; }
-
-        /* --- FLOATING MAP BUTTON --- */
-        .map-trigger {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #222;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 30px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            transition: 0.2s;
-            cursor: pointer;
-            z-index: 2000;
-        }
-
-        .map-trigger:hover { transform: translateX(-50%) scale(1.05); background: #000; }
-
-        /* --- FOOTER --- */
-        .main-footer {
-            margin-top: 100px;
-            background: #f7f7f7;
-            margin-left: 8%;
-            padding: 48px 40px;
-            border-top: 1px solid #ddd;
-        }
-
-        .footer-links {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-inner { padding: 12px 24px; }
-            .search-section:not(:first-child) { display: none; }
-            .categories-bar { padding: 12px 24px; }
-        }
-    </style>
 </head>
-<body>
+<body class="bg-background font-jakarta text-text min-h-screen">
 
-    <nav class="top-nav">
-        <div class="nav-inner">
-            <a href="#" class="logo">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><path d="M16 1L2 12h4v15h7v-8h6v8h7V12h4L16 1z"/></svg>
-                Hot-Stay
-            </a>
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/98 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-primary font-bold text-2xl flex items-center gap-2">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 1L2 12h4v15h7v-8h6v8h7V12h4L16 1z"/>
+                    </svg>
+                    HotStay
+                </a>
 
-            <div class="search-container">
-                <div class="search-section">Anywhere</div>
-                <div class="search-section">Any week</div>
-                <div class="search-section">Anytime</div>
-                <!-- <div class="search-icon-circle">
-                    <svg width="12" height="12" viewBox="0 0 32 32" stroke="white" stroke-width="4" fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513224-4.9248678-11-11-11-6.07513224 0-11 4.92486776-11 11 0 6.0751322 4.92486776 11 11 11zm8-3 9 9"/></svg>
-                </div> -->
+                <div class="hidden md:flex items-center bg-white border border-gray-300 rounded-full px-6 py-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="px-4 text-sm font-semibold border-r border-gray-300">Anywhere</div>
+                    <div class="px-4 text-sm font-semibold border-r border-gray-300">Any week</div>
+                    <div class="px-4 text-sm text-gray-500">Add guests</div>
+                </div>
+
+                <%- include('./includes/profile icon'); %>
             </div>
-
-            <%- include('./includes/profile icon'); %>
         </div>
 
-        <div class="categories-bar">
-            <div class="category-item active">
-                <span class="category-icon">🏰</span>
-                <span class="category-label">Castles</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">🏖️</span>
-                <span class="category-label">Beachfront</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">🏔️</span>
-                <span class="category-label">Amazing views</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">🔥</span>
-                <span class="category-label">Trending</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">🎨</span>
-                <span class="category-label">Design</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">⛳</span>
-                <span class="category-label">Golfing</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">🍷</span>
-                <span class="category-label">Vineyards</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">❄️</span>
-                <span class="category-label">Arctic</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">🌵</span>
-                <span class="category-label">Desert</span>
-            </div>
-            <div class="category-item">
-                <span class="category-icon">⛵</span>
-                <span class="category-label">Boats</span>
+        <!-- Categories -->
+        <div class="border-t border-gray-200 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex gap-8 py-4 overflow-x-auto scrollbar-hide">
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-primary pb-2">
+                        <span class="text-2xl">🏰</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Castles</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">🏖️</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Beachfront</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">🏔️</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Amazing views</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">🔥</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Trending</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">🎨</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Design</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">⛳</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Golfing</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">🍷</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Vineyards</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">❄️</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Arctic</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">🌵</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Desert</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 min-w-[56px] cursor-pointer border-b-2 border-transparent pb-2 hover:border-gray-300 transition-colors">
+                        <span class="text-2xl">⛵</span>
+                        <span class="text-xs font-semibold whitespace-nowrap">Boats</span>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="content-wrap">
-        <div class="listing-grid">
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <%
                 const stays = [
-                    {loc: "Aspen, Colorado", host: "Professional Host", price: "840", rating: "4.98"},
-                    {loc: "Tulum, Mexico", host: "Superhost", price: "312", rating: "4.85"},
-                    {loc: "Kyoto, Japan", host: "Individual Host", price: "215", rating: "5.0"},
-                    {loc: "Amalfi Coast, Italy", host: "Luxury Collection", price: "1,200", rating: "4.92"},
-                    {loc: "Reykjavik, Iceland", host: "Adventure Co.", price: "445", rating: "4.78"},
-                    {loc: "Lake Como, Italy", host: "Superhost", price: "930", rating: "4.99"},
-                    {loc: "Bali, Indonesia", host: "Wellness Retreat", price: "180", rating: "4.91"},
-                    {loc: "Paris, France", host: "Boutique Stays", price: "520", rating: "4.88"},
-                    {loc: "Cape Town, SA", host: "Eco Stay", price: "290", rating: "4.82"},
-                    {loc: "Ibiza, Spain", host: "Party Villa", price: "760", rating: "4.75"},
-                    {loc: "Seoul, Korea", host: "Urban Modern", price: "145", rating: "4.96"},
-                    {loc: "Swiss Alps", host: "Chalet Masters", price: "680", rating: "5.0"}
+                    {id: "hot-stay-001", loc: "Aspen, Colorado", host: "Professional Host", price: "840", rating: "4.98", image: "/images/aspen.jpg"},
+                    {id: "hot-stay-002", loc: "Tulum, Mexico", host: "Superhost", price: "312", rating: "4.85", image: "/images/tulum.jpg"},
+                    {id: "hot-stay-003", loc: "Kyoto, Japan", host: "Individual Host", price: "215", rating: "5.0", image: "/images/kyoto.jpg"},
+                    {id: "hot-stay-004", loc: "Amalfi Coast, Italy", host: "Luxury Collection", price: "1,200", rating: "4.92", image: "/images/amalfi.jpg"},
+                    {id: "hot-stay-005", loc: "Reykjavik, Iceland", host: "Adventure Co.", price: "445", rating: "4.78", image: "/images/reykjavik.jpg"},
+                    {id: "hot-stay-006", loc: "Lake Como, Italy", host: "Superhost", price: "930", rating: "4.99", image: "/images/como.jpg"},
+                    {id: "hot-stay-007", loc: "Bali, Indonesia", host: "Wellness Retreat", price: "180", rating: "4.91", image: "/images/bali.jpg"},
+                    {id: "hot-stay-008", loc: "Paris, France", host: "Boutique Stays", price: "520", rating: "4.88", image: "/images/paris.jpg"},
+                    {id: "hot-stay-009", loc: "Cape Town, SA", host: "Eco Stay", price: "290", rating: "4.82", image: "/images/capetown.jpg"},
+                    {id: "hot-stay-010", loc: "Ibiza, Spain", host: "Party Villa", price: "760", rating: "4.75", image: "/images/ibiza.jpg"},
+                    {id: "hot-stay-011", loc: "Seoul, Korea", host: "Urban Modern", price: "145", rating: "4.96", image: "/images/seoul.jpg"},
+                    {id: "hot-stay-012", loc: "Swiss Alps", host: "Chalet Masters", price: "680", rating: "5.0", image: "/images/alps.jpg"}
                 ];
             %>
 
-            <div class="stays-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; padding: 20px 8%;">
-
-                <% stays.forEach(s => { %>
-                    <a href="/Hot-Stay/booking/<%= s.id %>" class="stay-card" style="text-decoration: none; color: inherit; position: relative; transition: transform 0.2s ease;">
-
-                        <button class="heart-btn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; font-size: 1.5rem; text-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 10; cursor: pointer;">
+            <% stays.forEach(s => { %>
+                <a href="/Hot-Stay/booking/<%= s.id %>" class="group block">
+                    <div class="relative aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
+                        <% if(s.image) { %>
+                            <img src="<%= s.image %>" alt="<%= s.loc %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <% } else { %>
+                            <div class="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40"></div>
+                        <% } %>
+                        <button class="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-600 hover:text-red-500 transition-colors">
                             <i class="fa-regular fa-heart"></i>
                         </button>
+                    </div>
 
-                        <div class="image-wrapper" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; margin-bottom: 12px;">
-                            <% if(s.image) { %>
-                                <img src="<%= s.image %>" alt="<%= s.loc %>" style="width: 100%; height: 100%; object-fit: cover;">
-                            <% } else { %>
-                                <div style="background: linear-gradient(135deg, #FF385C22, #FF385C); width:100%; height:100%;"></div>
-                            <% } %>
-                        </div>
-
-                        <div class="stay-info">
-                            <div class="stay-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                                <span class="stay-title" style="font-weight: 700; font-size: 1rem;"><%= s.loc %></span>
-                                <span class="rating" style="font-size: 0.9rem;"><i class="fa-solid fa-star fa-xs"></i> <%= s.rating %></span>
-                            </div>
-
-                            <div class="stay-desc" style="color: #717171; font-size: 0.9rem;"><%= s.host %></div>
-                            <div class="stay-desc" style="color: #717171; font-size: 0.9rem;">Available Oct 12 – 17</div>
-
-                            <div class="price-tag" style="margin-top: 8px; font-size: 1rem;">
-                                <span style="font-weight: 700;">₹<%= s.price %></span>
-                                <span style="font-weight: 400;">night</span>
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-semibold text-sm text-text"><%= s.loc %></h3>
+                            <div class="flex items-center gap-1">
+                                <i class="fa-solid fa-star text-xs"></i>
+                                <span class="text-sm"><%= s.rating %></span>
                             </div>
                         </div>
-                    </a>
-                <% }) %>
-
-            </div>
+                        <p class="text-gray-500 text-sm"><%= s.host %></p>
+                        <p class="text-gray-500 text-sm">Available Oct 12 – 17</p>
+                        <p class="text-sm">
+                            <span class="font-semibold">₹<%= s.price %></span>
+                            <span class="font-normal"> night</span>
+                        </p>
+                    </div>
+                </a>
+            <% }) %>
         </div>
-    </div>
+    </main>
 
-    <div class="map-trigger">
+    <!-- Map Button -->
+    <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-dark text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg hover:bg-black transition-colors cursor-pointer z-40">
         Show Map
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
     </div>
 
-    <footer class="main-footer">
-        <div class="footer-links">
-            <div>
-                <h4 style="font-size: 14px;">Support</h4>
-                <p style="font-size: 14px; color: #717171;">Help Centre<br>AirCover<br>Anti-discrimination<br>Disability support</p>
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Support</h4>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>Help Centre</p>
+                        <p>HotStay Cover</p>
+                        <p>Anti-discrimination</p>
+                        <p>Disability support</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Hosting</h4>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>HotStay your home</p>
+                        <p>Cover for Hosts</p>
+                        <p>Hosting resources</p>
+                        <p>Community forum</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">About</h4>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>Newsroom</p>
+                        <p>New features</p>
+                        <p>Careers</p>
+                        <p>Investors</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h4 style="font-size: 14px;">Hosting</h4>
-                <p style="font-size: 14px; color: #717171;">Hot-Stay your home<br>AirCover for Hosts<br>Hosting resources<br>Community forum</p>
+            <div class="border-t border-gray-200 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600">
+                <div>© 2026 HotStay, Inc. · Privacy · Terms · Sitemap</div>
+                <div class="mt-2 sm:mt-0">English (GB) · USD · $</div>
             </div>
-            <div>
-                <h4 style="font-size: 14px;">About</h4>
-                <p style="font-size: 14px; color: #717171;">Newsroom<br>New features<br>Careers<br>Investors</p>
-            </div>
-        </div>
-        <div style="border-top: 1px solid #ddd; margin-top: 40px; padding-top: 20px; font-size: 14px; color: #717171; display: flex; justify-content: space-between;">
-            <div>© 2026 Hot-Stay, Inc. · Privacy · Terms · Sitemap</div>
-            <div>English (GB) · USD · $</div>
         </div>
     </footer>
 
