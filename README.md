@@ -191,4 +191,4 @@ GitHub: https://github.com/shravan01-01
 
 ## ⭐ Show Your Support  
 
-If you like this project, give it a ⭐ and share it 🚀
+If you like this project, give it a ⭐ and share it 🚀 📜
