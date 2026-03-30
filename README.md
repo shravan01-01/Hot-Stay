@@ -32,9 +32,9 @@ Hot-Stay solves this by:
 - Offering an easy booking experience  
 - Ensuring secure and fast access  
 
----
+----
 
-## ✨ Core Features  
+## ✨ Core Features
 
 ### 🔍 Smart Search  
 - Location-based search  
