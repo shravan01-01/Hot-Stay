@@ -39,7 +39,7 @@ Hot-Stay solves this by:
 ### 🔍 Smart Search  
 - Location-based search  
 - Price filtering  
-- Ratings & amenities filter  
+- Ratings & amenities filters
 
 ### 🏠 Booking System  
 - Real-time availability  
