@@ -136,13 +136,6 @@ SECRET_KEY=your_secret_key
 
 ---
 
-## 📸 Screenshots  
-
-| Home | Booking | Dashboard |
-|------|--------|----------|
-| ![](screenshots/home.png) | ![](screenshots/booking.png) | ![](screenshots/dashboard.png) |
-
----
 
 ## 🚀 Future Scope  
 
