@@ -1,270 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./includes/head'); %>
-    <title><%= hotel.name %> | HotStay Booking</title>
-</head>
-<body class="bg-background font-jakarta text-text">
+    <title>
+        <%= hotel.name %> | HotStay Booking
+    </title>
+    </head>
 
-    <!-- Navigation -->
-    <nav class="h-20 flex justify-between items-center px-8 border-b border-gray-200 sticky top-0 bg-white z-50">
-        <a href="/Hot-Stay" class="text-primary text-xl font-bold flex items-center gap-2">
-            <i class="fa-solid fa-house-chimney-window"></i>
-            HotStay
-        </a>
-        <div class="hidden md:flex gap-6">
-            <a href="/stays" class="text-text hover:text-primary transition-colors font-medium">Stays</a>
-            <a href="/offers" class="text-text hover:text-primary transition-colors font-medium">Offers</a>
-            <a href="/about" class="text-text hover:text-primary transition-colors font-medium">About</a>
-            <a href="/contact" class="text-text hover:text-primary transition-colors font-medium">Contact</a>
-        </div>
-        <div class="flex items-center gap-3 border border-gray-300 rounded-full px-4 py-2 hover:shadow-md transition-shadow cursor-pointer">
-            <i class="fa-solid fa-bars text-gray-600"></i>
-            <i class="fa-solid fa-circle-user fa-xl text-gray-600"></i>
-        </div>
-    </nav>
+    <body class="bg-background font-jakarta text-text">
 
-    <div class="max-w-6xl mx-auto px-4 py-6">
-        <!-- Hotel Header -->
-        <header class="mb-6">
-            <h1 class="text-3xl font-bold mb-2"><%= hotel.name %></h1>
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm">
-                <div class="flex items-center gap-4">
-                    <span class="flex items-center gap-1 font-semibold">
-                        <i class="fa-solid fa-star text-yellow-500"></i>
-                        <%= hotel.rating %>
-                    </span>
-                    <a href="#reviews" class="text-primary hover:underline"><%= hotel.reviewCount %> reviews</a>
-                    <span class="text-gray-600"><%= hotel.location %></span>
-                </div>
-                <div class="flex gap-4">
-                    <button class="text-text hover:text-primary transition-colors underline">
-                        <i class="fa-solid fa-arrow-up-from-bracket mr-1"></i> Share
-                    </button>
-                    <button class="text-text hover:text-primary transition-colors underline">
-                        <i class="fa-regular fa-heart mr-1"></i> Save
-                    </button>
-                </div>
+        <!-- Navigation -->
+        <nav class="h-20 flex justify-between items-center px-8 border-b border-gray-200 sticky top-0 bg-white z-50">
+            <a href="/Hot-Stay" class="text-primary text-xl font-bold flex items-center gap-2">
+                <i class="fa-solid fa-house-chimney-window"></i>
+                HotStay
+            </a>
+            <div class="hidden md:flex gap-6">
+                <a href="/stays" class="text-text hover:text-primary transition-colors font-medium">Stays</a>
+                <a href="/offers" class="text-text hover:text-primary transition-colors font-medium">Offers</a>
+                <a href="/about" class="text-text hover:text-primary transition-colors font-medium">About</a>
+                <a href="/contact" class="text-text hover:text-primary transition-colors font-medium">Contact</a>
             </div>
-        </header>
+            <%- include('./includes/profile icon'); %>
+        </nav>
 
-        <!-- Gallery -->
-        <section class="grid grid-cols-4 grid-rows-2 gap-2 rounded-xl overflow-hidden mb-10 h-96">
-            <% hotel.images.slice(0, 5).forEach((img, index) => { %>
-                <div class="<%= index === 0 ? 'col-span-2 row-span-2' : '' %>">
-                    <img src="<%= img %>" alt="Property Image <%= index + 1 %>" class="w-full h-full object-cover hover:brightness-90 transition-all">
-                </div>
-            <% }) %>
-        </section>
-
-        <!-- Main Content -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <!-- Details Section -->
-            <div class="lg:col-span-2 space-y-8">
-                <!-- Host Info -->
-                <div class="flex justify-between items-start pb-6 border-b border-gray-200">
-                    <div>
-                        <h2 class="text-2xl font-bold">Entire <%= hotel.type %> hosted by <%= hotel.host %></h2>
-                        <div class="flex gap-4 text-gray-600 mt-2">
-                            <span><%= hotel.guests %> guests</span>
-                            <span><%= hotel.bedrooms %> bedroom</span>
-                            <span><%= hotel.beds %> bed</span>
-                            <span><%= hotel.bathrooms %> bath</span>
-                        </div>
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <!-- Hotel Header -->
+            <header class="mb-6">
+                <h1 class="text-3xl font-bold mb-2">
+                    <%= hotel.name %>
+                </h1>
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm">
+                    <div class="flex items-center gap-4">
+                        <span class="flex items-center gap-1 font-semibold">
+                            <i class="fa-solid fa-star text-yellow-500"></i>
+                            <%= hotel.rating %>
+                        </span>
+                        <a href="#reviews" class="text-primary hover:underline">
+                            <%= hotel.reviewCount %> reviews
+                        </a>
+                        <span class="text-gray-600">
+                            <%= hotel.location %>
+                        </span>
                     </div>
-                    <img src="https://i.pravatar.cc/100?u=host" alt="Host" class="w-14 h-14 rounded-full">
-                </div>
-
-                <!-- Description -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Description</h3>
-                    <p class="text-gray-700 leading-relaxed"><%= hotel.description %></p>
-                </div>
-
-                <!-- Amenities -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">What this place offers</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <% hotel.amenities.forEach(item => { %>
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-check text-accent"></i>
-                                <span><%= item %></span>
-                            </div>
-                        <% }) %>
+                    <div class="flex gap-4">
+                        <button class="text-text hover:text-primary transition-colors underline">
+                            <i class="fa-solid fa-arrow-up-from-bracket mr-1"></i> Share
+                        </button>
+                        <button class="text-text hover:text-primary transition-colors underline">
+                            <i class="fa-regular fa-heart mr-1"></i> Save
+                        </button>
                     </div>
                 </div>
+            </header>
 
-                <!-- Guest Details Form -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Guest Details</h3>
-                    <form id="bookingForm" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="border border-gray-300 rounded-lg p-4">
-                                <label class="block text-xs font-bold uppercase mb-2">Full Name</label>
-                                <input type="text" placeholder="Your name" class="w-full border-none outline-none">
-                            </div>
-                            <div class="border border-gray-300 rounded-lg p-4">
-                                <label class="block text-xs font-bold uppercase mb-2">Email Address</label>
-                                <input type="email" placeholder="email@example.com" class="w-full border-none outline-none">
-                            </div>
-                        </div>
-                        <div class="border border-gray-300 rounded-lg p-4">
-                            <label class="block text-xs font-bold uppercase mb-2">Special Requests</label>
-                            <textarea rows="3" class="w-full border-none outline-none resize-none" placeholder="Any special requests..."></textarea>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <!-- Gallery -->
+            <section class="grid grid-cols-4 grid-rows-2 gap-2 rounded-xl overflow-hidden mb-10 h-96">
+                <% hotel.images.slice(0, 5).forEach((img, index)=> { %>
+                    <div class="<%= index === 0 ? 'col-span-2 row-span-2' : '' %>">
+                        <img src="<%= img %>" alt="Property Image <%= index + 1 %>"
+                            class="w-full h-full object-cover hover:brightness-90 transition-all">
+                    </div>
+                    <% }) %>
+            </section>
 
-            <!-- Booking Card -->
-            <div class="lg:col-span-1">
-                <div class="border border-gray-200 rounded-xl p-6 shadow-lg bg-white sticky top-24">
-                    <div class="flex justify-between items-baseline mb-6">
+            <!-- Main Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Details Section -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Host Info -->
+                    <div class="flex justify-between items-start pb-6 border-b border-gray-200">
                         <div>
-                            <span class="text-2xl font-bold">₹<%= hotel.price %></span>
-                            <span class="text-gray-600">/ night</span>
-                        </div>
-                        <span class="text-gray-500 line-through">₹<%= hotel.originalPrice %></span>
-                    </div>
-
-                    <div class="border border-gray-300 rounded-lg mb-4">
-                        <div class="flex border-b border-gray-300">
-                            <div class="flex-1 p-4">
-                                <label class="block text-xs font-bold uppercase mb-1">Check-in</label>
-                                <input type="date" value="2026-04-10" class="w-full border-none outline-none">
-                            </div>
-                            <div class="flex-1 p-4 border-l border-gray-300">
-                                <label class="block text-xs font-bold uppercase mb-1">Check-out</label>
-                                <input type="date" value="2026-04-15" class="w-full border-none outline-none">
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <label class="block text-xs font-bold uppercase mb-1">Guests</label>
-                            <select class="w-full border-none outline-none">
-                                <option>1 guest</option>
-                                <option selected>2 guests</option>
-                                <option>3 guests</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-4 rounded-lg transition-colors mb-3" onclick="alert('Proceeding to Payment...')">
-                        Reserve Now
-                    </button>
-                    <p class="text-center text-sm text-gray-600 mb-6">You won't be charged yet</p>
-
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between">
-                            <span>₹<%= hotel.price %> x 5 nights</span>
-                            <span>₹<%= hotel.price * 5 %></span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Service fee</span>
-                            <span>₹1,200</span>
-                        </div>
-                        <div class="flex justify-between font-bold text-lg border-t border-gray-200 pt-3">
-                            <span>Total</span>
-                            <span>₹<%= (hotel.price * 5) + 1200 %></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reviews -->
-        <section class="mt-16 pt-16 border-t border-gray-200" id="reviews">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-star text-yellow-500"></i>
-                <%= hotel.rating %> · <%= hotel.reviewCount %> reviews
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <% hotel.reviews.forEach(review => { %>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3">
-                            <img src="<%= review.avatar %>" alt="User" class="w-12 h-12 rounded-full">
-                            <div>
-                                <div class="font-semibold"><%= review.userName %></div>
-                                <div class="text-sm text-gray-600"><%= review.date %></div>
+                            <h2 class="text-2xl font-bold">Entire <%= hotel.type %> hosted by <%= hotel.host %>
+                            </h2>
+                            <div class="flex gap-4 text-gray-600 mt-2">
+                                <span>
+                                    <%= hotel.guests %> guests
+                                </span>
+                                <span>
+                                    <%= hotel.bedrooms %> bedroom
+                                </span>
+                                <span>
+                                    <%= hotel.beds %> bed
+                                </span>
+                                <span>
+                                    <%= hotel.bathrooms %> bath
+                                </span>
                             </div>
                         </div>
-                        <p class="text-gray-700"><%= review.comment %></p>
+                        <img src="https://i.pravatar.cc/100?u=host" alt="Host" class="w-14 h-14 rounded-full">
                     </div>
-                <% }) %>
-            </div>
-        </section>
 
-        <!-- Similar Stays -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold mb-6">Similar places to stay</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <% similarHotels.forEach(s => { %>
-                    <a href="/Hot-Stay/booking/<%= s.id %>" class="group block">
-                        <div class="aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
-                            <img src="<%= s.image %>" alt="<%= s.name %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <!-- Description -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Description</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            <%= hotel.description %>
+                        </p>
+                    </div>
+
+                    <!-- Amenities -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">What this place offers</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <% hotel.amenities.forEach(item=> { %>
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-accent"></i>
+                                    <span>
+                                        <%= item %>
+                                    </span>
+                                </div>
+                                <% }) %>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex justify-between items-start">
-                                <h3 class="font-semibold text-sm"><%= s.name %></h3>
-                                <div class="flex items-center gap-1">
-                                    <i class="fa-solid fa-star text-xs"></i>
-                                    <span class="text-sm"><%= s.rating %></span>
+                    </div>
+
+                    <!-- Guest Details Form -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Guest Details</h3>
+                        <form id="bookingForm" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="border border-gray-300 rounded-lg p-4">
+                                    <label class="block text-xs font-bold uppercase mb-2">Full Name</label>
+                                    <input type="text" placeholder="Your name" class="w-full border-none outline-none">
+                                </div>
+                                <div class="border border-gray-300 rounded-lg p-4">
+                                    <label class="block text-xs font-bold uppercase mb-2">Email Address</label>
+                                    <input type="email" placeholder="email@example.com"
+                                        class="w-full border-none outline-none">
                                 </div>
                             </div>
-                            <p class="text-gray-600 text-sm"><%= s.location %></p>
-                            <p class="text-sm">
-                                <span class="font-semibold">₹<%= s.price %></span>
-                                <span class="font-normal"> night</span>
-                            </p>
-                        </div>
-                    </a>
-                <% }) %>
-            </div>
-        </section>
-    </div>
+                            <div class="border border-gray-300 rounded-lg p-4">
+                                <label class="block text-xs font-bold uppercase mb-2">Special Requests</label>
+                                <textarea rows="3" class="w-full border-none outline-none resize-none"
+                                    placeholder="Any special requests..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 mt-20">
-        <div class="max-w-6xl mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h5 class="font-bold mb-4">Support</h5>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="cursor-pointer hover:text-primary transition-colors">Help Centre</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">HotStay Cover</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">Anti-discrimination</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">Cancellation options</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Hosting</h5>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="cursor-pointer hover:text-primary transition-colors">HotStay your home</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">Hosting resources</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">Community forum</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">HotStay</h5>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="cursor-pointer hover:text-primary transition-colors">Newsroom</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">New features</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">Careers</li>
-                        <li class="cursor-pointer hover:text-primary transition-colors">Investors</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Social</h5>
-                    <div class="flex gap-4 text-xl">
-                        <i class="fa-brands fa-facebook cursor-pointer hover:text-primary transition-colors"></i>
-                        <i class="fa-brands fa-instagram cursor-pointer hover:text-primary transition-colors"></i>
-                        <i class="fa-brands fa-twitter cursor-pointer hover:text-primary transition-colors"></i>
+                <!-- Booking Card -->
+                <div class="lg:col-span-1">
+                    <div class="border border-gray-200 rounded-xl p-6 shadow-lg bg-white sticky top-24">
+                        <div class="flex justify-between items-baseline mb-6">
+                            <div>
+                                <span class="text-2xl font-bold">₹<%= hotel.price %></span>
+                                <span class="text-gray-600">/ night</span>
+                            </div>
+                            <span class="text-gray-500 line-through">₹<%= hotel.originalPrice %></span>
+                        </div>
+
+                        <div class="border border-gray-300 rounded-lg mb-4">
+                            <div class="flex border-b border-gray-300">
+                                <div class="flex-1 p-4">
+                                    <label class="block text-xs font-bold uppercase mb-1">Check-in</label>
+                                    <input type="date" value="2026-04-10" class="w-full border-none outline-none">
+                                </div>
+                                <div class="flex-1 p-4 border-l border-gray-300">
+                                    <label class="block text-xs font-bold uppercase mb-1">Check-out</label>
+                                    <input type="date" value="2026-04-15" class="w-full border-none outline-none">
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <label class="block text-xs font-bold uppercase mb-1">Guests</label>
+                                <select class="w-full border-none outline-none">
+                                    <option>1 guest</option>
+                                    <option selected>2 guests</option>
+                                    <option>3 guests</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-4 rounded-lg transition-colors mb-3"
+                            onclick="alert('Proceeding to Payment...')">
+                            Reserve Now
+                        </button>
+                        <p class="text-center text-sm text-gray-600 mb-6">You won't be charged yet</p>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span>₹<%= hotel.price %> x 5 nights</span>
+                                <span>₹<%= hotel.price * 5 %></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Service fee</span>
+                                <span>₹1,200</span>
+                            </div>
+                            <div class="flex justify-between font-bold text-lg border-t border-gray-200 pt-3">
+                                <span>Total</span>
+                                <span>₹<%= (hotel.price * 5) + 1200 %></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-sm text-gray-600 border-t border-gray-200 pt-6">
-                © 2026 HotStay, Inc. · Privacy · Terms · Sitemap
-            </div>
-        </div>
-    </footer>
 
-</body>
+            <!-- Reviews -->
+            <section class="mt-16 pt-16 border-t border-gray-200" id="reviews">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-star text-yellow-500"></i>
+                    <%= hotel.rating %> · <%= hotel.reviewCount %> reviews
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <% hotel.reviews.forEach(review=> { %>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <img src="<%= review.avatar %>" alt="User" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <div class="font-semibold">
+                                        <%= review.userName %>
+                                    </div>
+                                    <div class="text-sm text-gray-600">
+                                        <%= review.date %>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">
+                                <%= review.comment %>
+                            </p>
+                        </div>
+                        <% }) %>
+                </div>
+            </section>
+
+            <!-- Similar Stays -->
+            <section class="mt-16">
+                <h2 class="text-2xl font-bold mb-6">Similar places to stay</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <% similarHotels.forEach(s=> { %>
+                        <a href="/Hot-Stay/booking/<%= s.id %>" class="group block">
+                            <div class="aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
+                                <img src="<%= s.image %>" alt="<%= s.name %>"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="space-y-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="font-semibold text-sm">
+                                        <%= s.name %>
+                                    </h3>
+                                    <div class="flex items-center gap-1">
+                                        <i class="fa-solid fa-star text-xs"></i>
+                                        <span class="text-sm">
+                                            <%= s.rating %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm">
+                                    <%= s.location %>
+                                </p>
+                                <p class="text-sm">
+                                    <span class="font-semibold">₹<%= s.price %></span>
+                                    <span class="font-normal"> night</span>
+                                </p>
+                            </div>
+                        </a>
+                        <% }) %>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-50 border-t border-gray-200 mt-20">
+            <div class="max-w-6xl mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h5 class="font-bold mb-4">Support</h5>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="cursor-pointer hover:text-primary transition-colors">Help Centre</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">HotStay Cover</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">Anti-discrimination</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">Cancellation options</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-4">Hosting</h5>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="cursor-pointer hover:text-primary transition-colors">HotStay your home</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">Hosting resources</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">Community forum</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-4">HotStay</h5>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="cursor-pointer hover:text-primary transition-colors">Newsroom</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">New features</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">Careers</li>
+                            <li class="cursor-pointer hover:text-primary transition-colors">Investors</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-4">Social</h5>
+                        <div class="flex gap-4 text-xl">
+                            <i class="fa-brands fa-facebook cursor-pointer hover:text-primary transition-colors"></i>
+                            <i class="fa-brands fa-instagram cursor-pointer hover:text-primary transition-colors"></i>
+                            <i class="fa-brands fa-twitter cursor-pointer hover:text-primary transition-colors"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-sm text-gray-600 border-t border-gray-200 pt-6">
+                    © 2026 HotStay, Inc. · Privacy · Terms · Sitemap
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
 </html>
