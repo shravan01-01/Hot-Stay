@@ -11,7 +11,7 @@
 
 ---
 
-## 📌 About Project  
+##📌 About Project  
 
 **Hot-Stay** is a modern full-stack accommodation booking platform that enables users to discover, compare, and book stays across different locations.  
 It focuses on providing a smooth user experience with powerful filtering, secure authentication, and responsive design.
