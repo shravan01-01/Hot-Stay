@@ -1,5 +1,5 @@
-# 🔥 Hot-Stay  
-### 🏨 Smart Accommodation Booking Platform  
+# 🔥Hot-Stay  
+### 🏨Smart Accommodation Booking Platform  
 
 <p align="center">
   <img src="https://img.shields.io/github/repo-size/your-username/hot-stay?color=blue">
@@ -11,14 +11,14 @@
 
 ---
 
-##📌 About Project  
+##📌About Project  
 
 **Hot-Stay** is a modern full-stack accommodation booking platform that enables users to discover, compare, and book stays across different locations.  
 It focuses on providing a smooth user experience with powerful filtering, secure authentication, and responsive design.
 
 ---
 
-## 🎯 Problem Statement  
+## 🎯Problem Statement  
 
 Finding affordable and suitable accommodations is often time-consuming and confusing due to scattered information and lack of smart filtering.
 
