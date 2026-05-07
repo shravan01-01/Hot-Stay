@@ -137,7 +137,7 @@ SECRET_KEY=your_secret_key
 ---
 
 
-## 🚀 Future Scope  
+## 🚀Future Scope  
 
 - 🤖 AI-based recommendations  
 - 💳 Payment gateway integration  
@@ -147,7 +147,7 @@ SECRET_KEY=your_secret_key
 
 ---
 
-## 📊 Project Highlights  
+## 📊Project Highlights  
 
 - Full-stack implementation  
 - Scalable architecture  
@@ -157,7 +157,7 @@ SECRET_KEY=your_secret_key
 
 ---
 
-## 🤝 Contributing  
+## 🤝Contributing  
 
 Contributions are welcome!
 
@@ -169,13 +169,13 @@ git push origin feature/new-feature
 
 ---
 
-## 📜 License  
+## 📜License  
 
 This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Author  
+## 👨‍💻Author  
 
 **Shravan Sadawarte**  
 GitHub: https://github.com/shravan01-01 
