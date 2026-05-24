@@ -13,6 +13,7 @@
     "bedrooms": 2,
     "beds": 2,
     "bathrooms": 2,
+    "categories": ["Castles", "Amazing views", "Trending"],
     "description": "Nestled on the banks of Lake Pichola, The Heritage Coral Villa offers a blend of traditional Mewari architecture and modern luxury. Enjoy private balconies, hand-painted murals, and a signature infinity pool overlooking the 'City of Lakes'. Perfect for couples or small families seeking a premium escape.",
     "images": [
         "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800",
@@ -57,6 +58,7 @@
     "bedrooms": 1,
     "beds": 1,
     "bathrooms": 1,
+    "categories": ["Amazing views", "Design", "Trending"],
     "description": "Wake up literally inside the canopy. This architecturally unique treehouse features floor-to-ceiling glass walls, a private cedar wood hot tub, and organic coffee served every morning from the surrounding plantation.",
     "images": [
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800",
@@ -93,6 +95,7 @@
     "bedrooms": 1,
     "beds": 2,
     "bathrooms": 1.5,
+    "categories": ["Beachfront", "Trending"],
     "description": "Step directly from your terrace onto the white sands of Ashwem beach. Azure Sands offers a minimalist Mediterranean vibe with high ceilings, plush white linens, and sunset yoga sessions included.",
     "images": [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800",
@@ -128,6 +131,7 @@
     "guests": 5,
     "bedrooms": 3,
     "beds": 3,
+    "categories": ["Castles", "Design", "Trending"],
     "bathrooms": 3,
     "description": "A 200-year-old restored Haveli that captures the soul of Rajasthan. Featuring intricate stone carvings, a central courtyard with a fountain, and a rooftop restaurant serving authentic Rajasthani thali.",
     "images": [

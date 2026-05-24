@@ -31,130 +31,112 @@
                 <div class="flex flex-col gap-6 p-4 overflow-y-auto h-full">
 
                     <!-- Item -->
-                    <div class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-primary pl-2">
+                    <a href="/Hot-Stay/home?category=Castles" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Castles' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🏰</span>
                         <span class="text-xs font-semibold text-center">Castles</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Beachfront" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Beachfront' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🏖️</span>
                         <span class="text-xs font-semibold text-center">Beachfront</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Amazing views" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Amazing views' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🏔️</span>
                         <span class="text-xs font-semibold text-center">Amazing views</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Trending" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Trending' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🔥</span>
                         <span class="text-xs font-semibold text-center">Trending</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Design" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Design' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🎨</span>
                         <span class="text-xs font-semibold text-center">Design</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Golfing" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Golfing' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">⛳</span>
                         <span class="text-xs font-semibold text-center">Golfing</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Vineyards" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Vineyards' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🍷</span>
                         <span class="text-xs font-semibold text-center">Vineyards</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Arctic" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Arctic' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">❄️</span>
                         <span class="text-xs font-semibold text-center">Arctic</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home?category=Desert" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Desert' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">🌵</span>
                         <span class="text-xs font-semibold text-center">Desert</span>
-                    </div>
+                    </a>
 
-                    <div
-                        class="flex flex-col items-center gap-2 cursor-pointer border-l-4 border-transparent pl-2 hover:border-gray-300 transition-colors">
+                    <a href="/Hot-Stay/home" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= !selectedCategory ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
                         <span class="text-2xl">⛵</span>
-                        <span class="text-xs font-semibold text-center">Boats</span>
-                    </div>
+                        <span class="text-xs font-semibold text-center">All Hotels</span>
+                    </a>
 
                 </div>
             </div>
 
             <!-- Main Content -->
             <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ml-[10%]">
+                <% if(selectedCategory) { %>
+                    <h2 class="text-2xl font-bold mb-6 text-text"><%= selectedCategory %></h2>
+                <% } %>
+                
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <% const stays=[ {id: "hot-stay-001" , loc: "Aspen, Colorado" , host: "Professional Host" ,
-                        price: "840" , rating: "4.98" , image: "/images/aspen.jpg" }, {id: "hot-stay-002" ,
-                        loc: "Tulum, Mexico" , host: "Superhost" , price: "312" , rating: "4.85" ,
-                        image: "/images/tulum.jpg" }, {id: "hot-stay-003" , loc: "Kyoto, Japan" ,
-                        host: "Individual Host" , price: "215" , rating: "5.0" , image: "/images/kyoto.jpg" },
-                        {id: "hot-stay-004" , loc: "Amalfi Coast, Italy" , host: "Luxury Collection" , price: "1,200" ,
-                        rating: "4.92" , image: "/images/amalfi.jpg" }, {id: "hot-stay-005" , loc: "Reykjavik, Iceland"
-                        , host: "Adventure Co." , price: "445" , rating: "4.78" , image: "/images/reykjavik.jpg" },
-                        {id: "hot-stay-006" , loc: "Lake Como, Italy" , host: "Superhost" , price: "930" ,
-                        rating: "4.99" , image: "/images/como.jpg" }, {id: "hot-stay-007" , loc: "Bali, Indonesia" ,
-                        host: "Wellness Retreat" , price: "180" , rating: "4.91" , image: "/images/bali.jpg" },
-                        {id: "hot-stay-008" , loc: "Paris, France" , host: "Boutique Stays" , price: "520" ,
-                        rating: "4.88" , image: "/images/paris.jpg" }, {id: "hot-stay-009" , loc: "Cape Town, SA" ,
-                        host: "Eco Stay" , price: "290" , rating: "4.82" , image: "/images/capetown.jpg" },
-                        {id: "hot-stay-010" , loc: "Ibiza, Spain" , host: "Party Villa" , price: "760" , rating: "4.75"
-                        , image: "/images/ibiza.jpg" }, {id: "hot-stay-011" , loc: "Seoul, Korea" , host: "Urban Modern"
-                        , price: "145" , rating: "4.96" , image: "/images/seoul.jpg" }, {id: "hot-stay-012" ,
-                        loc: "Swiss Alps" , host: "Chalet Masters" , price: "680" , rating: "5.0" ,
-                        image: "/images/alps.jpg" } ]; %>
-
-                        <% stays.forEach(s=> { %>
-                            <a href="/Hot-Stay/booking/<%= s.id %>" class="group block">
+                    <% if(hotels && hotels.length > 0) { %>
+                        <% hotels.forEach(hotel => { %>
+                            <a href="/Hot-Stay/booking/<%= hotel.id %>" class="group block">
                                 <div class="relative aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
-                                    <% if(s.image) { %>
-                                        <img src="<%= s.image %>" alt="<%= s.loc %>"
+                                    <% if(hotel.images && hotel.images.length > 0) { %>
+                                        <img src="<%= hotel.images[0] %>" alt="<%= hotel.name %>"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                        <% } else { %>
-                                            <div class="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40">
-                                            </div>
-                                            <% } %>
-                                                <button
-                                                    class="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-600 hover:text-red-500 transition-colors">
-                                                    <i class="fa-regular fa-heart"></i>
-                                                </button>
+                                    <% } else { %>
+                                        <div class="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40">
+                                        </div>
+                                    <% } %>
+                                    <button
+                                        class="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-600 hover:text-red-500 transition-colors">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
                                 </div>
 
                                 <div class="space-y-1">
                                     <div class="flex justify-between items-start">
                                         <h3 class="font-semibold text-sm text-text">
-                                            <%= s.loc %>
+                                            <%= hotel.location %>
                                         </h3>
                                         <div class="flex items-center gap-1">
                                             <i class="fa-solid fa-star text-xs"></i>
                                             <span class="text-sm">
-                                                <%= s.rating %>
+                                                <%= hotel.rating %>
                                             </span>
                                         </div>
                                     </div>
                                     <p class="text-gray-500 text-sm">
-                                        <%= s.host %>
+                                        <%= hotel.host %>
                                     </p>
                                     <p class="text-gray-500 text-sm">Available Oct 12 – 17</p>
                                     <p class="text-sm">
-                                        <span class="font-semibold">₹<%= s.price %></span>
+                                        <span class="font-semibold">₹<%= hotel.price %></span>
                                         <span class="font-normal"> night</span>
                                     </p>
                                 </div>
                             </a>
-                            <% }) %>
+                        <% }) %>
+                    <% } else { %>
+                        <div class="col-span-full text-center py-12">
+                            <p class="text-gray-500 text-lg">No hotels found in this category.</p>
+                            <a href="/Hot-Stay/home" class="text-primary hover:text-primary/80 font-semibold mt-4 inline-block">View all hotels</a>
+                        </div>
+                    <% } %>
                 </div>
             </main>
 

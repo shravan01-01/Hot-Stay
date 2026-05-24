@@ -43,7 +43,31 @@ app.post("/Validation", (req, res) => {
 
 // Home page
 app.get("/Hot-Stay/home", (req, res) => {
-  res.render("home"); // home.ejs
+  const category = req.query.category; // Get category from query parameter
+  
+  try {
+    const hotelDataPath = path.join(__dirname, '../database/hotelData.json');
+    let hotels = JSON.parse(fs.readFileSync(hotelDataPath, 'utf8'));
+    
+    // Filter by category if provided
+    if (category) {
+      hotels = hotels.filter(hotel => 
+        hotel.categories && hotel.categories.includes(category)
+      );
+    }
+    
+    res.render("home", { 
+      hotels: hotels,
+      selectedCategory: category || null
+    }); // home.ejs
+  } catch (error) {
+    console.error('Error reading hotel data:', error);
+    res.render("home", { 
+      hotels: [],
+      selectedCategory: category || null,
+      error: 'Error loading hotels'
+    });
+  }
 });
 
 
