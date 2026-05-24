@@ -1,26 +1,802 @@
 [
-    {
-        "id": "hot-stay-002",
-        "name": "Desert Rose Resort",
-        "location": "Jaisalmer",
-        "rating": 4.7,
-        "price": 8900,
-        "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400"
-    },
-    {
-        "id": "hot-stay-003",
-        "name": "Jaipur Palace Suites",
-        "location": "Jaipur",
-        "rating": 4.85,
-        "price": 10200,
-        "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=400"
-    },
-        {
-            "id": "hot-stay-004",
-            "name": "Mountain Mist Retreat",
-            "location": "Manali",
-            "rating": 4.6,
-            "price": 7500,
-            "image": "https://images.unsplash.com/photo-1445013544686-8301edd829b1?auto=format&fit=crop&w=400"
-        }
-    ]
+  {
+    "id": "hot-stay-001",
+    "name": "Golden Resort",
+    "location": "Udaipur, Rajasthan, India",
+    "rating": 4.96,
+    "price": 11002,
+    "image": "https://images.unsplash.com/photo-16501?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-002",
+    "name": "Desert Chalet",
+    "location": "Munnar, Kerala, India",
+    "rating": 4.94,
+    "price": 15087,
+    "image": "https://images.unsplash.com/photo-16502?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-003",
+    "name": "Sky Hideaway",
+    "location": "North Goa, India",
+    "rating": 4.69,
+    "price": 16918,
+    "image": "https://images.unsplash.com/photo-16503?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-004",
+    "name": "Coral Suites",
+    "location": "Pink City, Jaipur, India",
+    "rating": 4.67,
+    "price": 15110,
+    "image": "https://images.unsplash.com/photo-16504?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-005",
+    "name": "Garden Haven",
+    "location": "Santorini, Greece",
+    "rating": 4.9,
+    "price": 20016,
+    "image": "https://images.unsplash.com/photo-16505?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-006",
+    "name": "Sunset Lodge",
+    "location": "Tulum, Mexico",
+    "rating": 4.81,
+    "price": 13680,
+    "image": "https://images.unsplash.com/photo-16506?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-007",
+    "name": "Coral Chalet",
+    "location": "Kyoto, Japan",
+    "rating": 4.78,
+    "price": 21467,
+    "image": "https://images.unsplash.com/photo-16507?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-008",
+    "name": "Honey Estate",
+    "location": "Aspen, Colorado, USA",
+    "rating": 4.54,
+    "price": 8401,
+    "image": "https://images.unsplash.com/photo-16508?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-009",
+    "name": "Garden Hideaway",
+    "location": "Bali, Indonesia",
+    "rating": 4.77,
+    "price": 6270,
+    "image": "https://images.unsplash.com/photo-16509?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-010",
+    "name": "Royal Estate",
+    "location": "Cape Town, South Africa",
+    "rating": 4.89,
+    "price": 17088,
+    "image": "https://images.unsplash.com/photo-16510?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-011",
+    "name": "Azure Bungalow",
+    "location": "Ibiza, Spain",
+    "rating": 4.74,
+    "price": 19374,
+    "image": "https://images.unsplash.com/photo-16511?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-012",
+    "name": "Sunset Haven",
+    "location": "Paris, France",
+    "rating": 4.71,
+    "price": 9592,
+    "image": "https://images.unsplash.com/photo-16512?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-013",
+    "name": "Honey Bungalow",
+    "location": "Swiss Alps, Switzerland",
+    "rating": 4.75,
+    "price": 8954,
+    "image": "https://images.unsplash.com/photo-16513?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-014",
+    "name": "Whisper Retreat",
+    "location": "Queenstown, New Zealand",
+    "rating": 4.71,
+    "price": 15815,
+    "image": "https://images.unsplash.com/photo-16514?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-015",
+    "name": "Moonlight Chalet",
+    "location": "Maldives",
+    "rating": 4.83,
+    "price": 22161,
+    "image": "https://images.unsplash.com/photo-16515?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-016",
+    "name": "Velvet Suites",
+    "location": "Reykjavik, Iceland",
+    "rating": 4.78,
+    "price": 15432,
+    "image": "https://images.unsplash.com/photo-16516?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-017",
+    "name": "Azure Estate",
+    "location": "Dubai, UAE",
+    "rating": 4.71,
+    "price": 23653,
+    "image": "https://images.unsplash.com/photo-16517?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-018",
+    "name": "Crystal Manor",
+    "location": "Marrakech, Morocco",
+    "rating": 4.58,
+    "price": 24678,
+    "image": "https://images.unsplash.com/photo-16518?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-019",
+    "name": "Royal Estate",
+    "location": "Napa Valley, USA",
+    "rating": 4.65,
+    "price": 10328,
+    "image": "https://images.unsplash.com/photo-16519?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-020",
+    "name": "Ocean Haven",
+    "location": "Loire Valley, France",
+    "rating": 4.55,
+    "price": 17174,
+    "image": "https://images.unsplash.com/photo-16520?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-021",
+    "name": "Crystal Villa",
+    "location": "Big Sur, California, USA",
+    "rating": 4.65,
+    "price": 14800,
+    "image": "https://images.unsplash.com/photo-16521?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-022",
+    "name": "Coral Estate",
+    "location": "Kyushu, Japan",
+    "rating": 4.71,
+    "price": 8525,
+    "image": "https://images.unsplash.com/photo-16522?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-023",
+    "name": "Forest Oasis",
+    "location": "Amalfi Coast, Italy",
+    "rating": 4.91,
+    "price": 21220,
+    "image": "https://images.unsplash.com/photo-16523?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-024",
+    "name": "Moonlight Cottage",
+    "location": "Positano, Italy",
+    "rating": 4.65,
+    "price": 11413,
+    "image": "https://images.unsplash.com/photo-16524?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-025",
+    "name": "Pearl Villa",
+    "location": "Banff, Canada",
+    "rating": 4.73,
+    "price": 21529,
+    "image": "https://images.unsplash.com/photo-16525?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-026",
+    "name": "Honey Lodge",
+    "location": "Dubai Marina, UAE",
+    "rating": 4.94,
+    "price": 21764,
+    "image": "https://images.unsplash.com/photo-16526?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-027",
+    "name": "Moonlight Retreat",
+    "location": "Phuket, Thailand",
+    "rating": 4.78,
+    "price": 19819,
+    "image": "https://images.unsplash.com/photo-16527?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-028",
+    "name": "Golden Haven",
+    "location": "Sydney, Australia",
+    "rating": 4.55,
+    "price": 17511,
+    "image": "https://images.unsplash.com/photo-16528?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-029",
+    "name": "Secret Cottage",
+    "location": "Berlin, Germany",
+    "rating": 4.86,
+    "price": 16702,
+    "image": "https://images.unsplash.com/photo-16529?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-030",
+    "name": "Ocean Oasis",
+    "location": "London, UK",
+    "rating": 4.58,
+    "price": 17225,
+    "image": "https://images.unsplash.com/photo-16530?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-031",
+    "name": "Golden Manor",
+    "location": "Barcelona, Spain",
+    "rating": 4.96,
+    "price": 12460,
+    "image": "https://images.unsplash.com/photo-16531?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-032",
+    "name": "Forest Palace",
+    "location": "Santander, Spain",
+    "rating": 4.64,
+    "price": 14413,
+    "image": "https://images.unsplash.com/photo-16532?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-033",
+    "name": "Forest Lodge",
+    "location": "Vancouver, Canada",
+    "rating": 4.7,
+    "price": 8409,
+    "image": "https://images.unsplash.com/photo-16533?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-034",
+    "name": "Forest Sanctuary",
+    "location": "Lisbon, Portugal",
+    "rating": 4.75,
+    "price": 16915,
+    "image": "https://images.unsplash.com/photo-16534?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-035",
+    "name": "Pearl Suites",
+    "location": "Buenos Aires, Argentina",
+    "rating": 4.51,
+    "price": 16038,
+    "image": "https://images.unsplash.com/photo-16535?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-036",
+    "name": "Azure Lodge",
+    "location": "Rio de Janeiro, Brazil",
+    "rating": 4.7,
+    "price": 13297,
+    "image": "https://images.unsplash.com/photo-16536?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-037",
+    "name": "Garden Oasis",
+    "location": "Cape Winelands, South Africa",
+    "rating": 4.67,
+    "price": 6698,
+    "image": "https://images.unsplash.com/photo-16537?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-038",
+    "name": "Pearl Bungalow",
+    "location": "Tuscany, Italy",
+    "rating": 4.82,
+    "price": 5042,
+    "image": "https://images.unsplash.com/photo-16538?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-039",
+    "name": "Coral Palace",
+    "location": "Provence, France",
+    "rating": 4.68,
+    "price": 16521,
+    "image": "https://images.unsplash.com/photo-16539?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-040",
+    "name": "Coral Lodge",
+    "location": "Reethi Rah, Maldives",
+    "rating": 4.56,
+    "price": 11690,
+    "image": "https://images.unsplash.com/photo-16540?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-041",
+    "name": "Desert Haven",
+    "location": "Serengeti, Tanzania",
+    "rating": 4.87,
+    "price": 25369,
+    "image": "https://images.unsplash.com/photo-16541?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-042",
+    "name": "Emerald Retreat",
+    "location": "Queenstown, NZ",
+    "rating": 4.57,
+    "price": 24602,
+    "image": "https://images.unsplash.com/photo-16542?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-043",
+    "name": "Golden Chalet",
+    "location": "Whistler, Canada",
+    "rating": 4.95,
+    "price": 19388,
+    "image": "https://images.unsplash.com/photo-16543?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-044",
+    "name": "Emerald Cottage",
+    "location": "Zermatt, Switzerland",
+    "rating": 4.78,
+    "price": 9356,
+    "image": "https://images.unsplash.com/photo-16544?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-045",
+    "name": "Honey Bungalow",
+    "location": "Lapland, Finland",
+    "rating": 4.66,
+    "price": 21211,
+    "image": "https://images.unsplash.com/photo-16545?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-046",
+    "name": "Sky Sanctuary",
+    "location": "Aspen, USA",
+    "rating": 4.85,
+    "price": 9810,
+    "image": "https://images.unsplash.com/photo-16546?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-047",
+    "name": "Honey Sanctuary",
+    "location": "Sedona, USA",
+    "rating": 4.79,
+    "price": 22207,
+    "image": "https://images.unsplash.com/photo-16547?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-048",
+    "name": "Coral Estate",
+    "location": "Marrakesh, Morocco",
+    "rating": 4.87,
+    "price": 6389,
+    "image": "https://images.unsplash.com/photo-16548?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-049",
+    "name": "Velvet Manor",
+    "location": "Cairo, Egypt",
+    "rating": 4.79,
+    "price": 10186,
+    "image": "https://images.unsplash.com/photo-16549?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-050",
+    "name": "Silk Villa",
+    "location": "Santorini, Greece",
+    "rating": 4.6,
+    "price": 9071,
+    "image": "https://images.unsplash.com/photo-16550?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-051",
+    "name": "Pearl Villa",
+    "location": "Milan, Italy",
+    "rating": 4.8,
+    "price": 19845,
+    "image": "https://images.unsplash.com/photo-16551?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-052",
+    "name": "Moonlight Resort",
+    "location": "Stockholm, Sweden",
+    "rating": 4.96,
+    "price": 15505,
+    "image": "https://images.unsplash.com/photo-16552?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-053",
+    "name": "Whisper Hideaway",
+    "location": "Edinburgh, UK",
+    "rating": 4.81,
+    "price": 16112,
+    "image": "https://images.unsplash.com/photo-16553?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-054",
+    "name": "Emerald Palace",
+    "location": "Prague, Czech Republic",
+    "rating": 4.65,
+    "price": 7053,
+    "image": "https://images.unsplash.com/photo-16554?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-055",
+    "name": "Moonlight Palace",
+    "location": "Vancouver, Canada",
+    "rating": 4.6,
+    "price": 20737,
+    "image": "https://images.unsplash.com/photo-16555?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-056",
+    "name": "Garden Oasis",
+    "location": "Buenos Aires, Argentina",
+    "rating": 4.75,
+    "price": 18872,
+    "image": "https://images.unsplash.com/photo-16556?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-057",
+    "name": "Whisper Cottage",
+    "location": "Mauritius",
+    "rating": 4.61,
+    "price": 21378,
+    "image": "https://images.unsplash.com/photo-16557?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-058",
+    "name": "Garden Retreat",
+    "location": "Udaipur, Rajasthan, India",
+    "rating": 4.52,
+    "price": 12726,
+    "image": "https://images.unsplash.com/photo-16558?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-059",
+    "name": "Golden Estate",
+    "location": "Munnar, Kerala, India",
+    "rating": 4.62,
+    "price": 22605,
+    "image": "https://images.unsplash.com/photo-16559?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-060",
+    "name": "Crystal Villa",
+    "location": "North Goa, India",
+    "rating": 4.62,
+    "price": 12885,
+    "image": "https://images.unsplash.com/photo-16560?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-061",
+    "name": "Silk Haven",
+    "location": "Pink City, Jaipur, India",
+    "rating": 4.88,
+    "price": 6987,
+    "image": "https://images.unsplash.com/photo-16561?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-062",
+    "name": "Ocean Villa",
+    "location": "Santorini, Greece",
+    "rating": 4.78,
+    "price": 10834,
+    "image": "https://images.unsplash.com/photo-16562?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-063",
+    "name": "Desert Sanctuary",
+    "location": "Tulum, Mexico",
+    "rating": 4.54,
+    "price": 12602,
+    "image": "https://images.unsplash.com/photo-16563?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-064",
+    "name": "Whisper Cottage",
+    "location": "Kyoto, Japan",
+    "rating": 4.98,
+    "price": 12409,
+    "image": "https://images.unsplash.com/photo-16564?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-065",
+    "name": "Crown Chalet",
+    "location": "Aspen, Colorado, USA",
+    "rating": 4.53,
+    "price": 21870,
+    "image": "https://images.unsplash.com/photo-16565?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-066",
+    "name": "Velvet Palace",
+    "location": "Bali, Indonesia",
+    "rating": 4.93,
+    "price": 5974,
+    "image": "https://images.unsplash.com/photo-16566?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-067",
+    "name": "Desert Lodge",
+    "location": "Cape Town, South Africa",
+    "rating": 4.73,
+    "price": 25395,
+    "image": "https://images.unsplash.com/photo-16567?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-068",
+    "name": "Forest Hideaway",
+    "location": "Ibiza, Spain",
+    "rating": 4.82,
+    "price": 15276,
+    "image": "https://images.unsplash.com/photo-16568?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-069",
+    "name": "Ocean Oasis",
+    "location": "Paris, France",
+    "rating": 4.75,
+    "price": 12518,
+    "image": "https://images.unsplash.com/photo-16569?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-070",
+    "name": "Pearl Resort",
+    "location": "Swiss Alps, Switzerland",
+    "rating": 4.92,
+    "price": 15087,
+    "image": "https://images.unsplash.com/photo-16570?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-071",
+    "name": "Whisper Lodge",
+    "location": "Queenstown, New Zealand",
+    "rating": 4.62,
+    "price": 21900,
+    "image": "https://images.unsplash.com/photo-16571?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-072",
+    "name": "Whisper Estate",
+    "location": "Maldives",
+    "rating": 4.6,
+    "price": 6567,
+    "image": "https://images.unsplash.com/photo-16572?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-073",
+    "name": "Emerald Mansion",
+    "location": "Reykjavik, Iceland",
+    "rating": 4.55,
+    "price": 18122,
+    "image": "https://images.unsplash.com/photo-16573?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-074",
+    "name": "Forest Haven",
+    "location": "Dubai, UAE",
+    "rating": 4.6,
+    "price": 20625,
+    "image": "https://images.unsplash.com/photo-16574?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-075",
+    "name": "Crystal Suites",
+    "location": "Marrakech, Morocco",
+    "rating": 4.85,
+    "price": 16809,
+    "image": "https://images.unsplash.com/photo-16575?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-076",
+    "name": "Garden Haven",
+    "location": "Napa Valley, USA",
+    "rating": 4.82,
+    "price": 20240,
+    "image": "https://images.unsplash.com/photo-16576?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-077",
+    "name": "Emerald Haven",
+    "location": "Loire Valley, France",
+    "rating": 4.69,
+    "price": 17313,
+    "image": "https://images.unsplash.com/photo-16577?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-078",
+    "name": "Desert Suites",
+    "location": "Big Sur, California, USA",
+    "rating": 4.66,
+    "price": 10648,
+    "image": "https://images.unsplash.com/photo-16578?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-079",
+    "name": "Moonlight Manor",
+    "location": "Kyushu, Japan",
+    "rating": 4.98,
+    "price": 11173,
+    "image": "https://images.unsplash.com/photo-16579?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-080",
+    "name": "Pearl Resort",
+    "location": "Amalfi Coast, Italy",
+    "rating": 4.78,
+    "price": 5363,
+    "image": "https://images.unsplash.com/photo-16580?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-081",
+    "name": "Azure Oasis",
+    "location": "Positano, Italy",
+    "rating": 4.86,
+    "price": 8970,
+    "image": "https://images.unsplash.com/photo-16581?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-082",
+    "name": "Velvet Retreat",
+    "location": "Banff, Canada",
+    "rating": 4.5,
+    "price": 12654,
+    "image": "https://images.unsplash.com/photo-16582?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-083",
+    "name": "Whisper Sanctuary",
+    "location": "Dubai Marina, UAE",
+    "rating": 4.71,
+    "price": 12831,
+    "image": "https://images.unsplash.com/photo-16583?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-084",
+    "name": "Crown Resort",
+    "location": "Phuket, Thailand",
+    "rating": 4.67,
+    "price": 11780,
+    "image": "https://images.unsplash.com/photo-16584?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-085",
+    "name": "Ocean Mansion",
+    "location": "Sydney, Australia",
+    "rating": 4.7,
+    "price": 5208,
+    "image": "https://images.unsplash.com/photo-16585?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-086",
+    "name": "Azure Suites",
+    "location": "Berlin, Germany",
+    "rating": 4.68,
+    "price": 14931,
+    "image": "https://images.unsplash.com/photo-16586?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-087",
+    "name": "Whisper Resort",
+    "location": "London, UK",
+    "rating": 4.67,
+    "price": 16541,
+    "image": "https://images.unsplash.com/photo-16587?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-088",
+    "name": "Emerald Estate",
+    "location": "Barcelona, Spain",
+    "rating": 4.74,
+    "price": 25570,
+    "image": "https://images.unsplash.com/photo-16588?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-089",
+    "name": "Secret Estate",
+    "location": "Santander, Spain",
+    "rating": 4.54,
+    "price": 16735,
+    "image": "https://images.unsplash.com/photo-16589?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-090",
+    "name": "Garden Hideaway",
+    "location": "Vancouver, Canada",
+    "rating": 4.8,
+    "price": 7332,
+    "image": "https://images.unsplash.com/photo-16590?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-091",
+    "name": "Silk Haven",
+    "location": "Lisbon, Portugal",
+    "rating": 4.79,
+    "price": 24116,
+    "image": "https://images.unsplash.com/photo-16591?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-092",
+    "name": "Sky Lodge",
+    "location": "Buenos Aires, Argentina",
+    "rating": 4.83,
+    "price": 16120,
+    "image": "https://images.unsplash.com/photo-16592?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-093",
+    "name": "Emerald Resort",
+    "location": "Rio de Janeiro, Brazil",
+    "rating": 4.55,
+    "price": 17052,
+    "image": "https://images.unsplash.com/photo-16593?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-094",
+    "name": "Moonlight Villa",
+    "location": "Cape Winelands, South Africa",
+    "rating": 4.64,
+    "price": 23398,
+    "image": "https://images.unsplash.com/photo-16594?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-095",
+    "name": "Royal Palace",
+    "location": "Tuscany, Italy",
+    "rating": 4.58,
+    "price": 9057,
+    "image": "https://images.unsplash.com/photo-16595?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-096",
+    "name": "Desert Palace",
+    "location": "Provence, France",
+    "rating": 4.88,
+    "price": 24699,
+    "image": "https://images.unsplash.com/photo-16596?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-097",
+    "name": "Silk Palace",
+    "location": "Reethi Rah, Maldives",
+    "rating": 4.59,
+    "price": 16630,
+    "image": "https://images.unsplash.com/photo-16597?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-098",
+    "name": "Velvet Villa",
+    "location": "Serengeti, Tanzania",
+    "rating": 4.83,
+    "price": 25159,
+    "image": "https://images.unsplash.com/photo-16598?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-099",
+    "name": "Ocean Oasis",
+    "location": "Queenstown, NZ",
+    "rating": 4.51,
+    "price": 19892,
+    "image": "https://images.unsplash.com/photo-16599?auto=format&fit=crop&w=400"
+  },
+  {
+    "id": "hot-stay-100",
+    "name": "Sky Villa",
+    "location": "Whistler, Canada",
+    "rating": 4.62,
+    "price": 17169,
+    "image": "https://images.unsplash.com/photo-16600?auto=format&fit=crop&w=400"
+  }
+]

@@ -1,158 +1,4499 @@
 [
-{
+  {
     "id": "hot-stay-001",
-    "name": "The Heritage Coral Villa",
+    "name": "Velvet Oasis",
     "location": "Udaipur, Rajasthan, India",
-    "rating": 4.92,
-    "reviewCount": 458,
-    "type": "Luxury Boutique Stay",
-    "price": 12500,
-    "originalPrice": 15000,
-    "host": "Ananya Sharma",
+    "rating": 4.77,
+    "reviewCount": 417,
+    "type": "Island Villa",
+    "price": 15529,
+    "originalPrice": 20563,
+    "host": "Aria Patel",
     "guests": 4,
-    "bedrooms": 2,
-    "beds": 2,
-    "bathrooms": 2,
-    "categories": ["Castles", "Amazing views", "Trending"],
-    "description": "Nestled on the banks of Lake Pichola, The Heritage Coral Villa offers a blend of traditional Mewari architecture and modern luxury. Enjoy private balconies, hand-painted murals, and a signature infinity pool overlooking the 'City of Lakes'. Perfect for couples or small families seeking a premium escape.",
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Velvet Oasis is a beautiful retreat in Udaipur, Rajasthan, India. This property offers Room Service, Airport Shuttle, Breakfast Included, elegant interiors, and a memorable stay for guests seeking a premium experience.",
     "images": [
-        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800",
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400",
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=400",
-        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=400",
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400"
+      "https://images.unsplash.com/photo-15801?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15701?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15601?auto=format&fit=crop&w=400"
     ],
     "amenities": [
-        "Lake View", "High-speed WiFi", "Infinity Pool", 
-        "Dedicated Workspace", "Central AC", "Free Parking", 
-        "Breakfast Included", "Pet Friendly"
+      "Breakfast Included",
+      "Beach Access",
+      "High-speed WiFi",
+      "Sauna",
+      "Mountain View",
+      "Infinity Pool"
     ],
     "reviews": [
-        { 
-            "userName": "Vikram Singh", 
-            "avatar": "https://i.pravatar.cc/100?u=vikram", 
-            "date": "February 2026", 
-            "comment": "The views are even better than the photos! The staff made us feel like royalty.", 
-            "rating": 5 
-        },
-        { 
-            "userName": "Sarah Jenkins", 
-            "avatar": "https://i.pravatar.cc/100?u=sarah", 
-            "date": "January 2026", 
-            "comment": "Extremely clean and the decor is stunning. Best stay in Udaipur so far.", 
-            "rating": 4.8 
-        }
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel1",
+        "date": "December 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.5
+      }
     ]
-},
+  },
   {
     "id": "hot-stay-002",
-    "name": "The Glass Treehouse",
+    "name": "Silk Oasis",
     "location": "Munnar, Kerala, India",
-    "rating": 4.98,
-    "reviewCount": 210,
-    "type": "Eco-Luxury Cabin",
-    "price": 8500,
-    "originalPrice": 11000,
-    "host": "Kiran Nair",
-    "guests": 2,
-    "bedrooms": 1,
-    "beds": 1,
-    "bathrooms": 1,
-    "categories": ["Amazing views", "Design", "Trending"],
-    "description": "Wake up literally inside the canopy. This architecturally unique treehouse features floor-to-ceiling glass walls, a private cedar wood hot tub, and organic coffee served every morning from the surrounding plantation.",
+    "rating": 4.79,
+    "reviewCount": 998,
+    "type": "Island Villa",
+    "price": 5176,
+    "originalPrice": 11037,
+    "host": "Kiran Patel",
+    "guests": 4,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Silk Oasis is a beautiful retreat in Munnar, Kerala, India. This property offers Wine Cellar, Private Hot Tub, Room Service, elegant interiors, and a memorable stay for guests seeking a premium experience.",
     "images": [
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800",
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400"
+      "https://images.unsplash.com/photo-15802?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15702?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15602?auto=format&fit=crop&w=400"
     ],
     "amenities": [
-      "Mountain View", "Private Hot Tub", "Breakfast Included", 
-      "Fireplace", "Eco-Friendly Bath Kit", "Nature Trail Access"
+      "Sauna",
+      "Room Service",
+      "Mountain View",
+      "Wine Cellar",
+      "Private Terrace",
+      "Airport Shuttle"
     ],
     "reviews": [
-      { 
-        "userName": "Emily Chen", 
-        "avatar": "https://i.pravatar.cc/100?u=emily", 
-        "date": "March 2026", 
-        "comment": "Pure magic. You can see the stars from your bed through the glass roof!", 
-        "rating": 5 
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel2",
+        "date": "August 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.9
       }
     ]
   },
   {
     "id": "hot-stay-003",
-    "name": "Azure Sands Beach Resort",
+    "name": "Sunset Retreat",
     "location": "North Goa, India",
-    "rating": 4.75,
-    "reviewCount": 890,
-    "type": "Oceanfront Suite",
-    "price": 18200,
-    "originalPrice": 22000,
-    "host": "Marcus D'Souza",
-    "guests": 3,
-    "bedrooms": 1,
-    "beds": 2,
-    "bathrooms": 1.5,
-    "categories": ["Beachfront", "Trending"],
-    "description": "Step directly from your terrace onto the white sands of Ashwem beach. Azure Sands offers a minimalist Mediterranean vibe with high ceilings, plush white linens, and sunset yoga sessions included.",
+    "rating": 4.79,
+    "reviewCount": 947,
+    "type": "Wellness Sanctuary",
+    "price": 21906,
+    "originalPrice": 25510,
+    "host": "Priya Chen",
+    "guests": 4,
+    "bedrooms": 4,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views"
+    ],
+    "description": "Sunset Retreat is a beautiful retreat in North Goa, India. This property offers High-speed WiFi, Smart TV, Sauna, elegant interiors, and a memorable stay for guests seeking a premium experience.",
     "images": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800",
-      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1506929113614-bb92858b6721?auto=format&fit=crop&w=400"
+      "https://images.unsplash.com/photo-15803?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15703?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15603?auto=format&fit=crop&w=400"
     ],
     "amenities": [
-      "Beach Access", "Outdoor Shower", "Mini Bar", 
-      "Snorkeling Gear", "Yoga Deck", "Room Service"
+      "Private Terrace",
+      "Outdoor Shower",
+      "Golf Course Access",
+      "Yoga Deck",
+      "Spa Access",
+      "Room Service"
     ],
     "reviews": [
-      { 
-        "userName": "Rohan Mehta", 
-        "avatar": "https://i.pravatar.cc/100?u=rohan", 
-        "date": "January 2026", 
-        "comment": "The best sunset views in Goa. Period.", 
-        "rating": 5 
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel3",
+        "date": "December 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel3",
+        "date": "May 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.6
       }
     ]
   },
   {
     "id": "hot-stay-004",
-    "name": "Royal Haveli Boutique",
-    "location": "Pink City, Jaipur",
-    "rating": 4.88,
-    "reviewCount": 512,
-    "type": "Heritage Mansion",
-    "price": 9500,
-    "originalPrice": 9500,
-    "host": "Rajveer Singh",
+    "name": "Velvet Estate",
+    "location": "Pink City, Jaipur, India",
+    "rating": 4.86,
+    "reviewCount": 1191,
+    "type": "Skyline Penthouse",
+    "price": 5384,
+    "originalPrice": 10063,
+    "host": "Sofia Nguyen",
     "guests": 5,
-    "bedrooms": 3,
-    "beds": 3,
-    "categories": ["Castles", "Design", "Trending"],
-    "bathrooms": 3,
-    "description": "A 200-year-old restored Haveli that captures the soul of Rajasthan. Featuring intricate stone carvings, a central courtyard with a fountain, and a rooftop restaurant serving authentic Rajasthani thali.",
+    "bedrooms": 5,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Amazing views",
+      "Boats",
+      "Vineyards"
+    ],
+    "description": "Velvet Estate is a beautiful retreat in Pink City, Jaipur, India. This property offers Sauna, Yoga Deck, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
     "images": [
-      "https://images.unsplash.com/photo-1598890777032-bde13fba5ad3?auto=format&fit=crop&w=800",
-      "https://images.unsplash.com/photo-1590073242678-70ee3fc28e84?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1524230507669-5ff97982bb5e?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1592317540212-c1841b417242?auto=format&fit=crop&w=400",
-      "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=400"
+      "https://images.unsplash.com/photo-15804?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15704?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15604?auto=format&fit=crop&w=400"
     ],
     "amenities": [
-      "Traditional Courtyard", "Rooftop Dining", "Airport Shuttle", 
-      "Cultural Tours", "Silk Bedding", "Library"
+      "Sauna",
+      "Golf Course Access",
+      "Parking",
+      "Breakfast Included",
+      "Wine Cellar",
+      "Spa Access"
     ],
-      "reviews": [
-        { 
-          "userName": "Aditi Rao", 
-          "avatar": "https://i.pravatar.cc/100?u=aditi", 
-          "date": "December 2025", 
-          "comment": "Felt like being on a movie set. Every corner is Instagrammable!", 
-          "rating": 5 
-        }
-        ]
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel4",
+        "date": "October 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.6
       }
+    ]
+  },
+  {
+    "id": "hot-stay-005",
+    "name": "Royal Resort",
+    "location": "Santorini, Greece",
+    "rating": 4.54,
+    "reviewCount": 397,
+    "type": "Arctic Lodge",
+    "price": 21202,
+    "originalPrice": 27674,
+    "host": "Kiran Smith",
+    "guests": 8,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views",
+      "Desert"
+    ],
+    "description": "Royal Resort is a beautiful retreat in Santorini, Greece. This property offers Beach Access, Room Service, Infinity Pool, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15805?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15705?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15605?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Golf Course Access",
+      "Gym",
+      "Outdoor Shower",
+      "Sauna",
+      "Spa Access",
+      "Wine Cellar"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel5",
+        "date": "April 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel5",
+        "date": "June 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-006",
+    "name": "Golden Resort",
+    "location": "Tulum, Mexico",
+    "rating": 4.61,
+    "reviewCount": 360,
+    "type": "Design Villa",
+    "price": 10750,
+    "originalPrice": 15853,
+    "host": "Nina Johnson",
+    "guests": 7,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 2,
+    "categories": [
+      "Castles"
+    ],
+    "description": "Golden Resort is a beautiful retreat in Tulum, Mexico. This property offers Pet Friendly, Airport Shuttle, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15806?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15706?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15606?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Room Service",
+      "Fireplace",
+      "Mountain View",
+      "Breakfast Included",
+      "Private Terrace",
+      "Yoga Deck"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel6",
+        "date": "March 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-007",
+    "name": "Forest Chalet",
+    "location": "Kyoto, Japan",
+    "rating": 4.92,
+    "reviewCount": 1120,
+    "type": "Beachfront Bungalow",
+    "price": 22816,
+    "originalPrice": 29481,
+    "host": "Priya Patel",
+    "guests": 6,
+    "bedrooms": 5,
+    "beds": 6,
+    "bathrooms": 5,
+    "categories": [
+      "Amazing views",
+      "Arctic",
+      "Boats"
+    ],
+    "description": "Forest Chalet is a beautiful retreat in Kyoto, Japan. This property offers Yoga Deck, Fireplace, High-speed WiFi, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15807?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15707?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15607?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "High-speed WiFi",
+      "Mountain View",
+      "Yoga Deck",
+      "Wine Cellar",
+      "Sauna",
+      "Smart TV"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel7",
+        "date": "February 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-008",
+    "name": "Velvet Haven",
+    "location": "Aspen, Colorado, USA",
+    "rating": 4.95,
+    "reviewCount": 362,
+    "type": "Historic Palace",
+    "price": 18322,
+    "originalPrice": 21889,
+    "host": "Tom Chen",
+    "guests": 5,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Desert",
+      "Golfing"
+    ],
+    "description": "Velvet Haven is a beautiful retreat in Aspen, Colorado, USA. This property offers Breakfast Included, Airport Shuttle, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15808?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15708?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15608?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Beach Access",
+      "Pet Friendly",
+      "Gym",
+      "Private Terrace",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel8",
+        "date": "November 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-009",
+    "name": "Pearl Bungalow",
+    "location": "Bali, Indonesia",
+    "rating": 4.62,
+    "reviewCount": 420,
+    "type": "Historic Palace",
+    "price": 15289,
+    "originalPrice": 21039,
+    "host": "Noah Rao",
+    "guests": 9,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Trending",
+      "Vineyards"
+    ],
+    "description": "Pearl Bungalow is a beautiful retreat in Bali, Indonesia. This property offers Golf Course Access, Breakfast Included, Sauna, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15809?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15709?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15609?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "Parking",
+      "Wine Cellar",
+      "Beach Access",
+      "Infinity Pool",
+      "Airport Shuttle"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel9",
+        "date": "December 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel9",
+        "date": "February 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-010",
+    "name": "Whisper Estate",
+    "location": "Cape Town, South Africa",
+    "rating": 4.89,
+    "reviewCount": 440,
+    "type": "Arctic Lodge",
+    "price": 25436,
+    "originalPrice": 29316,
+    "host": "Noah Chen",
+    "guests": 6,
+    "bedrooms": 5,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Arctic",
+      "Castles",
+      "Desert"
+    ],
+    "description": "Whisper Estate is a beautiful retreat in Cape Town, South Africa. This property offers Gym, Private Terrace, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15810?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15710?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15610?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Gym",
+      "Golf Course Access",
+      "Room Service",
+      "Parking",
+      "Airport Shuttle",
+      "Infinity Pool"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel10",
+        "date": "July 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-011",
+    "name": "Sunset Haven",
+    "location": "Ibiza, Spain",
+    "rating": 4.83,
+    "reviewCount": 799,
+    "type": "Luxury Boutique Stay",
+    "price": 25274,
+    "originalPrice": 30945,
+    "host": "Mia Sharma",
+    "guests": 3,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 2,
+    "categories": [
+      "Vineyards"
+    ],
+    "description": "Sunset Haven is a beautiful retreat in Ibiza, Spain. This property offers Sauna, Golf Course Access, Wine Cellar, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15811?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15711?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15611?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Sauna",
+      "Room Service",
+      "Gym",
+      "Wine Cellar",
+      "High-speed WiFi",
+      "Golf Course Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel11",
+        "date": "January 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel11",
+        "date": "December 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-012",
+    "name": "Secret Oasis",
+    "location": "Paris, France",
+    "rating": 4.77,
+    "reviewCount": 1105,
+    "type": "Desert Retreat",
+    "price": 5053,
+    "originalPrice": 11997,
+    "host": "Mira Chen",
+    "guests": 9,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Amazing views",
+      "Beachfront",
+      "Trending"
+    ],
+    "description": "Secret Oasis is a beautiful retreat in Paris, France. This property offers Parking, Private Terrace, Private Hot Tub, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15812?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15712?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15612?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Airport Shuttle",
+      "Fireplace",
+      "Spa Access",
+      "Private Hot Tub",
+      "Beach Access",
+      "Gym"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel12",
+        "date": "November 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-013",
+    "name": "Moonlight Bungalow",
+    "location": "Swiss Alps, Switzerland",
+    "rating": 4.67,
+    "reviewCount": 285,
+    "type": "Heritage Mansion",
+    "price": 7312,
+    "originalPrice": 8278,
+    "host": "Mohan Garcia",
+    "guests": 7,
+    "bedrooms": 2,
+    "beds": 4,
+    "bathrooms": 1,
+    "categories": [
+      "Design"
+    ],
+    "description": "Moonlight Bungalow is a beautiful retreat in Swiss Alps, Switzerland. This property offers Infinity Pool, Breakfast Included, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15813?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15713?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15613?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Room Service",
+      "Smart TV",
+      "Parking",
+      "Outdoor Shower",
+      "Mountain View",
+      "Pet Friendly"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel13",
+        "date": "November 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-014",
+    "name": "Velvet Palace",
+    "location": "Queenstown, New Zealand",
+    "rating": 4.9,
+    "reviewCount": 802,
+    "type": "Arctic Lodge",
+    "price": 18570,
+    "originalPrice": 20627,
+    "host": "Aria Kim",
+    "guests": 6,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 5,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Velvet Palace is a beautiful retreat in Queenstown, New Zealand. This property offers Private Terrace, Fireplace, Infinity Pool, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15814?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15714?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15614?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Gym",
+      "Private Hot Tub",
+      "Infinity Pool",
+      "Pet Friendly",
+      "Parking",
+      "Smart TV"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel14",
+        "date": "March 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel14",
+        "date": "April 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-015",
+    "name": "Azure Villa",
+    "location": "Maldives",
+    "rating": 4.71,
+    "reviewCount": 155,
+    "type": "Mountain Chalet",
+    "price": 18928,
+    "originalPrice": 21674,
+    "host": "Dev Sharma",
+    "guests": 10,
+    "bedrooms": 1,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Azure Villa is a beautiful retreat in Maldives. This property offers Airport Shuttle, Beach Access, Sauna, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15815?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15715?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15615?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Beach Access",
+      "Sauna",
+      "Wine Cellar",
+      "Parking",
+      "Golf Course Access",
+      "Room Service"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel15",
+        "date": "July 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel15",
+        "date": "September 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-016",
+    "name": "Moonlight Oasis",
+    "location": "Reykjavik, Iceland",
+    "rating": 4.84,
+    "reviewCount": 313,
+    "type": "Eco-Luxury Cabin",
+    "price": 7926,
+    "originalPrice": 13915,
+    "host": "Priya Chen",
+    "guests": 7,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Moonlight Oasis is a beautiful retreat in Reykjavik, Iceland. This property offers Infinity Pool, Spa Access, Airport Shuttle, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15816?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15716?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15616?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Room Service",
+      "Infinity Pool",
+      "Wine Cellar",
+      "Outdoor Shower",
+      "Parking",
+      "Pet Friendly"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel16",
+        "date": "July 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-017",
+    "name": "Whisper Mansion",
+    "location": "Dubai, UAE",
+    "rating": 4.62,
+    "reviewCount": 201,
+    "type": "Arctic Lodge",
+    "price": 24745,
+    "originalPrice": 27754,
+    "host": "Aria Sharma",
+    "guests": 4,
+    "bedrooms": 2,
+    "beds": 4,
+    "bathrooms": 1,
+    "categories": [
+      "Beachfront",
+      "Boats",
+      "Golfing"
+    ],
+    "description": "Whisper Mansion is a beautiful retreat in Dubai, UAE. This property offers Spa Access, Mountain View, Airport Shuttle, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15817?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15717?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15617?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Private Hot Tub",
+      "Yoga Deck",
+      "Mountain View",
+      "Room Service",
+      "Parking"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel17",
+        "date": "October 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-018",
+    "name": "Azure Estate",
+    "location": "Marrakech, Morocco",
+    "rating": 4.89,
+    "reviewCount": 303,
+    "type": "Heritage Mansion",
+    "price": 10199,
+    "originalPrice": 12909,
+    "host": "Nina Garcia",
+    "guests": 3,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views",
+      "Beachfront",
+      "Vineyards"
+    ],
+    "description": "Azure Estate is a beautiful retreat in Marrakech, Morocco. This property offers Pet Friendly, Wine Cellar, Yoga Deck, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15818?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15718?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15618?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Breakfast Included",
+      "Golf Course Access",
+      "Mountain View",
+      "Gym",
+      "Fireplace"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel18",
+        "date": "June 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-019",
+    "name": "Whisper Suites",
+    "location": "Napa Valley, USA",
+    "rating": 4.61,
+    "reviewCount": 255,
+    "type": "Historic Palace",
+    "price": 20499,
+    "originalPrice": 24795,
+    "host": "Dev Khan",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Beachfront",
+      "Boats"
+    ],
+    "description": "Whisper Suites is a beautiful retreat in Napa Valley, USA. This property offers Spa Access, Pet Friendly, Golf Course Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15819?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15719?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15619?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Outdoor Shower",
+      "Gym",
+      "High-speed WiFi",
+      "Infinity Pool",
+      "Mountain View",
+      "Private Hot Tub"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel19",
+        "date": "May 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel19",
+        "date": "February 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-020",
+    "name": "Forest Palace",
+    "location": "Loire Valley, France",
+    "rating": 4.51,
+    "reviewCount": 913,
+    "type": "Golf Resort",
+    "price": 13108,
+    "originalPrice": 14585,
+    "host": "Ethan Sharma",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 4,
+    "bathrooms": 1,
+    "categories": [
+      "Arctic",
+      "Castles",
+      "Vineyards"
+    ],
+    "description": "Forest Palace is a beautiful retreat in Loire Valley, France. This property offers Wine Cellar, Airport Shuttle, Golf Course Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15820?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15720?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15620?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Spa Access",
+      "Gym",
+      "Private Hot Tub",
+      "Yoga Deck",
+      "Pet Friendly"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel20",
+        "date": "September 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel20",
+        "date": "August 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-021",
+    "name": "Moonlight Mansion",
+    "location": "Big Sur, California, USA",
+    "rating": 4.55,
+    "reviewCount": 123,
+    "type": "Vineyard Estate",
+    "price": 14192,
+    "originalPrice": 20701,
+    "host": "Mohan Chen",
+    "guests": 5,
+    "bedrooms": 4,
+    "beds": 6,
+    "bathrooms": 4,
+    "categories": [
+      "Beachfront"
+    ],
+    "description": "Moonlight Mansion is a beautiful retreat in Big Sur, California, USA. This property offers Wine Cellar, Pet Friendly, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15821?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15721?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15621?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "Sauna",
+      "Wine Cellar",
+      "Breakfast Included",
+      "Smart TV",
+      "Yoga Deck"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel21",
+        "date": "June 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 5.0
+      },
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel21",
+        "date": "October 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-022",
+    "name": "Velvet Resort",
+    "location": "Kyushu, Japan",
+    "rating": 4.75,
+    "reviewCount": 566,
+    "type": "Eco-Luxury Cabin",
+    "price": 7358,
+    "originalPrice": 13359,
+    "host": "Mira Khan",
+    "guests": 9,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Boats"
+    ],
+    "description": "Velvet Resort is a beautiful retreat in Kyushu, Japan. This property offers High-speed WiFi, Wine Cellar, Spa Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15822?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15722?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15622?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Room Service",
+      "Gym",
+      "Fireplace",
+      "Private Hot Tub",
+      "Sauna",
+      "Yoga Deck"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel22",
+        "date": "August 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel22",
+        "date": "June 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-023",
+    "name": "Silk Palace",
+    "location": "Amalfi Coast, Italy",
+    "rating": 4.58,
+    "reviewCount": 329,
+    "type": "Arctic Lodge",
+    "price": 14563,
+    "originalPrice": 17686,
+    "host": "Mira D'Souza",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Boats",
+      "Design",
+      "Vineyards"
+    ],
+    "description": "Silk Palace is a beautiful retreat in Amalfi Coast, Italy. This property offers Private Terrace, Spa Access, Yoga Deck, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15823?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15723?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15623?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "High-speed WiFi",
+      "Mountain View",
+      "Beach Access",
+      "Breakfast Included",
+      "Room Service",
+      "Parking"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel23",
+        "date": "February 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-024",
+    "name": "Honey Suites",
+    "location": "Positano, Italy",
+    "rating": 4.7,
+    "reviewCount": 798,
+    "type": "Desert Retreat",
+    "price": 5878,
+    "originalPrice": 8401,
+    "host": "Mohan Nguyen",
+    "guests": 6,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Trending",
+      "Vineyards"
+    ],
+    "description": "Honey Suites is a beautiful retreat in Positano, Italy. This property offers Golf Course Access, Private Terrace, Room Service, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15824?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15724?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15624?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "Airport Shuttle",
+      "Parking",
+      "Fireplace",
+      "Pet Friendly",
+      "Outdoor Shower"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel24",
+        "date": "April 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 5.0
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel24",
+        "date": "August 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-025",
+    "name": "Coral Bungalow",
+    "location": "Banff, Canada",
+    "rating": 4.88,
+    "reviewCount": 858,
+    "type": "Vineyard Estate",
+    "price": 24222,
+    "originalPrice": 30957,
+    "host": "Dev Sharma",
+    "guests": 9,
+    "bedrooms": 4,
+    "beds": 6,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views"
+    ],
+    "description": "Coral Bungalow is a beautiful retreat in Banff, Canada. This property offers Gym, High-speed WiFi, Outdoor Shower, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15825?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15725?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15625?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Yoga Deck",
+      "Gym",
+      "Breakfast Included",
+      "Outdoor Shower",
+      "Golf Course Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel25",
+        "date": "February 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel25",
+        "date": "October 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-026",
+    "name": "Secret Suites",
+    "location": "Dubai Marina, UAE",
+    "rating": 4.97,
+    "reviewCount": 1032,
+    "type": "Design Villa",
+    "price": 20707,
+    "originalPrice": 24552,
+    "host": "Ethan Sharma",
+    "guests": 6,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 2,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Secret Suites is a beautiful retreat in Dubai Marina, UAE. This property offers Wine Cellar, Mountain View, Outdoor Shower, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15826?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15726?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15626?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Smart TV",
+      "Sauna",
+      "Fireplace",
+      "Private Terrace",
+      "Beach Access",
+      "Gym"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel26",
+        "date": "September 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel26",
+        "date": "October 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-027",
+    "name": "Garden Retreat",
+    "location": "Phuket, Thailand",
+    "rating": 4.84,
+    "reviewCount": 1180,
+    "type": "Arctic Lodge",
+    "price": 22544,
+    "originalPrice": 26656,
+    "host": "Leo Singh",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 2,
+    "categories": [
+      "Amazing views",
+      "Arctic",
+      "Boats"
+    ],
+    "description": "Garden Retreat is a beautiful retreat in Phuket, Thailand. This property offers Parking, Breakfast Included, Spa Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15827?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15727?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15627?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Outdoor Shower",
+      "Sauna",
+      "Private Hot Tub",
+      "Pet Friendly",
+      "Airport Shuttle",
+      "Smart TV"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel27",
+        "date": "July 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-028",
+    "name": "Golden Cottage",
+    "location": "Sydney, Australia",
+    "rating": 4.56,
+    "reviewCount": 950,
+    "type": "Design Villa",
+    "price": 9127,
+    "originalPrice": 11498,
+    "host": "Kiran Johnson",
+    "guests": 6,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Design"
+    ],
+    "description": "Golden Cottage is a beautiful retreat in Sydney, Australia. This property offers Room Service, Sauna, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15828?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15728?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15628?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Sauna",
+      "Pet Friendly",
+      "Breakfast Included",
+      "Parking",
+      "Airport Shuttle",
+      "Private Terrace"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel28",
+        "date": "December 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.5
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel28",
+        "date": "June 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-029",
+    "name": "Sky Bungalow",
+    "location": "Berlin, Germany",
+    "rating": 4.72,
+    "reviewCount": 721,
+    "type": "Island Villa",
+    "price": 19124,
+    "originalPrice": 21044,
+    "host": "Mira Singh",
+    "guests": 5,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Arctic"
+    ],
+    "description": "Sky Bungalow is a beautiful retreat in Berlin, Germany. This property offers Wine Cellar, Airport Shuttle, Outdoor Shower, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15829?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15729?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15629?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Golf Course Access",
+      "Outdoor Shower",
+      "High-speed WiFi",
+      "Infinity Pool",
+      "Airport Shuttle",
+      "Sauna"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel29",
+        "date": "August 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel29",
+        "date": "February 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-030",
+    "name": "Ocean Retreat",
+    "location": "London, UK",
+    "rating": 4.66,
+    "reviewCount": 1052,
+    "type": "Beachfront Bungalow",
+    "price": 7349,
+    "originalPrice": 12585,
+    "host": "Dev Fernandez",
+    "guests": 7,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 3,
+    "categories": [
+      "Boats"
+    ],
+    "description": "Ocean Retreat is a beautiful retreat in London, UK. This property offers High-speed WiFi, Gym, Room Service, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15830?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15730?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15630?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Airport Shuttle",
+      "Spa Access",
+      "Beach Access",
+      "Wine Cellar",
+      "Pet Friendly",
+      "Parking"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel30",
+        "date": "August 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-031",
+    "name": "Sky Manor",
+    "location": "Barcelona, Spain",
+    "rating": 4.72,
+    "reviewCount": 944,
+    "type": "Skyline Penthouse",
+    "price": 8658,
+    "originalPrice": 11948,
+    "host": "Leo Lee",
+    "guests": 3,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Beachfront"
+    ],
+    "description": "Sky Manor is a beautiful retreat in Barcelona, Spain. This property offers Beach Access, Fireplace, Infinity Pool, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15831?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15731?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15631?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Outdoor Shower",
+      "Infinity Pool",
+      "Beach Access",
+      "Airport Shuttle",
+      "Private Terrace"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel31",
+        "date": "March 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel31",
+        "date": "August 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-032",
+    "name": "Coral Manor",
+    "location": "Santander, Spain",
+    "rating": 4.67,
+    "reviewCount": 830,
+    "type": "Mountain Chalet",
+    "price": 20702,
+    "originalPrice": 23361,
+    "host": "Mira Garcia",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Golfing"
+    ],
+    "description": "Coral Manor is a beautiful retreat in Santander, Spain. This property offers Spa Access, Pet Friendly, Parking, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15832?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15732?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15632?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Smart TV",
+      "Private Hot Tub",
+      "Yoga Deck",
+      "Fireplace",
+      "High-speed WiFi",
+      "Spa Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel32",
+        "date": "February 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 5.0
+      },
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel32",
+        "date": "February 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-033",
+    "name": "Pearl Sanctuary",
+    "location": "Vancouver, Canada",
+    "rating": 4.66,
+    "reviewCount": 237,
+    "type": "Desert Retreat",
+    "price": 9879,
+    "originalPrice": 13167,
+    "host": "Tom Nguyen",
+    "guests": 8,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Arctic",
+      "Desert"
+    ],
+    "description": "Pearl Sanctuary is a beautiful retreat in Vancouver, Canada. This property offers Beach Access, Parking, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15833?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15733?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15633?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Wine Cellar",
+      "Outdoor Shower",
+      "Parking",
+      "High-speed WiFi",
+      "Pet Friendly",
+      "Infinity Pool"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel33",
+        "date": "August 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel33",
+        "date": "September 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-034",
+    "name": "Royal Estate",
+    "location": "Lisbon, Portugal",
+    "rating": 4.53,
+    "reviewCount": 406,
+    "type": "Mountain Chalet",
+    "price": 8663,
+    "originalPrice": 9296,
+    "host": "Sofia Garcia",
+    "guests": 6,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 2,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Royal Estate is a beautiful retreat in Lisbon, Portugal. This property offers Parking, High-speed WiFi, Beach Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15834?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15734?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15634?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Wine Cellar",
+      "Parking",
+      "Gym",
+      "Pet Friendly",
+      "Fireplace"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel34",
+        "date": "November 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-035",
+    "name": "Sky Haven",
+    "location": "Buenos Aires, Argentina",
+    "rating": 4.52,
+    "reviewCount": 729,
+    "type": "Mountain Chalet",
+    "price": 25049,
+    "originalPrice": 26252,
+    "host": "Mohan Johnson",
+    "guests": 7,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 5,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Sky Haven is a beautiful retreat in Buenos Aires, Argentina. This property offers Mountain View, Wine Cellar, Breakfast Included, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15835?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15735?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15635?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Mountain View",
+      "Gym",
+      "Beach Access",
+      "Spa Access",
+      "Pet Friendly",
+      "Airport Shuttle"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel35",
+        "date": "July 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-036",
+    "name": "Ocean Chalet",
+    "location": "Rio de Janeiro, Brazil",
+    "rating": 4.88,
+    "reviewCount": 1158,
+    "type": "Historic Palace",
+    "price": 14464,
+    "originalPrice": 18652,
+    "host": "Tom Garcia",
+    "guests": 8,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Boats",
+      "Castles"
+    ],
+    "description": "Ocean Chalet is a beautiful retreat in Rio de Janeiro, Brazil. This property offers Infinity Pool, Sauna, Outdoor Shower, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15836?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15736?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15636?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Outdoor Shower",
+      "Fireplace",
+      "Parking",
+      "Yoga Deck",
+      "Mountain View",
+      "Private Hot Tub"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel36",
+        "date": "May 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel36",
+        "date": "September 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-037",
+    "name": "Velvet Chalet",
+    "location": "Cape Winelands, South Africa",
+    "rating": 4.71,
+    "reviewCount": 756,
+    "type": "Skyline Penthouse",
+    "price": 17133,
+    "originalPrice": 19151,
+    "host": "Aditi Patel",
+    "guests": 7,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Amazing views",
+      "Golfing",
+      "Trending"
+    ],
+    "description": "Velvet Chalet is a beautiful retreat in Cape Winelands, South Africa. This property offers Pet Friendly, Spa Access, Sauna, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15837?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15737?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15637?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Wine Cellar",
+      "Pet Friendly",
+      "Outdoor Shower",
+      "Airport Shuttle",
+      "Beach Access",
+      "Yoga Deck"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel37",
+        "date": "July 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-038",
+    "name": "Velvet Hideaway",
+    "location": "Tuscany, Italy",
+    "rating": 4.75,
+    "reviewCount": 811,
+    "type": "Historic Palace",
+    "price": 11233,
+    "originalPrice": 17044,
+    "host": "Anil Johnson",
+    "guests": 8,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Velvet Hideaway is a beautiful retreat in Tuscany, Italy. This property offers Room Service, Pet Friendly, High-speed WiFi, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15838?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15738?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15638?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "Spa Access",
+      "Gym",
+      "Parking",
+      "Breakfast Included",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel38",
+        "date": "June 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-039",
+    "name": "Sunset Estate",
+    "location": "Provence, France",
+    "rating": 4.86,
+    "reviewCount": 999,
+    "type": "Beachfront Bungalow",
+    "price": 7453,
+    "originalPrice": 12321,
+    "host": "Nina Chen",
+    "guests": 4,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 3,
+    "categories": [
+      "Vineyards"
+    ],
+    "description": "Sunset Estate is a beautiful retreat in Provence, France. This property offers High-speed WiFi, Pet Friendly, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15839?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15739?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15639?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Gym",
+      "Fireplace",
+      "Parking",
+      "Private Hot Tub",
+      "Golf Course Access",
+      "Room Service"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel39",
+        "date": "August 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel39",
+        "date": "October 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-040",
+    "name": "Velvet Villa",
+    "location": "Reethi Rah, Maldives",
+    "rating": 4.77,
+    "reviewCount": 361,
+    "type": "Desert Retreat",
+    "price": 19592,
+    "originalPrice": 22886,
+    "host": "Mira D'Souza",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Castles"
+    ],
+    "description": "Velvet Villa is a beautiful retreat in Reethi Rah, Maldives. This property offers Pet Friendly, High-speed WiFi, Spa Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15840?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15740?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15640?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Parking",
+      "Infinity Pool",
+      "Smart TV",
+      "Private Hot Tub",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel40",
+        "date": "March 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-041",
+    "name": "Forest Villa",
+    "location": "Serengeti, Tanzania",
+    "rating": 4.84,
+    "reviewCount": 830,
+    "type": "Mountain Chalet",
+    "price": 13030,
+    "originalPrice": 19867,
+    "host": "Lina Smith",
+    "guests": 7,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Arctic"
+    ],
+    "description": "Forest Villa is a beautiful retreat in Serengeti, Tanzania. This property offers Gym, Spa Access, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15841?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15741?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15641?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Sauna",
+      "Smart TV",
+      "High-speed WiFi",
+      "Pet Friendly",
+      "Golf Course Access",
+      "Private Hot Tub"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel41",
+        "date": "March 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-042",
+    "name": "Pearl Manor",
+    "location": "Queenstown, NZ",
+    "rating": 4.65,
+    "reviewCount": 934,
+    "type": "Mountain Chalet",
+    "price": 15384,
+    "originalPrice": 16433,
+    "host": "Rahul Gupta",
+    "guests": 10,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Castles"
+    ],
+    "description": "Pearl Manor is a beautiful retreat in Queenstown, NZ. This property offers Private Terrace, Fireplace, Breakfast Included, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15842?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15742?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15642?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Terrace",
+      "Outdoor Shower",
+      "Wine Cellar",
+      "Golf Course Access",
+      "Sauna",
+      "Smart TV"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel42",
+        "date": "April 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-043",
+    "name": "Azure Lodge",
+    "location": "Whistler, Canada",
+    "rating": 4.95,
+    "reviewCount": 493,
+    "type": "Luxury Boutique Stay",
+    "price": 25095,
+    "originalPrice": 31492,
+    "host": "Mohan Fernandez",
+    "guests": 5,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Vineyards"
+    ],
+    "description": "Azure Lodge is a beautiful retreat in Whistler, Canada. This property offers Yoga Deck, Golf Course Access, Private Terrace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15843?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15743?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15643?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Infinity Pool",
+      "Sauna",
+      "Golf Course Access",
+      "Outdoor Shower",
+      "Airport Shuttle"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel43",
+        "date": "March 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-044",
+    "name": "Silk Oasis",
+    "location": "Zermatt, Switzerland",
+    "rating": 4.76,
+    "reviewCount": 397,
+    "type": "Arctic Lodge",
+    "price": 6825,
+    "originalPrice": 9260,
+    "host": "Dev Fernandez",
+    "guests": 6,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 4,
+    "categories": [
+      "Beachfront",
+      "Boats",
+      "Golfing"
+    ],
+    "description": "Silk Oasis is a beautiful retreat in Zermatt, Switzerland. This property offers Airport Shuttle, Parking, Smart TV, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15844?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15744?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15644?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Terrace",
+      "Fireplace",
+      "Golf Course Access",
+      "Outdoor Shower",
+      "Wine Cellar",
+      "Parking"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel44",
+        "date": "April 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-045",
+    "name": "Secret Cottage",
+    "location": "Lapland, Finland",
+    "rating": 4.85,
+    "reviewCount": 383,
+    "type": "Design Villa",
+    "price": 15866,
+    "originalPrice": 21382,
+    "host": "Aditi Khan",
+    "guests": 5,
+    "bedrooms": 5,
+    "beds": 6,
+    "bathrooms": 5,
+    "categories": [
+      "Vineyards"
+    ],
+    "description": "Secret Cottage is a beautiful retreat in Lapland, Finland. This property offers High-speed WiFi, Airport Shuttle, Private Terrace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15845?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15745?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15645?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Spa Access",
+      "Smart TV",
+      "Room Service",
+      "Outdoor Shower",
+      "Golf Course Access",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel45",
+        "date": "May 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel45",
+        "date": "August 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-046",
+    "name": "Crystal Palace",
+    "location": "Aspen, USA",
+    "rating": 4.55,
+    "reviewCount": 690,
+    "type": "Mountain Chalet",
+    "price": 10179,
+    "originalPrice": 15535,
+    "host": "Rahul Gupta",
+    "guests": 9,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Arctic"
+    ],
+    "description": "Crystal Palace is a beautiful retreat in Aspen, USA. This property offers Wine Cellar, Airport Shuttle, Yoga Deck, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15846?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15746?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15646?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Gym",
+      "Breakfast Included",
+      "Fireplace",
+      "Pet Friendly",
+      "Mountain View",
+      "Private Hot Tub"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel46",
+        "date": "August 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-047",
+    "name": "Velvet Estate",
+    "location": "Sedona, USA",
+    "rating": 4.67,
+    "reviewCount": 590,
+    "type": "Treehouse Escape",
+    "price": 7004,
+    "originalPrice": 9884,
+    "host": "Aanya Smith",
+    "guests": 3,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Amazing views",
+      "Beachfront",
+      "Golfing"
+    ],
+    "description": "Velvet Estate is a beautiful retreat in Sedona, USA. This property offers Yoga Deck, Private Terrace, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15847?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15747?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15647?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Infinity Pool",
+      "Room Service",
+      "Yoga Deck",
+      "Parking",
+      "Beach Access",
+      "Spa Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel47",
+        "date": "November 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-048",
+    "name": "Moonlight Cottage",
+    "location": "Marrakesh, Morocco",
+    "rating": 4.65,
+    "reviewCount": 443,
+    "type": "Luxury Boutique Stay",
+    "price": 4804,
+    "originalPrice": 7430,
+    "host": "Mira Garcia",
+    "guests": 8,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Beachfront",
+      "Boats"
+    ],
+    "description": "Moonlight Cottage is a beautiful retreat in Marrakesh, Morocco. This property offers Spa Access, Gym, Breakfast Included, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15848?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15748?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15648?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Spa Access",
+      "Yoga Deck",
+      "Pet Friendly",
+      "Sauna",
+      "Gym",
+      "Wine Cellar"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel48",
+        "date": "June 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-049",
+    "name": "Desert Cottage",
+    "location": "Cairo, Egypt",
+    "rating": 4.8,
+    "reviewCount": 1062,
+    "type": "Vineyard Estate",
+    "price": 25471,
+    "originalPrice": 28862,
+    "host": "Priya Patel",
+    "guests": 7,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 5,
+    "categories": [
+      "Vineyards"
+    ],
+    "description": "Desert Cottage is a beautiful retreat in Cairo, Egypt. This property offers Infinity Pool, Private Terrace, Smart TV, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15849?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15749?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15649?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Airport Shuttle",
+      "Golf Course Access",
+      "Outdoor Shower",
+      "Sauna",
+      "Yoga Deck",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel49",
+        "date": "November 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel49",
+        "date": "March 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-050",
+    "name": "Honey Hideaway",
+    "location": "Santorini, Greece",
+    "rating": 4.87,
+    "reviewCount": 695,
+    "type": "Beachfront Bungalow",
+    "price": 4577,
+    "originalPrice": 7338,
+    "host": "Noah Sharma",
+    "guests": 5,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 5,
+    "categories": [
+      "Design"
+    ],
+    "description": "Honey Hideaway is a beautiful retreat in Santorini, Greece. This property offers Smart TV, Fireplace, Room Service, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15850?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15750?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15650?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "High-speed WiFi",
+      "Gym",
+      "Airport Shuttle",
+      "Pet Friendly",
+      "Wine Cellar"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel50",
+        "date": "April 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel50",
+        "date": "March 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-051",
+    "name": "Golden Palace",
+    "location": "Milan, Italy",
+    "rating": 4.83,
+    "reviewCount": 639,
+    "type": "Design Villa",
+    "price": 24149,
+    "originalPrice": 27880,
+    "host": "Mohan Gupta",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 2,
+    "categories": [
+      "Castles"
+    ],
+    "description": "Golden Palace is a beautiful retreat in Milan, Italy. This property offers Parking, Spa Access, Private Hot Tub, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15851?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15751?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15651?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Mountain View",
+      "Airport Shuttle",
+      "Parking",
+      "Wine Cellar",
+      "Beach Access",
+      "Private Hot Tub"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel51",
+        "date": "May 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-052",
+    "name": "Ocean Chalet",
+    "location": "Stockholm, Sweden",
+    "rating": 4.9,
+    "reviewCount": 264,
+    "type": "Oceanfront Suite",
+    "price": 16903,
+    "originalPrice": 17840,
+    "host": "Noah Nguyen",
+    "guests": 5,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 2,
+    "categories": [
+      "Desert",
+      "Golfing",
+      "Vineyards"
+    ],
+    "description": "Ocean Chalet is a beautiful retreat in Stockholm, Sweden. This property offers Beach Access, Wine Cellar, Sauna, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15852?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15752?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15652?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Breakfast Included",
+      "Infinity Pool",
+      "High-speed WiFi",
+      "Smart TV",
+      "Room Service"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel52",
+        "date": "August 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel52",
+        "date": "September 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-053",
+    "name": "Golden Sanctuary",
+    "location": "Edinburgh, UK",
+    "rating": 4.84,
+    "reviewCount": 557,
+    "type": "Island Villa",
+    "price": 18101,
+    "originalPrice": 23951,
+    "host": "Mira Khan",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 4,
+    "bathrooms": 1,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Golden Sanctuary is a beautiful retreat in Edinburgh, UK. This property offers Beach Access, Infinity Pool, High-speed WiFi, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15853?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15753?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15653?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Spa Access",
+      "Breakfast Included",
+      "Mountain View",
+      "Golf Course Access",
+      "Pet Friendly",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel53",
+        "date": "January 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-054",
+    "name": "Ocean Lodge",
+    "location": "Prague, Czech Republic",
+    "rating": 4.75,
+    "reviewCount": 431,
+    "type": "Island Villa",
+    "price": 21499,
+    "originalPrice": 24551,
+    "host": "Aditi D'Souza",
+    "guests": 8,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views",
+      "Castles",
+      "Desert"
+    ],
+    "description": "Ocean Lodge is a beautiful retreat in Prague, Czech Republic. This property offers Infinity Pool, Parking, Beach Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15854?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15754?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15654?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Spa Access",
+      "Room Service",
+      "Golf Course Access",
+      "Fireplace",
+      "Parking",
+      "Beach Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel54",
+        "date": "August 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-055",
+    "name": "Moonlight Cottage",
+    "location": "Vancouver, Canada",
+    "rating": 4.97,
+    "reviewCount": 840,
+    "type": "Island Villa",
+    "price": 10230,
+    "originalPrice": 16797,
+    "host": "Aditi Fernandez",
+    "guests": 4,
+    "bedrooms": 2,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Moonlight Cottage is a beautiful retreat in Vancouver, Canada. This property offers Spa Access, Private Hot Tub, Yoga Deck, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15855?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15755?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15655?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Golf Course Access",
+      "Infinity Pool",
+      "Pet Friendly",
+      "Mountain View",
+      "Smart TV"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel55",
+        "date": "June 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-056",
+    "name": "Azure Manor",
+    "location": "Buenos Aires, Argentina",
+    "rating": 4.84,
+    "reviewCount": 238,
+    "type": "Mountain Chalet",
+    "price": 9255,
+    "originalPrice": 13259,
+    "host": "Aria D'Souza",
+    "guests": 10,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Arctic",
+      "Golfing",
+      "Vineyards"
+    ],
+    "description": "Azure Manor is a beautiful retreat in Buenos Aires, Argentina. This property offers Mountain View, Breakfast Included, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15856?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15756?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15656?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Sauna",
+      "Fireplace",
+      "Gym",
+      "Beach Access",
+      "Private Hot Tub",
+      "Smart TV"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel56",
+        "date": "April 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel56",
+        "date": "February 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-057",
+    "name": "Royal Chalet",
+    "location": "Mauritius",
+    "rating": 4.51,
+    "reviewCount": 854,
+    "type": "Treehouse Escape",
+    "price": 12581,
+    "originalPrice": 14790,
+    "host": "Ethan Khan",
+    "guests": 10,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Boats"
+    ],
+    "description": "Royal Chalet is a beautiful retreat in Mauritius. This property offers Private Hot Tub, Room Service, High-speed WiFi, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15857?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15757?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15657?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Wine Cellar",
+      "Breakfast Included",
+      "Private Terrace",
+      "Parking",
+      "Pet Friendly",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel57",
+        "date": "October 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel57",
+        "date": "May 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-058",
+    "name": "Crown Resort",
+    "location": "Udaipur, Rajasthan, India",
+    "rating": 4.76,
+    "reviewCount": 664,
+    "type": "Oceanfront Suite",
+    "price": 14414,
+    "originalPrice": 20080,
+    "host": "Sofia Fernandez",
+    "guests": 8,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Crown Resort is a beautiful retreat in Udaipur, Rajasthan, India. This property offers Sauna, High-speed WiFi, Wine Cellar, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15858?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15758?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15658?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Fireplace",
+      "Gym",
+      "Sauna",
+      "Wine Cellar",
+      "Beach Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel58",
+        "date": "August 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-059",
+    "name": "Sunset Chalet",
+    "location": "Munnar, Kerala, India",
+    "rating": 4.83,
+    "reviewCount": 758,
+    "type": "Desert Retreat",
+    "price": 23300,
+    "originalPrice": 28168,
+    "host": "Rahul Gupta",
+    "guests": 4,
+    "bedrooms": 4,
+    "beds": 4,
+    "bathrooms": 4,
+    "categories": [
+      "Golfing"
+    ],
+    "description": "Sunset Chalet is a beautiful retreat in Munnar, Kerala, India. This property offers Private Terrace, Gym, Airport Shuttle, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15859?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15759?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15659?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Beach Access",
+      "Yoga Deck",
+      "Wine Cellar",
+      "Room Service",
+      "Parking",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel59",
+        "date": "February 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-060",
+    "name": "Golden Palace",
+    "location": "North Goa, India",
+    "rating": 4.61,
+    "reviewCount": 140,
+    "type": "Beachfront Bungalow",
+    "price": 20411,
+    "originalPrice": 26651,
+    "host": "Dev Garcia",
+    "guests": 9,
+    "bedrooms": 5,
+    "beds": 5,
+    "bathrooms": 4,
+    "categories": [
+      "Amazing views",
+      "Trending",
+      "Vineyards"
+    ],
+    "description": "Golden Palace is a beautiful retreat in North Goa, India. This property offers Wine Cellar, Mountain View, Outdoor Shower, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15860?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15760?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15660?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Terrace",
+      "Airport Shuttle",
+      "Beach Access",
+      "Wine Cellar",
+      "Breakfast Included",
+      "Infinity Pool"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel60",
+        "date": "July 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-061",
+    "name": "Velvet Villa",
+    "location": "Pink City, Jaipur, India",
+    "rating": 4.98,
+    "reviewCount": 1131,
+    "type": "Skyline Penthouse",
+    "price": 17000,
+    "originalPrice": 20497,
+    "host": "Aria Patel",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Velvet Villa is a beautiful retreat in Pink City, Jaipur, India. This property offers High-speed WiFi, Room Service, Infinity Pool, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15861?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15761?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15661?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Smart TV",
+      "Breakfast Included",
+      "Infinity Pool",
+      "Parking",
+      "Yoga Deck",
+      "Private Terrace"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel61",
+        "date": "April 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-062",
+    "name": "Forest Chalet",
+    "location": "Santorini, Greece",
+    "rating": 4.76,
+    "reviewCount": 972,
+    "type": "Wellness Sanctuary",
+    "price": 25075,
+    "originalPrice": 32025,
+    "host": "Kiran Kim",
+    "guests": 3,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Arctic",
+      "Desert",
+      "Design"
+    ],
+    "description": "Forest Chalet is a beautiful retreat in Santorini, Greece. This property offers Room Service, Yoga Deck, Beach Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15862?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15762?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15662?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Room Service",
+      "Airport Shuttle",
+      "Sauna",
+      "Outdoor Shower",
+      "Private Hot Tub"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel62",
+        "date": "April 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-063",
+    "name": "Emerald Cottage",
+    "location": "Tulum, Mexico",
+    "rating": 4.66,
+    "reviewCount": 607,
+    "type": "Skyline Penthouse",
+    "price": 10204,
+    "originalPrice": 12229,
+    "host": "Mohan Rao",
+    "guests": 7,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views",
+      "Desert"
+    ],
+    "description": "Emerald Cottage is a beautiful retreat in Tulum, Mexico. This property offers Beach Access, Spa Access, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15863?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15763?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15663?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Pet Friendly",
+      "Infinity Pool",
+      "Breakfast Included",
+      "Wine Cellar",
+      "Yoga Deck",
+      "Gym"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel63",
+        "date": "March 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-064",
+    "name": "Garden Villa",
+    "location": "Kyoto, Japan",
+    "rating": 4.73,
+    "reviewCount": 1098,
+    "type": "Urban Loft",
+    "price": 8664,
+    "originalPrice": 9450,
+    "host": "Sara Rao",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Garden Villa is a beautiful retreat in Kyoto, Japan. This property offers Smart TV, Room Service, Golf Course Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15864?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15764?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15664?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Room Service",
+      "Parking",
+      "Gym",
+      "High-speed WiFi",
+      "Pet Friendly",
+      "Airport Shuttle"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel64",
+        "date": "April 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-065",
+    "name": "Azure Estate",
+    "location": "Aspen, Colorado, USA",
+    "rating": 4.55,
+    "reviewCount": 1035,
+    "type": "Treehouse Escape",
+    "price": 14517,
+    "originalPrice": 18088,
+    "host": "Aria Khan",
+    "guests": 10,
+    "bedrooms": 5,
+    "beds": 6,
+    "bathrooms": 4,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Azure Estate is a beautiful retreat in Aspen, Colorado, USA. This property offers Room Service, Wine Cellar, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15865?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15765?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15665?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Parking",
+      "Sauna",
+      "Wine Cellar",
+      "Airport Shuttle",
+      "Room Service",
+      "Beach Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel65",
+        "date": "May 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel65",
+        "date": "May 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-066",
+    "name": "Desert Estate",
+    "location": "Bali, Indonesia",
+    "rating": 4.95,
+    "reviewCount": 742,
+    "type": "Golf Resort",
+    "price": 11060,
+    "originalPrice": 16294,
+    "host": "Nina Chen",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Desert Estate is a beautiful retreat in Bali, Indonesia. This property offers Infinity Pool, Airport Shuttle, Breakfast Included, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15866?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15766?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15666?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Infinity Pool",
+      "Parking",
+      "High-speed WiFi",
+      "Mountain View",
+      "Gym"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel66",
+        "date": "January 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-067",
+    "name": "Sky Estate",
+    "location": "Cape Town, South Africa",
+    "rating": 4.65,
+    "reviewCount": 1077,
+    "type": "Wellness Sanctuary",
+    "price": 25257,
+    "originalPrice": 26350,
+    "host": "Nina D'Souza",
+    "guests": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Vineyards"
+    ],
+    "description": "Sky Estate is a beautiful retreat in Cape Town, South Africa. This property offers Outdoor Shower, Sauna, Private Terrace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15867?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15767?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15667?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Private Terrace",
+      "Parking",
+      "Room Service",
+      "Wine Cellar",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel67",
+        "date": "December 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel67",
+        "date": "August 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-068",
+    "name": "Coral Retreat",
+    "location": "Ibiza, Spain",
+    "rating": 4.89,
+    "reviewCount": 1091,
+    "type": "Arctic Lodge",
+    "price": 5035,
+    "originalPrice": 7490,
+    "host": "Kiran Chen",
+    "guests": 4,
+    "bedrooms": 1,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Arctic",
+      "Desert",
+      "Trending"
+    ],
+    "description": "Coral Retreat is a beautiful retreat in Ibiza, Spain. This property offers Private Terrace, Parking, Spa Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15868?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15768?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15668?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Pet Friendly",
+      "Gym",
+      "Outdoor Shower",
+      "Private Terrace",
+      "Smart TV",
+      "Parking"
+    ],
+    "reviews": [
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel68",
+        "date": "June 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Maya Patel",
+        "avatar": "https://i.pravatar.cc/100?u=hotel68",
+        "date": "November 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-069",
+    "name": "Royal Manor",
+    "location": "Paris, France",
+    "rating": 4.88,
+    "reviewCount": 280,
+    "type": "Island Villa",
+    "price": 19390,
+    "originalPrice": 20538,
+    "host": "Priya Kim",
+    "guests": 3,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Golfing"
+    ],
+    "description": "Royal Manor is a beautiful retreat in Paris, France. This property offers Airport Shuttle, Yoga Deck, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15869?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15769?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15669?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Room Service",
+      "Golf Course Access",
+      "Breakfast Included",
+      "Private Hot Tub",
+      "Pet Friendly",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel69",
+        "date": "March 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.5
+      },
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel69",
+        "date": "November 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-070",
+    "name": "Velvet Retreat",
+    "location": "Swiss Alps, Switzerland",
+    "rating": 4.92,
+    "reviewCount": 856,
+    "type": "Wellness Sanctuary",
+    "price": 22092,
+    "originalPrice": 26715,
+    "host": "Aanya Singh",
+    "guests": 6,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Amazing views",
+      "Boats"
+    ],
+    "description": "Velvet Retreat is a beautiful retreat in Swiss Alps, Switzerland. This property offers Parking, Outdoor Shower, Fireplace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15870?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15770?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15670?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Smart TV",
+      "Outdoor Shower",
+      "Infinity Pool",
+      "Private Hot Tub",
+      "Parking",
+      "Breakfast Included"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel70",
+        "date": "October 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel70",
+        "date": "April 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-071",
+    "name": "Honey Retreat",
+    "location": "Queenstown, New Zealand",
+    "rating": 4.86,
+    "reviewCount": 819,
+    "type": "Mountain Chalet",
+    "price": 6240,
+    "originalPrice": 8763,
+    "host": "Lina Khan",
+    "guests": 7,
+    "bedrooms": 2,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Desert"
+    ],
+    "description": "Honey Retreat is a beautiful retreat in Queenstown, New Zealand. This property offers Spa Access, Infinity Pool, Private Hot Tub, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15871?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15771?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15671?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Beach Access",
+      "Gym",
+      "Parking",
+      "Sauna",
+      "Wine Cellar"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel71",
+        "date": "December 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel71",
+        "date": "November 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-072",
+    "name": "Sky Estate",
+    "location": "Maldives",
+    "rating": 4.97,
+    "reviewCount": 727,
+    "type": "Heritage Mansion",
+    "price": 16352,
+    "originalPrice": 16860,
+    "host": "Mia Nguyen",
+    "guests": 9,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Golfing"
+    ],
+    "description": "Sky Estate is a beautiful retreat in Maldives. This property offers Beach Access, Fireplace, Private Terrace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15872?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15772?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15672?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Pet Friendly",
+      "Sauna",
+      "Beach Access",
+      "Wine Cellar",
+      "Private Terrace",
+      "Breakfast Included"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel72",
+        "date": "June 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-073",
+    "name": "Ocean Sanctuary",
+    "location": "Reykjavik, Iceland",
+    "rating": 4.73,
+    "reviewCount": 534,
+    "type": "Heritage Mansion",
+    "price": 11236,
+    "originalPrice": 16411,
+    "host": "Aanya D'Souza",
+    "guests": 8,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Desert",
+      "Vineyards"
+    ],
+    "description": "Ocean Sanctuary is a beautiful retreat in Reykjavik, Iceland. This property offers Gym, Parking, Wine Cellar, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15873?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15773?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15673?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Fireplace",
+      "Parking",
+      "Yoga Deck",
+      "Outdoor Shower",
+      "Spa Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel73",
+        "date": "March 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-074",
+    "name": "Whisper Suites",
+    "location": "Dubai, UAE",
+    "rating": 4.76,
+    "reviewCount": 767,
+    "type": "Mountain Chalet",
+    "price": 23947,
+    "originalPrice": 26625,
+    "host": "Sofia D'Souza",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Design",
+      "Golfing",
+      "Vineyards"
+    ],
+    "description": "Whisper Suites is a beautiful retreat in Dubai, UAE. This property offers Fireplace, Golf Course Access, Parking, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15874?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15774?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15674?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Outdoor Shower",
+      "Room Service",
+      "Airport Shuttle",
+      "Yoga Deck",
+      "Mountain View",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel74",
+        "date": "February 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-075",
+    "name": "Silk Cottage",
+    "location": "Marrakech, Morocco",
+    "rating": 4.97,
+    "reviewCount": 457,
+    "type": "Eco-Luxury Cabin",
+    "price": 15543,
+    "originalPrice": 22351,
+    "host": "Sofia Singh",
+    "guests": 5,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 5,
+    "categories": [
+      "Castles",
+      "Golfing",
+      "Trending"
+    ],
+    "description": "Silk Cottage is a beautiful retreat in Marrakech, Morocco. This property offers Sauna, Infinity Pool, Parking, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15875?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15775?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15675?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Airport Shuttle",
+      "Sauna",
+      "Breakfast Included",
+      "Spa Access",
+      "Mountain View",
+      "Wine Cellar"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel75",
+        "date": "June 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 5.0
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-076",
+    "name": "Velvet Cottage",
+    "location": "Napa Valley, USA",
+    "rating": 4.87,
+    "reviewCount": 314,
+    "type": "Skyline Penthouse",
+    "price": 12058,
+    "originalPrice": 17412,
+    "host": "Nina Gupta",
+    "guests": 5,
+    "bedrooms": 4,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Arctic",
+      "Beachfront",
+      "Castles"
+    ],
+    "description": "Velvet Cottage is a beautiful retreat in Napa Valley, USA. This property offers Private Terrace, Infinity Pool, Wine Cellar, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15876?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15776?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15676?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Spa Access",
+      "Wine Cellar",
+      "High-speed WiFi",
+      "Parking",
+      "Room Service",
+      "Beach Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel76",
+        "date": "December 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 5.0
+      },
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel76",
+        "date": "February 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-077",
+    "name": "Emerald Oasis",
+    "location": "Loire Valley, France",
+    "rating": 4.56,
+    "reviewCount": 925,
+    "type": "Mountain Chalet",
+    "price": 11065,
+    "originalPrice": 15499,
+    "host": "Aditi Kim",
+    "guests": 6,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Beachfront",
+      "Design"
+    ],
+    "description": "Emerald Oasis is a beautiful retreat in Loire Valley, France. This property offers Airport Shuttle, Private Hot Tub, Wine Cellar, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15877?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15777?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15677?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Yoga Deck",
+      "Breakfast Included",
+      "Spa Access",
+      "Mountain View",
+      "Airport Shuttle"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel77",
+        "date": "April 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel77",
+        "date": "December 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-078",
+    "name": "Whisper Bungalow",
+    "location": "Big Sur, California, USA",
+    "rating": 4.87,
+    "reviewCount": 648,
+    "type": "Oceanfront Suite",
+    "price": 17445,
+    "originalPrice": 21298,
+    "host": "Aanya Nguyen",
+    "guests": 10,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 2,
+    "categories": [
+      "Desert",
+      "Design"
+    ],
+    "description": "Whisper Bungalow is a beautiful retreat in Big Sur, California, USA. This property offers Infinity Pool, Private Hot Tub, Room Service, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15878?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15778?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15678?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Mountain View",
+      "Yoga Deck",
+      "Spa Access",
+      "Airport Shuttle",
+      "Fireplace",
+      "Golf Course Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel78",
+        "date": "February 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-079",
+    "name": "Secret Resort",
+    "location": "Kyushu, Japan",
+    "rating": 4.99,
+    "reviewCount": 575,
+    "type": "Beachfront Bungalow",
+    "price": 20570,
+    "originalPrice": 24114,
+    "host": "Mira Chen",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Arctic",
+      "Beachfront",
+      "Desert"
+    ],
+    "description": "Secret Resort is a beautiful retreat in Kyushu, Japan. This property offers Private Hot Tub, Sauna, Private Terrace, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15879?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15779?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15679?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Beach Access",
+      "Airport Shuttle",
+      "Spa Access",
+      "Pet Friendly",
+      "Infinity Pool",
+      "Parking"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel79",
+        "date": "February 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel79",
+        "date": "October 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-080",
+    "name": "Forest Sanctuary",
+    "location": "Amalfi Coast, Italy",
+    "rating": 4.8,
+    "reviewCount": 1145,
+    "type": "Island Villa",
+    "price": 13931,
+    "originalPrice": 19018,
+    "host": "Anil Nguyen",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "categories": [
+      "Arctic",
+      "Trending"
+    ],
+    "description": "Forest Sanctuary is a beautiful retreat in Amalfi Coast, Italy. This property offers Sauna, Private Hot Tub, Wine Cellar, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15880?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15780?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15680?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "High-speed WiFi",
+      "Yoga Deck",
+      "Gym",
+      "Breakfast Included",
+      "Pet Friendly",
+      "Fireplace"
+    ],
+    "reviews": [
+      {
+        "userName": "Aditi Rao",
+        "avatar": "https://i.pravatar.cc/100?u=hotel80",
+        "date": "December 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-081",
+    "name": "Moonlight Oasis",
+    "location": "Positano, Italy",
+    "rating": 4.56,
+    "reviewCount": 179,
+    "type": "Urban Loft",
+    "price": 5125,
+    "originalPrice": 10030,
+    "host": "Kiran Sharma",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Arctic",
+      "Golfing",
+      "Trending"
+    ],
+    "description": "Moonlight Oasis is a beautiful retreat in Positano, Italy. This property offers Private Hot Tub, Fireplace, Outdoor Shower, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15881?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15781?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15681?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Airport Shuttle",
+      "Sauna",
+      "Outdoor Shower",
+      "Mountain View",
+      "Private Hot Tub",
+      "Breakfast Included"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel81",
+        "date": "January 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel81",
+        "date": "July 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-082",
+    "name": "Ocean Manor",
+    "location": "Banff, Canada",
+    "rating": 4.51,
+    "reviewCount": 388,
+    "type": "Heritage Mansion",
+    "price": 10753,
+    "originalPrice": 17655,
+    "host": "Aanya Fernandez",
+    "guests": 10,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Golfing"
+    ],
+    "description": "Ocean Manor is a beautiful retreat in Banff, Canada. This property offers Sauna, Private Hot Tub, Airport Shuttle, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15882?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15782?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15682?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "Parking",
+      "Yoga Deck",
+      "Gym",
+      "Fireplace",
+      "Golf Course Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel82",
+        "date": "September 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel82",
+        "date": "March 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-083",
+    "name": "Ocean Cottage",
+    "location": "Dubai Marina, UAE",
+    "rating": 4.54,
+    "reviewCount": 1187,
+    "type": "Mountain Chalet",
+    "price": 18594,
+    "originalPrice": 22782,
+    "host": "Kiran Fernandez",
+    "guests": 7,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Arctic"
+    ],
+    "description": "Ocean Cottage is a beautiful retreat in Dubai Marina, UAE. This property offers Beach Access, Pet Friendly, Spa Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15883?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15783?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15683?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Parking",
+      "Infinity Pool",
+      "Beach Access",
+      "Private Terrace",
+      "Golf Course Access",
+      "Outdoor Shower"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel83",
+        "date": "July 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-084",
+    "name": "Moonlight Mansion",
+    "location": "Phuket, Thailand",
+    "rating": 4.78,
+    "reviewCount": 141,
+    "type": "Treehouse Escape",
+    "price": 10943,
+    "originalPrice": 13338,
+    "host": "Mira Kim",
+    "guests": 8,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 2,
+    "categories": [
+      "Arctic"
+    ],
+    "description": "Moonlight Mansion is a beautiful retreat in Phuket, Thailand. This property offers Breakfast Included, Airport Shuttle, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15884?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15784?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15684?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Beach Access",
+      "Airport Shuttle",
+      "Fireplace",
+      "Parking",
+      "Outdoor Shower"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel84",
+        "date": "April 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel84",
+        "date": "April 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-085",
+    "name": "Emerald Estate",
+    "location": "Sydney, Australia",
+    "rating": 4.99,
+    "reviewCount": 1124,
+    "type": "Design Villa",
+    "price": 6367,
+    "originalPrice": 7515,
+    "host": "Aditi Fernandez",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Castles",
+      "Golfing",
+      "Trending"
+    ],
+    "description": "Emerald Estate is a beautiful retreat in Sydney, Australia. This property offers Pet Friendly, Parking, Yoga Deck, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15885?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15785?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15685?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Sauna",
+      "Smart TV",
+      "Gym",
+      "Room Service",
+      "Golf Course Access",
+      "Mountain View"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel85",
+        "date": "June 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-086",
+    "name": "Golden Oasis",
+    "location": "Berlin, Germany",
+    "rating": 4.91,
+    "reviewCount": 932,
+    "type": "Desert Retreat",
+    "price": 8625,
+    "originalPrice": 11347,
+    "host": "Mira Smith",
+    "guests": 5,
+    "bedrooms": 3,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views",
+      "Desert"
+    ],
+    "description": "Golden Oasis is a beautiful retreat in Berlin, Germany. This property offers Outdoor Shower, Pet Friendly, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15886?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15786?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15686?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Parking",
+      "Wine Cellar",
+      "Beach Access",
+      "Sauna",
+      "Gym"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel86",
+        "date": "July 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-087",
+    "name": "Sunset Suites",
+    "location": "London, UK",
+    "rating": 4.94,
+    "reviewCount": 462,
+    "type": "Treehouse Escape",
+    "price": 24264,
+    "originalPrice": 30960,
+    "host": "Sara Patel",
+    "guests": 6,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "categories": [
+      "Amazing views",
+      "Arctic"
+    ],
+    "description": "Sunset Suites is a beautiful retreat in London, UK. This property offers Breakfast Included, Private Hot Tub, Smart TV, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15887?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15787?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15687?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Smart TV",
+      "Parking",
+      "Pet Friendly",
+      "Spa Access",
+      "Outdoor Shower",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel87",
+        "date": "January 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-088",
+    "name": "Secret Haven",
+    "location": "Barcelona, Spain",
+    "rating": 4.79,
+    "reviewCount": 1158,
+    "type": "Vineyard Estate",
+    "price": 11478,
+    "originalPrice": 14627,
+    "host": "Aria Singh",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 1,
+    "categories": [
+      "Trending"
+    ],
+    "description": "Secret Haven is a beautiful retreat in Barcelona, Spain. This property offers Parking, Spa Access, Yoga Deck, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15888?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15788?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15688?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Wine Cellar",
+      "Infinity Pool",
+      "Gym",
+      "Private Hot Tub",
+      "Yoga Deck",
+      "Fireplace"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel88",
+        "date": "November 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel88",
+        "date": "January 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-089",
+    "name": "Garden Palace",
+    "location": "Santander, Spain",
+    "rating": 4.55,
+    "reviewCount": 1044,
+    "type": "Arctic Lodge",
+    "price": 16585,
+    "originalPrice": 20260,
+    "host": "Anil Gupta",
+    "guests": 8,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Design"
+    ],
+    "description": "Garden Palace is a beautiful retreat in Santander, Spain. This property offers Room Service, Outdoor Shower, Breakfast Included, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15889?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15789?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15689?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Golf Course Access",
+      "Mountain View",
+      "Wine Cellar",
+      "Private Terrace",
+      "High-speed WiFi"
+    ],
+    "reviews": [
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel89",
+        "date": "November 2026",
+        "comment": "The food and decor were both top-notch.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel89",
+        "date": "December 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-090",
+    "name": "Desert Lodge",
+    "location": "Vancouver, Canada",
+    "rating": 4.94,
+    "reviewCount": 420,
+    "type": "Wellness Sanctuary",
+    "price": 9230,
+    "originalPrice": 12821,
+    "host": "Lina D'Souza",
+    "guests": 8,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Boats"
+    ],
+    "description": "Desert Lodge is a beautiful retreat in Vancouver, Canada. This property offers Yoga Deck, Outdoor Shower, High-speed WiFi, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15890?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15790?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15690?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Gym",
+      "Yoga Deck",
+      "Outdoor Shower",
+      "Beach Access",
+      "Fireplace",
+      "Wine Cellar"
+    ],
+    "reviews": [
+      {
+        "userName": "Jason Wong",
+        "avatar": "https://i.pravatar.cc/100?u=hotel90",
+        "date": "December 2026",
+        "comment": "Exceptional stay from start to finish.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-091",
+    "name": "Garden Retreat",
+    "location": "Lisbon, Portugal",
+    "rating": 4.52,
+    "reviewCount": 204,
+    "type": "Arctic Lodge",
+    "price": 12997,
+    "originalPrice": 13761,
+    "host": "Anil Singh",
+    "guests": 6,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Boats"
+    ],
+    "description": "Garden Retreat is a beautiful retreat in Lisbon, Portugal. This property offers Yoga Deck, Mountain View, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15891?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15791?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15691?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Airport Shuttle",
+      "Breakfast Included",
+      "Outdoor Shower",
+      "Beach Access",
+      "Smart TV",
+      "Golf Course Access"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel91",
+        "date": "November 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.8
+      },
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel91",
+        "date": "November 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-092",
+    "name": "Crystal Bungalow",
+    "location": "Buenos Aires, Argentina",
+    "rating": 4.77,
+    "reviewCount": 740,
+    "type": "Golf Resort",
+    "price": 4601,
+    "originalPrice": 10460,
+    "host": "Sofia Smith",
+    "guests": 7,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 4,
+    "categories": [
+      "Amazing views",
+      "Golfing"
+    ],
+    "description": "Crystal Bungalow is a beautiful retreat in Buenos Aires, Argentina. This property offers Beach Access, Breakfast Included, Golf Course Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15892?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15792?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15692?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Gym",
+      "Yoga Deck",
+      "Wine Cellar",
+      "Spa Access",
+      "Private Terrace",
+      "Sauna"
+    ],
+    "reviews": [
+      {
+        "userName": "Olivia Brown",
+        "avatar": "https://i.pravatar.cc/100?u=hotel92",
+        "date": "June 2026",
+        "comment": "The service was outstanding and the atmosphere unforgettable.",
+        "rating": 4.7
+      },
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel92",
+        "date": "November 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-093",
+    "name": "Azure Hideaway",
+    "location": "Rio de Janeiro, Brazil",
+    "rating": 4.88,
+    "reviewCount": 1018,
+    "type": "Eco-Luxury Cabin",
+    "price": 13274,
+    "originalPrice": 18944,
+    "host": "Noah Sharma",
+    "guests": 2,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Amazing views",
+      "Boats",
+      "Desert"
+    ],
+    "description": "Azure Hideaway is a beautiful retreat in Rio de Janeiro, Brazil. This property offers Private Terrace, Room Service, Sauna, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15893?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15793?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15693?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Fireplace",
+      "Spa Access",
+      "Smart TV",
+      "Wine Cellar",
+      "Private Hot Tub",
+      "Gym"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel93",
+        "date": "November 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 5.0
+      },
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel93",
+        "date": "January 2026",
+        "comment": "A truly magical escape with incredible views.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-094",
+    "name": "Forest Oasis",
+    "location": "Cape Winelands, South Africa",
+    "rating": 4.51,
+    "reviewCount": 570,
+    "type": "Urban Loft",
+    "price": 15645,
+    "originalPrice": 18184,
+    "host": "Aanya Lee",
+    "guests": 5,
+    "bedrooms": 2,
+    "beds": 2,
+    "bathrooms": 2,
+    "categories": [
+      "Arctic"
+    ],
+    "description": "Forest Oasis is a beautiful retreat in Cape Winelands, South Africa. This property offers Infinity Pool, Private Hot Tub, Beach Access, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15894?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15794?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15694?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Private Hot Tub",
+      "Wine Cellar",
+      "Mountain View",
+      "Fireplace",
+      "Private Terrace",
+      "Yoga Deck"
+    ],
+    "reviews": [
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel94",
+        "date": "March 2026",
+        "comment": "Great location and amazing amenities.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-095",
+    "name": "Secret Haven",
+    "location": "Tuscany, Italy",
+    "rating": 4.7,
+    "reviewCount": 978,
+    "type": "Eco-Luxury Cabin",
+    "price": 21803,
+    "originalPrice": 23345,
+    "host": "Anil Nguyen",
+    "guests": 7,
+    "bedrooms": 4,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Beachfront",
+      "Boats",
+      "Vineyards"
+    ],
+    "description": "Secret Haven is a beautiful retreat in Tuscany, Italy. This property offers Room Service, Wine Cellar, Gym, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15895?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15795?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15695?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "High-speed WiFi",
+      "Spa Access",
+      "Outdoor Shower",
+      "Room Service",
+      "Golf Course Access",
+      "Sauna"
+    ],
+    "reviews": [
+      {
+        "userName": "Zara Ahmed",
+        "avatar": "https://i.pravatar.cc/100?u=hotel95",
+        "date": "February 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-096",
+    "name": "Azure Villa",
+    "location": "Provence, France",
+    "rating": 4.98,
+    "reviewCount": 632,
+    "type": "Luxury Boutique Stay",
+    "price": 17430,
+    "originalPrice": 20133,
+    "host": "Mohan Rao",
+    "guests": 4,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Beachfront",
+      "Castles",
+      "Design"
+    ],
+    "description": "Azure Villa is a beautiful retreat in Provence, France. This property offers Smart TV, Wine Cellar, Airport Shuttle, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15896?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15796?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15696?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Yoga Deck",
+      "Parking",
+      "Smart TV",
+      "Gym",
+      "Sauna",
+      "Room Service"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel96",
+        "date": "May 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.9
+      },
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel96",
+        "date": "February 2026",
+        "comment": "We will definitely return next time.",
+        "rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-097",
+    "name": "Crystal Oasis",
+    "location": "Reethi Rah, Maldives",
+    "rating": 4.52,
+    "reviewCount": 652,
+    "type": "Beachfront Bungalow",
+    "price": 22315,
+    "originalPrice": 24391,
+    "host": "Aanya Sharma",
+    "guests": 4,
+    "bedrooms": 4,
+    "beds": 4,
+    "bathrooms": 3,
+    "categories": [
+      "Amazing views",
+      "Arctic",
+      "Beachfront"
+    ],
+    "description": "Crystal Oasis is a beautiful retreat in Reethi Rah, Maldives. This property offers Yoga Deck, Pet Friendly, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15897?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15797?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15697?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Breakfast Included",
+      "Golf Course Access",
+      "Yoga Deck",
+      "Parking",
+      "Outdoor Shower",
+      "Pet Friendly"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel97",
+        "date": "February 2026",
+        "comment": "This property exceeded all expectations.",
+        "rating": 5.0
+      },
+      {
+        "userName": "Rohan Mehta",
+        "avatar": "https://i.pravatar.cc/100?u=hotel97",
+        "date": "February 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-098",
+    "name": "Honey Oasis",
+    "location": "Serengeti, Tanzania",
+    "rating": 4.67,
+    "reviewCount": 895,
+    "type": "Urban Loft",
+    "price": 9708,
+    "originalPrice": 13287,
+    "host": "Dev Kim",
+    "guests": 10,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 3,
+    "categories": [
+      "Desert",
+      "Trending"
+    ],
+    "description": "Honey Oasis is a beautiful retreat in Serengeti, Tanzania. This property offers Parking, Sauna, Mountain View, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15898?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15798?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15698?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Golf Course Access",
+      "Beach Access",
+      "Private Terrace",
+      "Spa Access",
+      "Fireplace",
+      "Sauna"
+    ],
+    "reviews": [
+      {
+        "userName": "Emily Chen",
+        "avatar": "https://i.pravatar.cc/100?u=hotel98",
+        "date": "February 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-099",
+    "name": "Ocean Mansion",
+    "location": "Queenstown, NZ",
+    "rating": 4.83,
+    "reviewCount": 1072,
+    "type": "Luxury Boutique Stay",
+    "price": 24941,
+    "originalPrice": 27642,
+    "host": "Ethan Chen",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Design"
+    ],
+    "description": "Ocean Mansion is a beautiful retreat in Queenstown, NZ. This property offers Golf Course Access, Yoga Deck, Private Hot Tub, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15899?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15799?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15699?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Spa Access",
+      "Parking",
+      "Mountain View",
+      "High-speed WiFi",
+      "Golf Course Access",
+      "Airport Shuttle"
+    ],
+    "reviews": [
+      {
+        "userName": "Daniel Park",
+        "avatar": "https://i.pravatar.cc/100?u=hotel99",
+        "date": "November 2026",
+        "comment": "Clean, comfortable, and very stylish.",
+        "rating": 4.6
+      },
+      {
+        "userName": "Sarah Jenkins",
+        "avatar": "https://i.pravatar.cc/100?u=hotel99",
+        "date": "April 2026",
+        "comment": "Staff were friendly and extremely attentive.",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "hot-stay-100",
+    "name": "Royal Oasis",
+    "location": "Whistler, Canada",
+    "rating": 4.77,
+    "reviewCount": 126,
+    "type": "Heritage Mansion",
+    "price": 12969,
+    "originalPrice": 19471,
+    "host": "Mia Chen",
+    "guests": 5,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "categories": [
+      "Amazing views",
+      "Trending"
+    ],
+    "description": "Royal Oasis is a beautiful retreat in Whistler, Canada. This property offers Breakfast Included, Outdoor Shower, Private Hot Tub, elegant interiors, and a memorable stay for guests seeking a premium experience.",
+    "images": [
+      "https://images.unsplash.com/photo-15900?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-15800?auto=format&fit=crop&w=400",
+      "https://images.unsplash.com/photo-15700?auto=format&fit=crop&w=400"
+    ],
+    "amenities": [
+      "Outdoor Shower",
+      "Sauna",
+      "Mountain View",
+      "Pet Friendly",
+      "Private Terrace",
+      "Fireplace"
+    ],
+    "reviews": [
+      {
+        "userName": "Vikram Singh",
+        "avatar": "https://i.pravatar.cc/100?u=hotel100",
+        "date": "October 2026",
+        "comment": "Perfect for a romantic getaway.",
+        "rating": 4.5
+      }
+    ]
+  }
 ]
