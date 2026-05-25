@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <%- include('./includes/head'); %>
 </head>
@@ -8,9 +8,11 @@
   <header class="h-16 bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-full">
-        <a href="#" class="text-primary text-xl font-bold">HotStay</a>
+        <a href="/Hot-Stay/landing" class="text-primary text-xl font-bold">HotStay</a>
         <nav class="flex items-center gap-6">
-          <a href="#about" class="text-text hover:text-primary transition-colors font-medium">About Us</a>
+          <a href="#about" class="text-text hover:text-primary transition-colors font-medium">About</a>
+          <a href="#categories" class="text-text hover:text-primary transition-colors font-medium">Categories</a>
+          <a href="#how-it-works" class="text-text hover:text-primary transition-colors font-medium">How it works</a>
           <a href="/Hot-Stay/login" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md font-medium transition-colors">Login</a>
         </nav>
       </div>
@@ -18,80 +20,260 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative py-20 lg:py-32 bg-gradient-to-r from-dark/80 to-dark/60 text-white">
+  <section class="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-r from-dark/90 via-dark to-dark/70 text-white">
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="absolute inset-0 bg-slate-950/50"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
-          <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
-            Book Better,<br>Travel Simpler.
-          </h1>
-          <p class="text-lg lg:text-xl text-gray-200 max-w-md">
-            Verified stays with transparent pricing. Join 50k+ travelers exploring the world with HotStay.
+          <p class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.28em] text-secondary/90">
+            <span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+            Verified stays, transparent pricing
           </p>
-          <a href="/Hot-Stay/home" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold px-6 py-3 rounded-md transition-colors">
-            Start Exploring
-          </a>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            Book your next stay with confidence.<br>
+            Trusted hotels and homes for every journey.
+          </h1>
+          <p class="text-lg lg:text-xl text-gray-200 max-w-xl">
+            HotStay makes travel simple with curated stays, flexible plans, and support that is ready whenever you need it.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/Hot-Stay/home" class="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white font-semibold px-6 py-3 rounded-md transition-colors">
+              Explore stays
+            </a>
+            <a href="#how-it-works" class="inline-flex items-center justify-center text-white/90 hover:text-white border border-white/20 px-6 py-3 rounded-md transition-colors">
+              Learn how it works
+            </a>
+          </div>
         </div>
-        <div class="hidden lg:block">
-          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
-               alt="Luxury Hotel"
-               class="w-full h-80 object-cover rounded-xl shadow-2xl">
+        <div class="grid gap-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl shadow-2xl">
+              <p class="text-sm uppercase tracking-[0.24em] text-gray-200/70">Verified</p>
+              <h3 class="text-2xl font-semibold mt-3">Trusted properties</h3>
+              <p class="mt-2 text-sm text-gray-200/80">Quality stays vetted by our team for safety and clean amenities.</p>
+            </div>
+            <div class="rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl shadow-2xl">
+              <p class="text-sm uppercase tracking-[0.24em] text-gray-200/70">Support</p>
+              <h3 class="text-2xl font-semibold mt-3">Always available</h3>
+              <p class="mt-2 text-sm text-gray-200/80">Human support whenever you need help booking or checking in.</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl shadow-2xl">
+            <p class="text-sm uppercase tracking-[0.24em] text-gray-200/70">Easy booking</p>
+            <h3 class="text-2xl font-semibold mt-3">Fast confirmation</h3>
+            <p class="mt-2 text-sm text-gray-200/80">Reserve with confidence through secure checkout and flexible cancellation.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Category Chips -->
+  <section class="bg-slate-50 py-8" id="categories">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mb-6">
+        <div>
+          <p class="text-sm uppercase tracking-[0.3em] text-secondary font-semibold">Explore styles</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mt-3 text-text">Browse curated stay themes</h2>
+        </div>
+        <p class="text-sm text-gray-500 max-w-xl">Swipe through trending categories and jump into the vibe that fits your next trip.</p>
+      </div>
+      <div class="overflow-x-auto hide-scrollbar pb-2">
+        <div class="flex min-w-max gap-3">
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🏰 Castles</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🏖️ Beachfront</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🏔️ Amazing views</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🔥 Trending</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🎨 Design</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">⛳ Golfing</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🍷 Vineyards</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">❄️ Arctic</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-text shadow-sm">🌵 Desert</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Benefits -->
   <section class="py-20 bg-background" id="about">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12 text-text">Why Travelers Trust Us</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-primary transition-all group">
-          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-            <i class="fa-solid fa-shield-alt text-accent text-xl"></i>
+      <div class="text-center mb-14">
+        <p class="text-sm uppercase tracking-[0.3em] text-secondary font-semibold">Why travelers choose HotStay</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-4 text-text">A better way to book stays</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-gray-600">Enjoy expert-picked accommodations, clear terms, and personalized travel support for every visit.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 text-secondary text-xl">
+            <i class="fa-solid fa-star"></i>
           </div>
-          <h3 class="text-lg font-semibold mb-2 text-text">Vetted Listings</h3>
-          <p class="text-gray-600 text-sm">Every home is hand-verified for quality, safety, and high-speed Wi-Fi standards.</p>
+          <h3 class="text-xl font-semibold mb-2">Top-rated stays</h3>
+          <p class="text-sm text-gray-600">Discover high-rated properties with real guest reviews and accurate photos.</p>
         </div>
+        <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 text-secondary text-xl">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Better pricing</h3>
+          <p class="text-sm text-gray-600">Save with transparent offers and no surprising fees at checkout.</p>
+        </div>
+        <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 text-secondary text-xl">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Live support</h3>
+          <p class="text-sm text-gray-600">Our team is here for you before, during, and after your stay.</p>
+        </div>
+        <div class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 text-secondary text-xl">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Flexible travel</h3>
+          <p class="text-sm text-gray-600">Choose the booking policy that fits your schedule and travel plans.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-primary transition-all group">
-          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-            <i class="fa-solid fa-tags text-accent text-xl"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2 text-text">Best Rates</h3>
-          <p class="text-gray-600 text-sm">Direct partnerships with hosts mean you save up to 15% compared to other platforms.</p>
+  <!-- How it Works -->
+  <section class="py-20 bg-white" id="how-it-works">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="text-sm uppercase tracking-[0.3em] text-secondary font-semibold">How it works</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mt-4 text-text">Book in three easy steps</h2>
+          <p class="mt-4 text-gray-600 max-w-xl">Find the perfect place, reserve it instantly, and enjoy a smooth stay with reliable support whenever you need it.</p>
         </div>
+        <div class="space-y-6">
+          <div class="flex gap-4 items-start rounded-3xl border border-gray-200 bg-slate-50 p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-white text-lg font-bold">1</div>
+            <div>
+              <h3 class="text-xl font-semibold">Search curated stays</h3>
+              <p class="mt-2 text-gray-600 text-sm">Browse handpicked homes, hotels, and retreats by destination, price, and amenities.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start rounded-3xl border border-gray-200 bg-slate-50 p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-white text-lg font-bold">2</div>
+            <div>
+              <h3 class="text-xl font-semibold">Reserve with confidence</h3>
+              <p class="mt-2 text-gray-600 text-sm">Complete a secure booking and review the exact stay details before you confirm.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start rounded-3xl border border-gray-200 bg-slate-50 p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-white text-lg font-bold">3</div>
+            <div>
+              <h3 class="text-xl font-semibold">Enjoy your trip</h3>
+              <p class="mt-2 text-gray-600 text-sm">Arrive knowing everything is ready, with help available from check-in to checkout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-primary transition-all group">
-          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-            <i class="fa-solid fa-headset text-accent text-xl"></i>
+  <!-- Popular Stays -->
+  <section class="py-20 bg-background">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-sm uppercase tracking-[0.3em] text-secondary font-semibold">Popular stays</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-4 text-text">Find the perfect place for your next trip</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="City stay" class="h-52 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">City escapes</h3>
+            <p class="text-sm text-gray-600">Urban hotels and apartments near dining, museums, and nightlife.</p>
           </div>
-          <h3 class="text-lg font-semibold mb-2 text-text">24/7 Support</h3>
-          <p class="text-gray-600 text-sm">Not a bot. A real human team is ready to help you via chat, anytime, anywhere.</p>
         </div>
+        <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80&sat=-80" alt="Beach stay" class="h-52 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Beach retreats</h3>
+            <p class="text-sm text-gray-600">Coastal homes and resorts for sun, sand, and sea views.</p>
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80&sat=30" alt="Mountain stay" class="h-52 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Mountain lodges</h3>
+            <p class="text-sm text-gray-600">Cozy cabins and lodges for nature lovers and weekend adventures.</p>
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80&sat=-20" alt="Business travel" class="h-52 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Business travel</h3>
+            <p class="text-sm text-gray-600">Convenient work-friendly rooms with fast Wi-Fi and easy commute access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:border-primary transition-all group">
-          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-            <i class="fa-solid fa-undo text-accent text-xl"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2 text-text">Easy Returns</h3>
-          <p class="text-gray-600 text-sm">Plans change. Enjoy flexible cancellation options on over 80% of our properties.</p>
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-sm uppercase tracking-[0.3em] text-secondary font-semibold">Reviews</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-4 text-text">What travelers say</h2>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-3">
+        <div class="rounded-3xl border border-gray-200 p-8 shadow-sm hover:shadow-lg transition-shadow">
+          <p class="text-gray-600 mb-6">"HotStay made our honeymoon easy — the hotel was exactly as described, and support answered our questions in minutes."</p>
+          <p class="font-semibold text-text">Aisha N.</p>
+          <p class="text-sm text-gray-500">Dubai, UAE</p>
         </div>
+        <div class="rounded-3xl border border-gray-200 p-8 shadow-sm hover:shadow-lg transition-shadow">
+          <p class="text-gray-600 mb-6">"The flexible cancellation policy gave us peace of mind during our business trip. Great value and excellent service."</p>
+          <p class="font-semibold text-text">Carlos M.</p>
+          <p class="text-sm text-gray-500">Madrid, Spain</p>
+        </div>
+        <div class="rounded-3xl border border-gray-200 p-8 shadow-sm hover:shadow-lg transition-shadow">
+          <p class="text-gray-600 mb-6">"Our family loved the kid-friendly apartment and easy check-in process. Booking was smooth from start to finish."</p>
+          <p class="font-semibold text-text">Priya S.</p>
+          <p class="text-sm text-gray-500">Mumbai, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-r from-dark to-primary text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">Ready to plan your next trip?</h2>
+      <p class="mt-4 text-gray-200 max-w-2xl mx-auto">Book smarter with HotStay and enjoy a worry-free travel experience backed by trusted hosts and 24/7 support.</p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/Hot-Stay/home" class="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-4 rounded-full transition-colors">Browse stays</a>
+        <a href="/Hot-Stay/login" class="inline-flex items-center justify-center border border-white/25 text-white hover:bg-white/10 px-8 py-4 rounded-full transition-colors">Sign in</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-gray-300 py-8">
+  <footer class="bg-dark text-gray-300 py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-sm">© 2026 HotStay International. Proudly made for travelers.</p>
-        <div class="flex gap-6 mt-4 md:mt-0">
-          <a href="#" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" class="text-sm hover:text-white transition-colors">Terms of Service</a>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-3">HotStay</h3>
+          <p class="text-sm text-gray-400">Trusted bookings for every journey. Discover stays with transparent pricing, verified hosts, and easy support.</p>
+        </div>
+        <div>
+          <p class="text-sm uppercase tracking-[0.2em] text-secondary font-semibold mb-3">Quick links</p>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+            <li><a href="#how-it-works" class="hover:text-white transition-colors">How it works</a></li>
+            <li><a href="/Hot-Stay/login" class="hover:text-white transition-colors">Login</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm uppercase tracking-[0.2em] text-secondary font-semibold mb-3">Contact</p>
+          <p class="text-sm text-gray-400">support@hotstay.com</p>
+          <p class="text-sm text-gray-400 mt-2">+1 (800) 123-4567</p>
         </div>
       </div>
+      <div class="mt-10 border-t border-white/10 pt-6 text-sm text-gray-500 text-center">© 2026 HotStay International. Proudly made for travelers.</div>
     </div>
   </footer>
 
