@@ -1,268 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= user.username %>'s Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .tab-button.active {
-            border-bottom-color: #FF6B6B;
-            color: #FF6B6B;
-        }
-    </style>
+<%- include('./includes/head'); %>
 </head>
-<body class="bg-gray-50 font-jakarta text-text min-h-screen">
+<body class="bg-background font-jakarta text-text min-h-screen">
 
-    <!-- Header -->
-    <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
-        <div class="max-w-7xl mx-auto px-4 py-8">
-            <h1 class="text-3xl font-bold">My Profile</h1>
-            <p class="text-blue-100 mt-1">Manage your account and booking history</p>
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/98 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <%- include('./includes/logo'); %>
+                
+                <div class="flex items-center gap-6">
+                    <a href="/Hot-Stay/home" class="text-text hover:text-primary font-medium transition-colors">Browse Hotels</a>
+                    <button onclick="window.location.href='/Hot-Stay/home'" class="px-4 py-2 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-md font-medium transition-colors">
+                        Book Now
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="max-w-7xl mx-auto px-4 py-8">
-        <!-- Profile Overview Section -->
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-text mb-2">My Profile</h1>
+            <p class="text-gray-600">Manage your account, bookings, and preferences</p>
+        </div>
+
+        <!-- Profile Overview Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
             
             <!-- Profile Card -->
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 h-full">
-                    
-                    <!-- Top Banner -->
-                    <div class="h-24 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"></div>
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden">
+                
+                <!-- Top Banner -->
+                <div class="h-24 bg-gradient-to-r from-primary via-accent to-secondary"></div>
 
-                    <div class="px-6 pb-6 -mt-12 text-center">
-                        <img 
-                            class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-lg object-cover"
-                            src="<%= user.avatar %>"
-                            alt="<%= user.username %>"
-                        >
+                <div class="px-6 pb-6 -mt-12 text-center">
+                    <img 
+                        class="w-24 h-24 rounded-full mx-auto border-4 border-white shadow-lg object-cover"
+                        src="<%= user.avatar %>"
+                        alt="<%= user.username %>"
+                    >
 
-                        <h2 class="mt-4 text-2xl font-bold text-gray-800">
-                            <%= user.firstName %> <%= user.lastName %>
-                        </h2>
+                    <h2 class="mt-4 text-2xl font-bold text-text">
+                        <%= user.firstName %> <%= user.lastName %>
+                    </h2>
 
-                        <p class="mt-2 text-sm text-gray-600 font-medium">@<%= user.username %></p>
+                    <p class="mt-2 text-sm text-gray-600 font-medium">@<%= user.username %></p>
 
-                        <p class="mt-3 text-xs text-gray-500 leading-relaxed px-2">
-                            <%= user.bio %>
-                        </p>
+                    <p class="mt-3 text-xs text-gray-600 leading-relaxed px-2">
+                        <%= user.bio %>
+                    </p>
 
-                        <% if (user.averageRating) { %>
-                            <div class="mt-3 inline-block bg-yellow-50 rounded-lg px-3 py-1">
-                                <div class="flex items-center gap-1">
+                    <% if (user.averageRating) { %>
+                        <div class="mt-3 inline-block bg-yellow-50 rounded-lg px-3 py-1">
+                            <div class="flex items-center gap-1">
+                                <% for (let i = 0; i < Math.floor(user.averageRating); i++) { %>
                                     <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                     </svg>
-                                    <span class="text-sm font-semibold text-gray-800"><%= user.averageRating %> avg rating</span>
-                                </div>
+                                <% } %>
+                                <span class="text-sm font-semibold text-gray-800 ml-1"><%= user.averageRating %> avg</span>
                             </div>
-                        <% } %>
-
-                        <div class="mt-4 space-y-2">
-                            <a href="mailto:<%= user.email %>" class="block text-sm text-blue-600 hover:text-blue-700 break-all">
-                                <%= user.email %>
-                            </a>
-                            <p class="text-sm text-gray-600"><%= user.phone %></p>
                         </div>
+                    <% } %>
 
-                        <div class="mt-4 pt-4 border-t border-gray-200">
-                            <p class="text-xs text-gray-500">Member since</p>
-                            <p class="text-sm font-semibold text-gray-800 mt-1">
-                                <%= new Date(user.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %>
-                            </p>
-                        </div>
-
-                        <button class="w-full mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                            Edit Profile
-                        </button>
+                    <div class="mt-4 space-y-1">
+                        <p class="text-xs text-gray-500">Member since <%= new Date(user.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) %></p>
+                        <p class="text-xs text-gray-600 break-all"><%= user.email %></p>
+                        <p class="text-xs text-gray-600"><%= user.phone %></p>
                     </div>
+
+                    <button class="w-full mt-6 px-4 py-2 bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                        Edit Profile
+                    </button>
                 </div>
             </div>
 
             <!-- Statistics Cards -->
-            <div class="lg:col-span-2 space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    
-                    <!-- Total Bookings -->
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg p-6 text-white">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-blue-100 text-sm font-medium">Total Bookings</p>
-                                <p class="text-4xl font-bold mt-2"><%= user.totalBookings %></p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4z"/>
-                                </svg>
-                            </div>
+            <div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-2 gap-4">
+                
+                <!-- Total Bookings -->
+                <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 uppercase tracking-wide">Total Bookings</p>
+                            <p class="text-3xl font-bold text-primary mt-2"><%= user.totalBookings %></p>
                         </div>
-                        <p class="text-blue-100 text-xs mt-4">Since <%= new Date(user.createdAt).getFullYear() %></p>
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4z"/>
+                            </svg>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Total Trips -->
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg p-6 text-white">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-purple-100 text-sm font-medium">Total Nights</p>
-                                <p class="text-4xl font-bold mt-2"><%= user.totalNights %></p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v2a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a2 2 0 012-2h8a2 2 0 012 2v9a2 2 0 01-2 2H8a2 2 0 01-2-2V7z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
+                <!-- Completed Trips -->
+                <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 uppercase tracking-wide">Completed Trips</p>
+                            <p class="text-3xl font-bold text-accent mt-2"><%= user.totalTrips %></p>
                         </div>
-                        <p class="text-purple-100 text-xs mt-4">Across <%= user.totalTrips %> completed stays</p>
+                        <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center text-accent">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v2a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a2 2 0 012-2h8a2 2 0 012 2v9a2 2 0 01-2 2H8a2 2 0 01-2-2V7z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Total Spent -->
-                    <div class="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl shadow-lg p-6 text-white">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-pink-100 text-sm font-medium">Total Spent</p>
-                                <p class="text-4xl font-bold mt-2">₹<%= (user.totalSpent).toLocaleString('en-IN') %></p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M8.16 5.314l4.897-1.01c.087-.02.166.044.166.133v1.394c0 .89-.615 1.705-1.477 1.705-.168 0-.32-.028-.463-.084l-3.122 1.542v-.375c0-.333.269-.604.602-.604.333 0 .603.27.603.604v.451l3.122-1.542c-.031-.137-.048-.28-.048-.426 0-.89.615-1.705 1.477-1.705.168 0 .32.028.463.084l-4.897 1.01V5.314z"/>
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
+                <!-- Total Nights -->
+                <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 uppercase tracking-wide">Total Nights</p>
+                            <p class="text-3xl font-bold text-secondary mt-2"><%= user.totalNights %></p>
                         </div>
-                        <p class="text-pink-100 text-xs mt-4">Average ₹<%= Math.round(user.totalSpent / user.totalBookings).toLocaleString('en-IN') %> per booking</p>
+                        <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                            </svg>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Cancelled Bookings -->
-                    <div class="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl shadow-lg p-6 text-white">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-orange-100 text-sm font-medium">Cancelled</p>
-                                <p class="text-4xl font-bold mt-2"><%= user.cancelledBookings %></p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
+                <!-- Total Spent -->
+                <div class="bg-white rounded-2xl shadow-md border border-gray-200 p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-medium text-gray-600 uppercase tracking-wide">Total Spent</p>
+                            <p class="text-3xl font-bold text-primary mt-2">₹<%= (user.totalSpent / 1000).toFixed(0) %>K</p>
                         </div>
-                        <p class="text-orange-100 text-xs mt-4">Rate: <%= user.cancellationRate %>%</p>
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8.16 5.314l4.897-1.01c.087-.02.166.044.166.133v1.394c0 .89-.615 1.705-1.477 1.705-.168 0-.32-.028-.463-.084l-3.122 1.542v-.375c0-.333.269-.604.602-.604.333 0 .603.27.603.604v.451l3.122-1.542c-.031-.137-.048-.28-.048-.426 0-.89.615-1.705 1.477-1.705.168 0 .32.028.463.084l-4.897 1.01V5.314z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Tabs Navigation -->
-        <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden">
+        <!-- Tabs Section -->
+        <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden">
             <div class="flex border-b border-gray-200">
-                <button class="tab-button active flex-1 px-6 py-4 font-semibold text-gray-800 hover:bg-gray-50 transition border-b-2 border-blue-600" onclick="showTab('bookings')">
-                    <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4z"/>
-                    </svg>
-                    Booking History
+                <button class="tab-button active flex-1 px-6 py-4 font-semibold text-text hover:bg-gray-50 transition border-b-4 border-primary" onclick="showTab('bookings')">
+                    📅 Booking History
                 </button>
-                <button class="tab-button flex-1 px-6 py-4 font-semibold text-gray-600 hover:bg-gray-50 transition border-b-2 border-transparent" onclick="showTab('preferences')">
-                    <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zm-9.46 16.175c-1.095.574-2.057-.107-1.694-1.264.808-2.833 4.716-8.209 11.652-8.209 6.936 0 10.844 5.376 11.652 8.209.363 1.157-.599 1.838-1.694 1.264-2.91-1.502-5.193-2.388-10.958-2.388-5.765 0-8.048.886-10.958 2.388z" clip-rule="evenodd"/>
-                    </svg>
-                    Settings
+                <button class="tab-button flex-1 px-6 py-4 font-semibold text-gray-600 hover:bg-gray-50 transition border-b-4 border-transparent" onclick="showTab('settings')">
+                    ⚙️ Settings
                 </button>
             </div>
 
             <!-- Booking History Tab -->
             <div id="bookings" class="tab-content active p-6">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">Your Booking History</h3>
-
                 <% if (bookings && bookings.length > 0) { %>
                     <div class="space-y-4">
                         <% bookings.forEach((booking) => { %>
-                            <div class="bg-gray-50 rounded-2xl border border-gray-200 hover:shadow-md transition overflow-hidden">
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 hover:shadow-md transition overflow-hidden">
                                 <div class="flex flex-col md:flex-row gap-4 p-4">
                                     
                                     <!-- Hotel Image -->
-                                    <div class="w-full md:w-32 h-32 flex-shrink-0">
+                                    <div class="w-full md:w-28 h-28 flex-shrink-0">
                                         <img 
                                             src="<%= booking.image %>" 
                                             alt="<%= booking.hotelName %>"
-                                            class="w-full h-full object-cover rounded-xl"
+                                            class="w-full h-full object-cover rounded-lg"
                                         >
                                     </div>
 
                                     <!-- Booking Details -->
-                                    <div class="flex-1">
-                                        <div class="flex justify-between items-start mb-2">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex flex-col sm:flex-row justify-between items-start gap-2 mb-2">
                                             <div>
-                                                <h4 class="text-lg font-bold text-gray-800"><%= booking.hotelName %></h4>
+                                                <h4 class="text-lg font-bold text-text"><%= booking.hotelName %></h4>
                                                 <p class="text-sm text-gray-600">📍 <%= booking.location %></p>
                                             </div>
-                                            <span class="px-3 py-1 rounded-full text-xs font-semibold <%= booking.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800' %>">
+                                            <span class="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap <%= booking.status === 'Completed' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700' %>">
                                                 <%= booking.status %>
                                             </span>
                                         </div>
 
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-3 text-sm">
+                                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-3 text-sm">
                                             <div>
                                                 <p class="text-gray-500 text-xs">Check-in</p>
-                                                <p class="font-semibold text-gray-800"><%= new Date(booking.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></p>
+                                                <p class="font-semibold text-text"><%= new Date(booking.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></p>
                                             </div>
                                             <div>
                                                 <p class="text-gray-500 text-xs">Check-out</p>
-                                                <p class="font-semibold text-gray-800"><%= new Date(booking.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></p>
+                                                <p class="font-semibold text-text"><%= new Date(booking.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></p>
                                             </div>
                                             <div>
                                                 <p class="text-gray-500 text-xs">Guests</p>
-                                                <p class="font-semibold text-gray-800"><%= booking.guests %> <%= booking.guests > 1 ? 'guests' : 'guest' %></p>
+                                                <p class="font-semibold text-text"><%= booking.guests %> <%= booking.guests > 1 ? 'guests' : 'guest' %></p>
                                             </div>
                                             <div>
                                                 <p class="text-gray-500 text-xs">Nights</p>
-                                                <p class="font-semibold text-gray-800"><%= booking.nights %> <%= booking.nights > 1 ? 'nights' : 'night' %></p>
+                                                <p class="font-semibold text-text"><%= booking.nights %></p>
                                             </div>
                                         </div>
 
                                         <!-- Review Status -->
                                         <% if (booking.status === 'Completed') { %>
-                                            <div class="flex items-center gap-2 text-sm my-2">
+                                            <div class="text-sm">
                                                 <% if (booking.reviewed) { %>
-                                                    <div class="flex items-center gap-1">
-                                                        <% for (let i = 0; i < Math.floor(booking.rating); i++) { %>
-                                                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                                            </svg>
-                                                        <% } %>
-                                                        <span class="font-semibold text-gray-800"><%= booking.rating %></span>
-                                                        <span class="text-gray-500">- You reviewed this</span>
+                                                    <div class="flex items-center gap-2">
+                                                        <div class="flex items-center gap-0.5">
+                                                            <% for (let i = 0; i < Math.floor(booking.rating); i++) { %>
+                                                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                                                </svg>
+                                                            <% } %>
+                                                        </div>
+                                                        <span class="font-semibold text-gray-700"><%= booking.rating %></span>
+                                                        <span class="text-gray-600">You reviewed this</span>
                                                     </div>
                                                 <% } else { %>
-                                                    <span class="text-gray-500">No review yet</span>
-                                                    <button class="text-blue-600 hover:text-blue-700 font-semibold">Leave a review</button>
+                                                    <button class="text-secondary hover:text-secondary/80 font-semibold">✏️ Leave a review</button>
                                                 <% } %>
                                             </div>
                                         <% } %>
                                     </div>
 
                                     <!-- Price and Actions -->
-                                    <div class="md:text-right flex flex-col justify-between">
+                                    <div class="md:text-right flex flex-col justify-between min-w-max">
                                         <div>
                                             <p class="text-gray-600 text-sm">Total Price</p>
-                                            <p class="text-2xl font-bold text-gray-800">₹<%= booking.price.toLocaleString('en-IN') %></p>
-                                            <p class="text-xs text-gray-500 mt-1">₹<%= Math.round(booking.price / booking.nights).toLocaleString('en-IN') %> per night</p>
+                                            <p class="text-2xl font-bold text-primary">₹<%= booking.price.toLocaleString('en-IN') %></p>
+                                            <p class="text-xs text-gray-500 mt-1">₹<%= Math.round(booking.price / booking.nights).toLocaleString('en-IN') %>/night</p>
                                         </div>
                                         <div class="mt-3 space-y-2">
-                                            <button class="w-full md:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition">
+                                            <button class="w-full md:w-auto px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-lg transition">
                                                 View Details
                                             </button>
                                             <% if (booking.status === 'Upcoming') { %>
-                                                <button class="w-full md:w-auto px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition">
-                                                    Cancel Booking
+                                                <button class="w-full md:w-auto px-4 py-2 bg-gray-200 hover:bg-gray-300 text-text text-sm font-semibold rounded-lg transition">
+                                                    Cancel
                                                 </button>
                                             <% } %>
                                         </div>
@@ -273,12 +250,9 @@
                     </div>
                 <% } else { %>
                     <div class="text-center py-12">
-                        <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
-                        </svg>
-                        <p class="text-gray-500 text-lg font-medium">No bookings yet</p>
-                        <p class="text-gray-400 text-sm mt-1">Start your first adventure with us today!</p>
-                        <a href="/Hot-Stay/home" class="inline-block mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+                        <p class="text-gray-500 text-lg font-medium mb-2">No bookings yet</p>
+                        <p class="text-gray-400 text-sm mb-4">Start your first adventure with us today!</p>
+                        <a href="/Hot-Stay/home" class="inline-block px-6 py-2 bg-secondary hover:bg-secondary/90 text-white font-semibold rounded-lg transition">
                             Browse Hotels
                         </a>
                     </div>
@@ -286,39 +260,38 @@
             </div>
 
             <!-- Settings Tab -->
-            <div id="preferences" class="tab-content p-6">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">Account Settings</h3>
-                
-                <div class="space-y-6">
+            <div id="settings" class="tab-content p-6">
+                <div class="space-y-6 max-w-2xl">
                     
                     <!-- Email Notifications -->
                     <div class="border-b border-gray-200 pb-6">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Email Notifications</h4>
+                        <h4 class="text-lg font-semibold text-text mb-4">Email Notifications</h4>
                         <div class="space-y-3">
-                            <label class="flex items-center">
-                                <input type="checkbox" checked class="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
-                                <span class="ml-3 text-gray-700">Booking confirmations and updates</span>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-2 focus:ring-primary/50">
+                                <span class="ml-3 text-gray-700 font-medium">Booking confirmations and updates</span>
                             </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" checked class="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
-                                <span class="ml-3 text-gray-700">Special offers and promotions</span>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-primary rounded focus:ring-2 focus:ring-primary/50">
+                                <span class="ml-3 text-gray-700 font-medium">Special offers and promotions</span>
                             </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500">
-                                <span class="ml-3 text-gray-700">Weekly newsletter</span>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 text-primary rounded focus:ring-2 focus:ring-primary/50">
+                                <span class="ml-3 text-gray-700 font-medium">Weekly newsletter</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Privacy Settings -->
                     <div class="border-b border-gray-200 pb-6">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Privacy & Security</h4>
+                        <h4 class="text-lg font-semibold text-text mb-4">Security</h4>
                         <div class="space-y-3">
-                            <button class="w-full md:w-auto px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg transition">
-                                Change Password
+                            <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-text font-semibold rounded-lg transition">
+                                🔐 Change Password
                             </button>
-                            <button class="w-full md:w-auto px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg transition ml-0 md:ml-2 mt-2 md:mt-0">
-                                Two-Factor Authentication
+                            <br>
+                            <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-text font-semibold rounded-lg transition">
+                                🛡️ Two-Factor Authentication
                             </button>
                         </div>
                     </div>
@@ -326,40 +299,48 @@
                     <!-- Danger Zone -->
                     <div>
                         <h4 class="text-lg font-semibold text-red-600 mb-4">Danger Zone</h4>
-                        <button class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">
+                        <button class="px-4 py-2 bg-red-100 hover:bg-red-200 text-red-700 font-semibold rounded-lg transition">
                             Delete Account
                         </button>
                     </div>
                 </div>
             </div>
-
         </div>
 
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('./includes/foot'); %>
 
     <script>
         function showTab(tabName) {
-            // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            // Remove active class from all buttons
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active');
                 btn.style.borderBottomColor = 'transparent';
-                btn.style.color = '#4B5563';
+                btn.style.color = '#666';
             });
             
-            // Show selected tab
             document.getElementById(tabName).classList.add('active');
             
-            // Add active class to clicked button
-            event.target.closest('.tab-button').classList.add('active');
-            event.target.closest('.tab-button').style.borderBottomColor = '#2563EB';
-            event.target.closest('.tab-button').style.color = '#1F2937';
+            const button = event.target.closest('.tab-button');
+            button.classList.add('active');
+            button.style.borderBottomColor = '#1F7A8C';
+            button.style.color = '#1A1A1A';
         }
     </script>
+
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 
 </body>
 </html>
