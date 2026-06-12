@@ -15,9 +15,25 @@ module.exports = {
         text: '#1A1A1A',
       },
       fontFamily: {
-        'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },
-  plugins: [],
-}
+
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.hide-scrollbar': {
+          /* Chrome, Safari */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+          /* IE, Edge */
+          '-ms-overflow-style': 'none',
+          /* Firefox */
+          'scrollbar-width': 'none',
+        },
+      });
+    },
+  ],
+};

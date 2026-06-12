@@ -1,5 +1,4 @@
 <%- include('./includes/head'); %>
-    <%- include('./includes/welc'); %>
         </head>
 
         <body class="bg-background font-jakarta text-text min-h-screen">
@@ -8,12 +7,7 @@
             <nav class="sticky top-0 bg-white/98 backdrop-blur-sm border-b border-gray-200 z-50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between items-center h-16">
-                        <a href="#" class="text-primary font-bold text-2xl flex items-center gap-2">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                                <path d="M16 1L2 12h4v15h7v-8h6v8h7V12h4L16 1z" />
-                            </svg>
-                            HotStay
-                        </a>
+                        <%- include('./includes/logo'); %>
 
                         <div
                             class="hidden md:flex items-center bg-white border border-gray-300 rounded-full px-6 py-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
@@ -85,12 +79,78 @@
             </div>
 
             <!-- Main Content -->
-            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ml-[10%]">
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 ml-4 lg:px-8 py-8 ml-[10%]">
+                
+                <!-- Search Section -->
+                <div class="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-200">
+                    <form method="GET" action="/Hot-Stay/home" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+                            <!-- Location -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-text">Location</label>
+                                <input type="text" name="location" placeholder="City or region" value="<%= searchFilters && searchFilters.location ? searchFilters.location : '' %>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none" />
+                            </div>
+
+                            <!-- Property Type -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-text">Property Type</label>
+                                <select name="type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none">
+                                    <option value="">All Types</option>
+                                    <% if(propertyTypes && propertyTypes.length > 0) { %>
+                                        <% propertyTypes.forEach(type => { %>
+                                            <option value="<%= type %>" <%= searchFilters && searchFilters.type === type ? 'selected' : '' %>>
+                                                <%= type %>
+                                            </option>
+                                        <% }) %>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <!-- Check-in Date -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-text">Check-in</label>
+                                <input type="date" name="checkin" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none" />
+                            </div>
+
+                            <!-- Check-out Date -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-text">Check-out</label>
+                                <input type="date" name="checkout" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none" />
+                            </div>
+
+                            <!-- Number of Guests -->
+                            <div>
+                                <label class="block text-sm font-semibold mb-2 text-text">Guests</label>
+                                <select name="guests" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none">
+                                    <option value="">Any</option>
+                                    <option value="1" <%= searchFilters && searchFilters.guests === '1' ? 'selected' : '' %>>1 Guest</option>
+                                    <option value="2" <%= searchFilters && searchFilters.guests === '2' ? 'selected' : '' %>>2 Guests</option>
+                                    <option value="3" <%= searchFilters && searchFilters.guests === '3' ? 'selected' : '' %>>3 Guests</option>
+                                    <option value="4" <%= searchFilters && searchFilters.guests === '4' ? 'selected' : '' %>>4 Guests</option>
+                                    <option value="5" <%= searchFilters && searchFilters.guests === '5' ? 'selected' : '' %>>5+ Guests</option>
+                                </select>
+                            </div>
+
+                            <!-- Search Button -->
+                            <div class="flex items-end">
+                                <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-2 rounded-lg transition-colors">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Keep category filter if present -->
+                        <% if(selectedCategory) { %>
+                            <input type="hidden" name="category" value="<%= selectedCategory %>" />
+                        <% } %>
+                    </form>
+                </div>
+
                 <% if(selectedCategory) { %>
                     <h2 class="text-2xl font-bold mb-6 text-text"><%= selectedCategory %></h2>
                 <% } %>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ml-12 xl:grid-cols-4 gap-6">
                     <% if(hotels && hotels.length > 0) { %>
                         <% hotels.forEach(hotel => { %>
                             <a href="/Hot-Stay/booking/<%= hotel.id %>" class="group block">
@@ -114,7 +174,7 @@
                                             <%= hotel.location %>
                                         </h3>
                                         <div class="flex items-center gap-1">
-                                            <i class="fa-solid fa-star text-xs"></i>
+                                            <i class="fa-solid fa-star text-xs text-yellow-500"></i>
                                             <span class="text-sm">
                                                 <%= hotel.rating %>
                                             </span>
@@ -126,7 +186,7 @@
                                     <p class="text-gray-500 text-sm">Available Oct 12 – 17</p>
                                     <p class="text-sm">
                                         <span class="font-semibold">₹<%= hotel.price %></span>
-                                        <span class="font-normal"> night</span>
+                                        <span class="font-normal">/ night</span>
                                     </p>
                                 </div>
                             </a>

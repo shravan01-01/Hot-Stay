@@ -43,7 +43,10 @@ app.post("/Validation", (req, res) => {
 
 // Home page
 app.get("/Hot-Stay/home", (req, res) => {
-  const category = req.query.category; // Get category from query parameter
+  const category = req.query.category;
+  const propertyType = req.query.type;
+  const guests = req.query.guests;
+  const location = req.query.location;
   
   try {
     const hotelDataPath = path.join(__dirname, '../database/hotelData.json');
@@ -56,9 +59,38 @@ app.get("/Hot-Stay/home", (req, res) => {
       );
     }
     
+    // Filter by property type if provided
+    if (propertyType && propertyType !== 'all') {
+      hotels = hotels.filter(hotel => 
+        hotel.type && hotel.type.toLowerCase().includes(propertyType.toLowerCase())
+      );
+    }
+    
+    // Filter by guest capacity if provided
+    if (guests) {
+      const guestCount = parseInt(guests);
+      hotels = hotels.filter(hotel => hotel.guests >= guestCount);
+    }
+    
+    // Filter by location if provided
+    if (location && location.trim() !== '') {
+      hotels = hotels.filter(hotel => 
+        hotel.location && hotel.location.toLowerCase().includes(location.toLowerCase())
+      );
+    }
+    
+    // Extract unique property types for the search form
+    const propertyTypes = [...new Set(hotels.map(h => h.type).filter(Boolean))];
+    
     res.render("home", { 
       hotels: hotels,
-      selectedCategory: category || null
+      selectedCategory: category || null,
+      propertyTypes: propertyTypes,
+      searchFilters: {
+        type: propertyType,
+        guests: guests,
+        location: location
+      }
     }); // home.ejs
   } catch (error) {
     console.error('Error reading hotel data:', error);

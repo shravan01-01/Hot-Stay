@@ -10,10 +10,7 @@
 
         <!-- Navigation -->
         <nav class="h-20 flex justify-between items-center px-8 border-b border-gray-200 sticky top-0 bg-white z-50">
-            <a href="/Hot-Stay" class="text-primary text-xl font-bold flex items-center gap-2">
-                <i class="fa-solid fa-house-chimney-window"></i>
-                HotStay
-            </a>
+            <%- include('./includes/logo'); %>
             <div class="hidden md:flex gap-6">
                 <a href="/stays" class="text-text hover:text-primary transition-colors font-medium">Stays</a>
                 <a href="/offers" class="text-text hover:text-primary transition-colors font-medium">Offers</a>
@@ -225,83 +222,46 @@
             <!-- Similar Stays -->
             <section class="mt-16">
                 <h2 class="text-2xl font-bold mb-6">Similar places to stay</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <% similarHotels.forEach(s=> { %>
-                        <a href="/Hot-Stay/booking/<%= s.id %>" class="group block">
-                            <div class="aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
-                                <img src="<%= s.image %>" alt="<%= s.name %>"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex justify-between items-start">
-                                    <h3 class="font-semibold text-sm">
-                                        <%= s.name %>
-                                    </h3>
-                                    <div class="flex items-center gap-1">
-                                        <i class="fa-solid fa-star text-xs"></i>
-                                        <span class="text-sm">
-                                            <%= s.rating %>
-                                        </span>
-                                    </div>
+                <div class="flex items-center gap-6">
+                    <div class="flex gap-6 flex-1 overflow-x-auto pb-4">
+                        <% similarHotels.slice(0, 4).forEach(s=> { %>
+                            <a href="/Hot-Stay/booking/<%= s.id %>" class="group block flex-shrink-0 w-64">
+                                <div class="aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
+                                    <img src="<%= s.image %>" alt="<%= s.name %>"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                 </div>
-                                <p class="text-gray-600 text-sm">
-                                    <%= s.location %>
-                                </p>
-                                <p class="text-sm">
-                                    <span class="font-semibold">₹<%= s.price %></span>
-                                    <span class="font-normal"> night</span>
-                                </p>
-                            </div>
-                        </a>
+                                <div class="space-y-1">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="font-semibold text-sm">
+                                            <%= s.name %>
+                                        </h3>
+                                        <div class="flex items-center gap-1">
+                                            <i class="fa-solid fa-star text-xs"></i>
+                                            <span class="text-sm">
+                                                <%= s.rating %>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-sm">
+                                        <%= s.location %>
+                                    </p>
+                                    <p class="text-sm">
+                                        <span class="font-semibold">₹<%= s.price %></span>
+                                        <span class="font-normal"> night</span>
+                                    </p>
+                                </div>
+                            </a>
                         <% }) %>
+                    </div>
+                    <a href="/Hot-Stay/home" class="text-primary hover:text-primary/80 font-semibold flex-shrink-0 whitespace-nowrap">
+                        See more →
+                    </a>
                 </div>
             </section>
         </div>
 
         <!-- Footer -->
-        <footer class="bg-gray-50 border-t border-gray-200 mt-20">
-            <div class="max-w-6xl mx-auto px-4 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                    <div>
-                        <h5 class="font-bold mb-4">Support</h5>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li class="cursor-pointer hover:text-primary transition-colors">Help Centre</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">HotStay Cover</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">Anti-discrimination</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">Cancellation options</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="font-bold mb-4">Hosting</h5>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li class="cursor-pointer hover:text-primary transition-colors">HotStay your home</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">Hosting resources</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">Community forum</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="font-bold mb-4">HotStay</h5>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li class="cursor-pointer hover:text-primary transition-colors">Newsroom</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">New features</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">Careers</li>
-                            <li class="cursor-pointer hover:text-primary transition-colors">Investors</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="font-bold mb-4">Social</h5>
-                        <div class="flex gap-4 text-xl">
-                            <i class="fa-brands fa-facebook cursor-pointer hover:text-primary transition-colors"></i>
-                            <i class="fa-brands fa-instagram cursor-pointer hover:text-primary transition-colors"></i>
-                            <i class="fa-brands fa-twitter cursor-pointer hover:text-primary transition-colors"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center text-sm text-gray-600 border-t border-gray-200 pt-6">
-                    © 2026 HotStay, Inc. · Privacy · Terms · Sitemap
-                </div>
-            </div>
-        </footer>
+        <%- include('./includes/foot'); %>
 
     </body>
 
