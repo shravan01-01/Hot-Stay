@@ -132,17 +132,65 @@ app.get('/Hot-Stay/booking/:id', (req, res) => {
 
 
 app.get('/Hot-Stay/Profile', (req, res) => {
-    // Assuming you have a logged-in user or fetched one from a DB
-    const userData = {
-        username: 'JohnDoe',
-        firstName: 'John',
-        lastName: 'Smith',
-        email: 'john@example.com',
-        bio: 'Fullstack developer and coffee enthusiast.',
-        createdAt: '2023-01-15'
-    };
-    
-    res.render('Profile', { user: userData });
+    try {
+        const usersPath = path.join(__dirname, '../database/users.json');
+        const bookingsPath = path.join(__dirname, '../database/bookings.json');
+        
+        // Load users and bookings from database
+        const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
+        const allBookings = JSON.parse(fs.readFileSync(bookingsPath, 'utf8'));
+        
+        // Get the first user (in real app, would use session/auth)
+        const currentUser = users[0];
+        
+        if (!currentUser) {
+            return res.status(404).send('User not found');
+        }
+        
+        // Filter bookings for current user
+        const userBookings = allBookings.filter(booking => booking.userId === currentUser.id);
+        
+        // Calculate statistics dynamically
+        const completedBookings = userBookings.filter(b => b.status === 'Completed');
+        const cancelledBookings = userBookings.filter(b => b.status === 'Cancelled');
+        const totalNights = userBookings.reduce((sum, b) => sum + (b.nights || 0), 0);
+        const totalSpent = userBookings.reduce((sum, b) => sum + (b.price || 0), 0);
+        const reviewedBookings = completedBookings.filter(b => b.reviewed).length;
+        
+        // Calculate average rating
+        const ratings = completedBookings
+            .filter(b => b.rating !== null)
+            .map(b => b.rating);
+        const averageRating = ratings.length > 0 
+            ? (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1)
+            : null;
+        
+        // Prepare user data with calculated stats
+        const userData = {
+            ...currentUser,
+            totalBookings: userBookings.length,
+            totalTrips: completedBookings.length,
+            cancelledBookings: cancelledBookings.length,
+            totalSpent: totalSpent,
+            totalNights: totalNights,
+            reviewedBookings: reviewedBookings,
+            averageRating: averageRating,
+            cancellationRate: userBookings.length > 0 
+                ? (cancelledBookings.length / userBookings.length * 100).toFixed(1)
+                : 0
+        };
+        
+        // Sort bookings by date (newest first)
+        const sortedBookings = userBookings.sort((a, b) => 
+            new Date(b.bookingDate) - new Date(a.bookingDate)
+        );
+        
+        res.render('Profile', { user: userData, bookings: sortedBookings });
+        
+    } catch (error) {
+        console.error('Error loading profile data:', error);
+        res.status(500).send('Error loading profile data');
+    }
 });
 
 
