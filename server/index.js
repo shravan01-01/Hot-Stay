@@ -4,6 +4,8 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 const Hotel = require('./models/Hotel');
+const User = require('./models/User');
+const Booking = require('./models/Booking');
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
 mongoose.connect(mongoURI, {
@@ -54,44 +56,30 @@ app.post("/Validation", (req, res) => {
 });
 
 // Home page
-app.get("/Hot-Stay/home", (req, res) => {
+app.get("/Hot-Stay/home", async (req, res) => {
   const category = req.query.category;
   const propertyType = req.query.type;
   const guests = req.query.guests;
   const location = req.query.location;
   
   try {
-    const hotelDataPath = path.join(__dirname, '../database/hotelData.json');
-    let hotels = JSON.parse(fs.readFileSync(hotelDataPath, 'utf8'));
+    let query = {};
     
-    // Filter by category if provided
+    // Build MongoDB query
     if (category) {
-      hotels = hotels.filter(hotel => 
-        hotel.categories && hotel.categories.includes(category)
-      );
+      query.categories = { $in: [category] };
     }
-    
-    // Filter by property type if provided
     if (propertyType && propertyType !== 'all') {
-      hotels = hotels.filter(hotel => 
-        hotel.type && hotel.type.toLowerCase().includes(propertyType.toLowerCase())
-      );
+      query.type = { $regex: propertyType, $options: 'i' };
     }
-    
-    // Filter by guest capacity if provided
     if (guests) {
-      const guestCount = parseInt(guests);
-      hotels = hotels.filter(hotel => hotel.guests >= guestCount);
+      query.guests = { $gte: parseInt(guests) };
     }
-    
-    // Filter by location if provided
     if (location && location.trim() !== '') {
-      hotels = hotels.filter(hotel => 
-        hotel.location && hotel.location.toLowerCase().includes(location.toLowerCase())
-      );
+      query.location = { $regex: location, $options: 'i' };
     }
     
-    // Extract unique property types for the search form
+    const hotels = await Hotel.find(query).lean();
     const propertyTypes = [...new Set(hotels.map(h => h.type).filter(Boolean))];
     
     res.render("home", { 
@@ -103,7 +91,7 @@ app.get("/Hot-Stay/home", (req, res) => {
         guests: guests,
         location: location
       }
-    }); // home.ejs
+    });
   } catch (error) {
     console.error('Error reading hotel data:', error);
     res.render("home", { 
@@ -116,21 +104,26 @@ app.get("/Hot-Stay/home", (req, res) => {
 
 
 // 4. Routes
-app.get('/Hot-Stay/booking/:id', (req, res) => {
-    // In a real app, you would: const hotel = await Hotel.findById(req.params.id);
+app.get('/Hot-Stay/booking/:id', async (req, res) => {
     try {
-        const hotelDataPath = path.join(__dirname, '../database/hotelData.json');
-        const similarHotelsPath = path.join(__dirname, '../database/similarHotels.json');
-        
-        const hotels = JSON.parse(fs.readFileSync(hotelDataPath, 'utf8'));
-        const similarHotels = JSON.parse(fs.readFileSync(similarHotelsPath, 'utf8'));
-        
-        // Find the hotel by ID
-        const hotel = hotels.find(h => h.id === req.params.id);
+        const hotel = await Hotel.findById(req.params.id).lean();
         
         if (!hotel) {
             return res.status(404).send('Hotel not found');
         }
+        
+        // Get similar hotels (same type or category)
+        const similarHotels = await Hotel.find({
+            $and: [
+                { _id: { $ne: hotel._id } },
+                {
+                    $or: [
+                        { type: hotel.type },
+                        { categories: { $in: hotel.categories || [] } }
+                    ]
+                }
+            ]
+        }).limit(6).lean();
         
         res.render('booking', { 
             hotel: hotel, 
@@ -143,24 +136,17 @@ app.get('/Hot-Stay/booking/:id', (req, res) => {
 });
 
 
-app.get('/Hot-Stay/Profile', (req, res) => {
+app.get('/Hot-Stay/Profile', async (req, res) => {
     try {
-        const usersPath = path.join(__dirname, '../database/users.json');
-        const bookingsPath = path.join(__dirname, '../database/bookings.json');
-        
-        // Load users and bookings from database
-        const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
-        const allBookings = JSON.parse(fs.readFileSync(bookingsPath, 'utf8'));
-        
         // Get the first user (in real app, would use session/auth)
-        const currentUser = users[0];
+        const currentUser = await User.findOne({}).lean();
         
         if (!currentUser) {
             return res.status(404).send('User not found');
         }
         
         // Filter bookings for current user
-        const userBookings = allBookings.filter(booking => booking.userId === currentUser.id);
+        const userBookings = await Booking.find({ userId: currentUser.id }).lean();
         
         // Calculate statistics dynamically
         const completedBookings = userBookings.filter(b => b.status === 'Completed');
@@ -235,29 +221,6 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
     });
 
     await hotel.save();
-
-    // Also append to local JSON for compatibility with existing templates
-    const hotelDataPath = path.join(__dirname, '../database/hotelData.json');
-    try {
-      const hotels = JSON.parse(fs.readFileSync(hotelDataPath, 'utf8')) || [];
-      const newEntry = {
-        id: hotel._id.toString(),
-        name: hotel.name,
-        location: hotel.location,
-        host: hotel.hostEmail || 'Host',
-        price: hotel.price,
-        images: hotel.images,
-        rating: 4.5,
-        type: hotel.type,
-        guests: hotel.guests,
-        categories: hotel.categories
-      };
-      hotels.push(newEntry);
-      fs.writeFileSync(hotelDataPath, JSON.stringify(hotels, null, 2));
-    } catch (e) {
-      console.error('Failed to update hotelData.json:', e);
-    }
-
     res.redirect('/Hot-Stay/host/dashboard');
   } catch (error) {
     console.error('Error creating hosted property:', error);
@@ -267,11 +230,11 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
 
 // Host dashboard - list hosted properties (all for now)
 app.get('/Hot-Stay/host/dashboard', async (req, res) => {
-  try {
-    const hotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
-    res.render('host_dashboard', { hotels });
-  } catch (error) {
-    console.error('Error loading host dashboard:', error);
-    res.status(500).send('Error loading dashboard');
-  }
+    try {
+        const hotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
+        res.render('host_dashboard', { hotels });
+    } catch (error) {
+        console.error('Error loading host dashboard:', error);
+        res.status(500).send('Error loading dashboard');
+    }
 });
