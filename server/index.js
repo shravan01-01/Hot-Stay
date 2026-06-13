@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const fs = require("fs");
 const app = express();
+const Hotel = require('./models/Hotel');
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
 mongoose.connect(mongoURI, {
@@ -208,4 +209,69 @@ app.get('/Hot-Stay/Profile', (req, res) => {
 
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
+});
+
+
+// Host routes - allow users to list and create host properties
+// Show form to create a new hosted property
+app.get('/Hot-Stay/host/new', (req, res) => {
+  res.render('host_new');
+});
+
+// Save a new hosted property
+app.post('/Hot-Stay/host/new', async (req, res) => {
+  try {
+    const { name, description, location, price, images, type, guests, categories, hostEmail } = req.body;
+    const hotel = new Hotel({
+      name,
+      description,
+      location,
+      price: parseFloat(price) || 0,
+      images: images ? images.split(',').map(s => s.trim()) : [],
+      type,
+      guests: parseInt(guests) || 1,
+      categories: categories ? categories.split(',').map(s => s.trim()) : [],
+      hostEmail
+    });
+
+    await hotel.save();
+
+    // Also append to local JSON for compatibility with existing templates
+    const hotelDataPath = path.join(__dirname, '../database/hotelData.json');
+    try {
+      const hotels = JSON.parse(fs.readFileSync(hotelDataPath, 'utf8')) || [];
+      const newEntry = {
+        id: hotel._id.toString(),
+        name: hotel.name,
+        location: hotel.location,
+        host: hotel.hostEmail || 'Host',
+        price: hotel.price,
+        images: hotel.images,
+        rating: 4.5,
+        type: hotel.type,
+        guests: hotel.guests,
+        categories: hotel.categories
+      };
+      hotels.push(newEntry);
+      fs.writeFileSync(hotelDataPath, JSON.stringify(hotels, null, 2));
+    } catch (e) {
+      console.error('Failed to update hotelData.json:', e);
+    }
+
+    res.redirect('/Hot-Stay/host/dashboard');
+  } catch (error) {
+    console.error('Error creating hosted property:', error);
+    res.status(500).send('Error creating property');
+  }
+});
+
+// Host dashboard - list hosted properties (all for now)
+app.get('/Hot-Stay/host/dashboard', async (req, res) => {
+  try {
+    const hotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
+    res.render('host_dashboard', { hotels });
+  } catch (error) {
+    console.error('Error loading host dashboard:', error);
+    res.status(500).send('Error loading dashboard');
+  }
 });
