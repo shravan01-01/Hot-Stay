@@ -1,7 +1,18 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const path = require("path");
 const fs = require("fs");
 const app = express();
+
+const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log("MongoDB connected:", mongoURI);
+}).catch((error) => {
+  console.error("MongoDB connection error:", error);
+});
 
 // middleware to read form data
 app.use(express.urlencoded({ extended: true }));
