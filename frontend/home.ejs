@@ -5,85 +5,73 @@
 
             <!-- Navigation -->
             <nav class="sticky top-0 bg-white/98 backdrop-blur-sm border-b border-gray-200 z-50">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="w-full px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between items-center h-16">
                         <%- include('./includes/logo'); %>
-
-                        <div
-                            class="hidden md:flex items-center bg-white border border-gray-300 rounded-full px-6 py-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-                            <div class="px-4 text-sm font-semibold border-r border-gray-300">Anywhere</div>
-                            <div class="px-4 text-sm font-semibold border-r border-gray-300">Any week</div>
-                            <div class="px-4 text-sm font-semibold">Add guests</div>
-                        </div>
-
                         <%- include('./includes/profile icon'); %>
                     </div>
-            </nav>
-            <!-- Sidebar Categories -->
-            <div class="h-screen w-[10%] bg-gray-50 border-r border-gray-200 fixed left-0 top-0 mt-16">
-
-                <div class="flex flex-col gap-6 p-4 overflow-y-auto h-full">
-
-                    <!-- Item -->
-                    <a href="/Hot-Stay/home?category=Castles" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Castles' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🏰</span>
-                        <span class="text-xs font-semibold text-center">Castles</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Beachfront" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Beachfront' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🏖️</span>
-                        <span class="text-xs font-semibold text-center">Beachfront</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Amazing views" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Amazing views' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🏔️</span>
-                        <span class="text-xs font-semibold text-center">Amazing views</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Trending" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Trending' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🔥</span>
-                        <span class="text-xs font-semibold text-center">Trending</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Design" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Design' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🎨</span>
-                        <span class="text-xs font-semibold text-center">Design</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Golfing" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Golfing' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">⛳</span>
-                        <span class="text-xs font-semibold text-center">Golfing</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Vineyards" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Vineyards' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🍷</span>
-                        <span class="text-xs font-semibold text-center">Vineyards</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Arctic" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Arctic' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">❄️</span>
-                        <span class="text-xs font-semibold text-center">Arctic</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home?category=Desert" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= selectedCategory === 'Desert' ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">🌵</span>
-                        <span class="text-xs font-semibold text-center">Desert</span>
-                    </a>
-
-                    <a href="/Hot-Stay/home" class="flex flex-col items-center gap-2 cursor-pointer border-l-4 <%= !selectedCategory ? 'border-primary' : 'border-transparent hover:border-gray-300' %> pl-2 transition-colors">
-                        <span class="text-2xl">⛵</span>
-                        <span class="text-xs font-semibold text-center">All Hotels</span>
-                    </a>
-
                 </div>
-            </div>
+            </nav>
+            <!-- Categories + Search Header -->
+            <header class="bg-white/98 border-b border-gray-200 sticky top-16 z-40">
+                <div class="w-full px-4 sm:px-6 lg:px-8 py-4">
+                    <div class="flex flex-col gap-4">
+                        <div class="overflow-x-auto">
+                            <div class="flex items-center gap-7 pb-2">
+                                <a href="/Hot-Stay/home?category=Castles" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Castles' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🏰</span>
+                                    <span class="text-xs font-semibold text-center">Castles</span>
+                                </a>
 
-            <!-- Main Content -->
-            <main class="max-w-7xl mx-auto px-4 sm:px-6 ml-4 lg:px-8 py-8 ml-[10%]">
-                
-                <!-- Search Section -->
-                <div class="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-200">
-                    <form method="GET" action="/Hot-Stay/home" class="space-y-4">
+                                <a href="/Hot-Stay/home?category=Beachfront" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Beachfront' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🏖️</span>
+                                    <span class="text-xs font-semibold text-center">Beachfront</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Amazing views" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Amazing views' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🏔️</span>
+                                    <span class="text-xs font-semibold text-center">Amazing views</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Trending" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Trending' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🔥</span>
+                                    <span class="text-xs font-semibold text-center">Trending</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Design" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Design' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🎨</span>
+                                    <span class="text-xs font-semibold text-center">Design</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Golfing" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Golfing' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">⛳</span>
+                                    <span class="text-xs font-semibold text-center">Golfing</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Vineyards" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Vineyards' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🍷</span>
+                                    <span class="text-xs font-semibold text-center">Vineyards</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Arctic" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Arctic' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">❄️</span>
+                                    <span class="text-xs font-semibold text-center">Arctic</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home?category=Desert" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= selectedCategory === 'Desert' ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">🌵</span>
+                                    <span class="text-xs font-semibold text-center">Desert</span>
+                                </a>
+
+                                <a href="/Hot-Stay/home" class="flex items-center gap-2 cursor-pointer rounded-2xl px-4 py-2 transition-colors <%= !selectedCategory ? 'bg-primary/10 text-primary' : 'bg-white text-gray-700 hover:bg-gray-100' %>">
+                                    <span class="text-2xl">⛵</span>
+                                    <span class="text-xs font-semibold text-center">All Hotels</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+                            <form method="GET" action="/Hot-Stay/home" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
                             <!-- Location -->
                             <div>
@@ -150,7 +138,7 @@
                     <h2 class="text-2xl font-bold mb-6 text-text"><%= selectedCategory %></h2>
                 <% } %>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ml-12 xl:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     <% if(hotels && hotels.length > 0) { %>
                         <% hotels.forEach(hotel => { %>
                             <a href="/Hot-Stay/booking/<%= hotel.id %>" class="group block">
@@ -211,8 +199,8 @@
             </div>
 
             <!-- Footer -->
-            <footer class="bg-gray-50 border-t border-gray-200 mt-16 ml-[10%]">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+                <div class="w-full px-4 sm:px-6 lg:px-8 py-12">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                         <div>
                             <h4 class="font-semibold text-sm mb-4">Support</h4>
