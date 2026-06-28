@@ -44,8 +44,6 @@ app.get("/Hot-Stay/login", (req, res) => {
 app.post("/Validation", (req, res) => {
   const { email, password } = req.body;
 
-  console.log(email, password);
-
   // dummy validation
   if (email === "admin@gmail.com" && password === "1234") {
     res.redirect("/Hot-Stay/home");
