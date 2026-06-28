@@ -43,6 +43,11 @@ app.get("/Hot-Stay/login", (req, res) => {
   res.render("login");
 });
 
+// Register page
+app.get("/Hot-Stay/register", (req, res) => {
+  res.render("register");
+});
+
 // Register Route
 app.post("/register", async (req, res) => {
 
