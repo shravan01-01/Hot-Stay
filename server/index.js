@@ -5,6 +5,8 @@ const app = express(); // create express app
 const Hotel = require('./models/Hotel'); //model for hotel data
 const User = require('./models/User'); //model for user data
 const Booking = require('./models/Booking'); //model for booking data
+const User = require('./models/credentials'); //model for user credentials
+const bcrypt = require("bcryptjs"); // for hashing passwords
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
 mongoose.connect(mongoURI, {
@@ -41,14 +43,29 @@ app.get("/Hot-Stay/login", (req, res) => {
 });
 
 // 🔥 Handle login form
-app.post("/Validation", (req, res) => {
+app.post("/Validation", async (req, res) => {
   const { email, password } = req.body;
 
-  // dummy validation
-  if (email === "admin@gmail.com" && password === "1234") {
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    // Compare passwords
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(401).send("Invalid credentials");
+    }
+
+    // If credentials are valid, redirect to home page    
     res.redirect("/Hot-Stay/home");
-  } else {
-    res.send("Invalid credentials");
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).send("Internal server error");
   }
 });
 
