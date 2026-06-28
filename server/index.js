@@ -1,11 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const path = require("path");
-const fs = require("fs");
-const app = express();
-const Hotel = require('./models/Hotel');
-const User = require('./models/User');
-const Booking = require('./models/Booking');
+const express = require("express"); // for creating the server
+const mongoose = require("mongoose"); // for connecting to MongoDB
+const path = require("path"); // for handling file paths
+const app = express(); // create express app
+const Hotel = require('./models/Hotel'); //model for hotel data
+const User = require('./models/User'); //model for user data
+const Booking = require('./models/Booking'); //model for booking data
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
 mongoose.connect(mongoURI, {
