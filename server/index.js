@@ -42,6 +42,69 @@ app.get("/Hot-Stay/login", (req, res) => {
   res.render("login");
 });
 
+// Register Route
+app.post("/register", async (req, res) => {
+
+    try {
+
+        const { name, email, phone, password } = req.body;
+
+        // Either email or phone is required
+        if (!email && !phone) {
+            return res.status(400).json({
+                success: false,
+                message: "Email or Phone is required"
+            });
+        }
+
+        // Check if user already exists
+        const existingUser = await User.findOne({
+            $or: [
+                { email },
+                { phone }
+            ]
+        });
+
+        if (existingUser) {
+            return res.status(400).json({
+                success: false,
+                message: "User already exists"
+            });
+        }
+
+        // Hash Password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create User
+        const user = await User.create({
+            name,
+            email,
+            phone,
+            password: hashedPassword
+        });
+
+        res.status(201).json({
+            success: true,
+            message: "Account Created Successfully",
+            user
+        });
+
+    } catch (err) {
+
+        res.status(500).json({
+            success: false,
+            message: err.message
+        });
+
+    }
+
+});
+
+// Start Server
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});
+
 // 🔥 Handle login form
 app.post("/Validation", async (req, res) => {
   const { email, password } = req.body;
