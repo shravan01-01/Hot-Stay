@@ -2,10 +2,11 @@ const express = require("express"); // for creating the server
 const mongoose = require("mongoose"); // for connecting to MongoDB
 const path = require("path"); // for handling file paths
 const app = express(); // create express app
+app.use(express.json()); // middleware to parse JSON request bodies
 const Hotel = require('./models/Hotel'); //model for hotel data
 const User = require('./models/User'); //model for user data
 const Booking = require('./models/Booking'); //model for booking data
-const User = require('./models/credentials'); //model for user credentials
+const credential = require('./models/credentials'); //model for user credentials
 const bcrypt = require("bcryptjs"); // for hashing passwords
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
@@ -98,11 +99,6 @@ app.post("/register", async (req, res) => {
 
     }
 
-});
-
-// Start Server
-app.listen(5000, () => {
-    console.log("Server running on port 5000");
 });
 
 // 🔥 Handle login form
