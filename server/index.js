@@ -6,7 +6,6 @@ app.use(express.json()); // middleware to parse JSON request bodies
 const Hotel = require('./models/Hotel'); //model for hotel data
 const User = require('./models/User'); //model for user data
 const Booking = require('./models/Booking'); //model for booking data
-const credential = require('./models/credentials'); //model for user credentials
 const bcrypt = require("bcryptjs"); // for hashing passwords
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
@@ -49,7 +48,7 @@ app.get("/Hot-Stay/register", (req, res) => {
 });
 
 // Register Route
-app.post("/register", async (req, res) => {
+app.post("/Hot-Stay/register", async (req, res) => {
 
     try {
 
@@ -72,10 +71,9 @@ app.post("/register", async (req, res) => {
         });
 
         if (existingUser) {
-            return res.status(400).json({
-                success: false,
-                message: "User already exists"
-            });
+          return res.render("register", {
+          error: "User already exists"
+          });
         }
 
         // Hash Password
@@ -88,6 +86,9 @@ app.post("/register", async (req, res) => {
             phone,
             password: hashedPassword
         });
+        console.log("User created:", user);
+
+        res.redirect("/Hot-Stay/login");
 
         res.status(201).json({
             success: true,
