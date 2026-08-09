@@ -22,3 +22,74 @@
 .hide-scrollbar::-webkit-scrollbar-corner {
   background: transparent !important;
 }
+
+:root{
+  --color-primary: #1F7A8C;
+  --color-secondary: #E07A5F;
+  --color-accent: #81B29A;
+  --color-bg: #F4F1EE;
+  --color-dark: #2F3E46;
+  --color-text: #1A1A1A;
+  --radius-md: 12px;
+}
+
+html,body{
+  height:100%;
+  background:var(--color-bg);
+  color:var(--color-text);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container-max{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* Header / Nav */
+.site-header{
+  background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(47,62,70,0.06);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:38px}
+.nav-actions{display:flex;gap:10px;align-items:center}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;font-weight:600;border:0;cursor:pointer}
+.btn-primary{background:var(--color-primary);color:#fff;box-shadow:0 6px 18px rgba(31,122,140,0.12)}
+.btn-ghost{background:transparent;color:var(--color-dark);border:1px solid rgba(47,62,70,0.06)}
+
+/* Hero */
+.hero{padding:56px 0}
+.hero-card{background:linear-gradient(180deg,#fff, #fbfbfb);border-radius:var(--radius-md);padding:36px;box-shadow:0 10px 30px rgba(47,62,70,0.06)}
+.hero-title{font-size:28px;font-weight:700;margin-bottom:8px;color:var(--color-dark)}
+.hero-sub{color:rgba(26,26,26,0.8);margin-bottom:18px}
+
+/* Cards */
+.hotel-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(47,62,70,0.06);transition:transform .22s ease,box-shadow .22s ease}
+.hotel-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(47,62,70,0.08)}
+.hotel-card .meta{padding:14px 16px}
+
+/* Forms */
+.form-field{display:flex;flex-direction:column;gap:8px}
+.form-input{padding:12px 14px;border-radius:10px;border:1px solid rgba(47,62,70,0.08);background:#fff}
+
+/* Footer */
+.main-footer{padding:48px 0;background:transparent;color:rgba(26,26,26,0.8)}
+.footer-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
+.main-footer h4{font-size:14px;margin-bottom:8px;color:var(--color-dark)}
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .hero-title{font-size:22px}
+  .nav-inner{padding:12px 0}
+}
+
+/* Utility helpers */
+.muted{color:rgba(26,26,26,0.6)}
+
