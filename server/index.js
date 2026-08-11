@@ -44,67 +44,66 @@ app.get("/Hot-Stay/login", (req, res) => {
 
 // Register page
 app.get("/Hot-Stay/register", (req, res) => {
-  res.render("register");
+  res.render("register", { error: null });
 });
 
 // Register Route
 app.post("/Hot-Stay/register", async (req, res) => {
+  try {
+    const { name, email, phone, password, confirmPassword } = req.body;
 
-    try {
-
-        const { name, email, phone, password } = req.body;
-
-        // Either email or phone is required
-        if (!email && !phone) {
-            return res.status(400).json({
-                success: false,
-                message: "Email or Phone is required"
-            });
-        }
-
-        // Check if user already exists
-        const existingUser = await User.findOne({
-            $or: [
-                { email },
-                { phone }
-            ]
-        });
-
-        if (existingUser) {
-          return res.render("register", {
-          error: "User already exists"
-          });
-        }
-
-        // Hash Password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create User
-        const user = await User.create({
-            name,
-            email,
-            phone,
-            password: hashedPassword
-        });
-        console.log("User created:", user);
-
-        res.redirect("/Hot-Stay/login");
-
-        res.status(201).json({
-            success: true,
-            message: "Account Created Successfully",
-            user
-        });
-
-    } catch (err) {
-
-        res.status(500).json({
-            success: false,
-            message: err.message
-        });
-
+    if (!name || !password || !confirmPassword) {
+      return res.render("register", {
+        error: "Name and both password fields are required"
+      });
     }
 
+    if (password !== confirmPassword) {
+      return res.render("register", {
+        error: "Passwords do not match"
+      });
+    }
+
+    // Either email or phone is required
+    if (!email && !phone) {
+      return res.render("register", {
+        error: "Email or Phone is required"
+      });
+    }
+
+    // Check if user already exists
+    const existingUser = await User.findOne({
+      $or: [
+        { email },
+        { phone }
+      ]
+    });
+
+    if (existingUser) {
+      return res.render("register", {
+        error: "User already exists"
+      });
+    }
+
+    // Hash Password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create User
+    await User.create({
+      name,
+      email,
+      phone,
+      password: hashedPassword
+    });
+    console.log("User created:", email || phone);
+
+    return res.redirect("/Hot-Stay/login");
+  } catch (err) {
+    console.error("Register error:", err);
+    return res.render("register", {
+      error: err.message || "Unable to register user"
+    });
+  }
 });
 
 // 🔥 Handle login form
