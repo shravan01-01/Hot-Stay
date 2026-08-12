@@ -113,21 +113,21 @@
                     <!-- Guest Details Form -->
                     <div>
                         <h3 class="text-xl font-bold mb-4">Guest Details</h3>
-                        <form id="bookingForm" class="space-y-4">
+                        <form id="bookingForm" class="space-y-4" novalidate>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="border border-gray-300 rounded-lg p-4">
                                     <label class="block text-xs font-bold uppercase mb-2">Full Name</label>
-                                    <input type="text" placeholder="Your name" class="w-full border-none outline-none">
+                                    <input type="text" name="fullName" placeholder="Your name" required minlength="2" class="w-full border-none outline-none">
                                 </div>
                                 <div class="border border-gray-300 rounded-lg p-4">
                                     <label class="block text-xs font-bold uppercase mb-2">Email Address</label>
-                                    <input type="email" placeholder="email@example.com"
+                                    <input type="email" name="guestEmail" placeholder="email@example.com" required
                                         class="w-full border-none outline-none">
                                 </div>
                             </div>
                             <div class="border border-gray-300 rounded-lg p-4">
                                 <label class="block text-xs font-bold uppercase mb-2">Special Requests</label>
-                                <textarea rows="3" class="w-full border-none outline-none resize-none"
+                                <textarea name="specialRequests" rows="3" class="w-full border-none outline-none resize-none"
                                     placeholder="Any special requests..."></textarea>
                             </div>
                         </form>
@@ -167,8 +167,9 @@
                         </div>
 
                         <button
-                            class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-4 rounded-lg transition-colors mb-3"
-                            onclick="alert('Proceeding to Payment...')">
+                            type="submit"
+                            form="bookingForm"
+                            class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-4 rounded-lg transition-colors mb-3">
                             Reserve Now
                         </button>
                         <p class="text-center text-sm text-gray-600 mb-6">You won't be charged yet</p>
