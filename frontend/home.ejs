@@ -73,12 +73,12 @@
                         </div>
 
                         <div class="bg-white rounded-xl shadow-md p-6 border border-gray-200">
-                            <form method="GET" action="/Hot-Stay/home" class="space-y-4">
+                            <form method="GET" action="/Hot-Stay/home" class="space-y-4" novalidate>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
                             <!-- Location -->
                             <div>
                                 <label class="block text-sm font-semibold mb-2 text-text">Location</label>
-                                <input type="text" name="location" placeholder="City or region" value="<%= searchFilters && searchFilters.location ? searchFilters.location : '' %>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none" />
+                                <input type="text" name="location" minlength="2" placeholder="City or region" value="<%= searchFilters && searchFilters.location ? searchFilters.location : '' %>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-primary outline-none" />
                             </div>
 
                             <!-- Property Type -->
