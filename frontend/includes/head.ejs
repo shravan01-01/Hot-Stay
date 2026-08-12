@@ -28,3 +28,140 @@
         }
     </script>
     <link rel="stylesheet" href="/styles.css">
+    <script>
+        function setFieldError(field, message) {
+            const fieldName = field.name || field.id || 'This field';
+
+            field.setCustomValidity(message || '');
+            field.classList.remove('border-red-500', 'border-green-400', 'ring-2', 'ring-red-100', 'ring-green-100');
+
+            if (message) {
+                field.classList.add('border-red-500', 'ring-2', 'ring-red-100');
+                field.setAttribute('aria-invalid', 'true');
+                field.dataset.validationMessage = `${fieldName}: ${message}`;
+            } else {
+                field.classList.add('border-green-400', 'ring-2', 'ring-green-100');
+                field.setAttribute('aria-invalid', 'false');
+                delete field.dataset.validationMessage;
+            }
+        }
+
+        function validateField(field) {
+            const value = (field.value || '').trim();
+            const fieldName = field.dataset.label || field.name || field.id || 'This field';
+            let message = '';
+
+            if (field.disabled || field.type === 'hidden') {
+                return true;
+            }
+
+            if (field.required && !value) {
+                message = `${fieldName} is required.`;
+            } else if (field.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                message = 'Please enter a valid email address.';
+            } else if (field.type === 'tel' && value && !/^[+()0-9\s-]{7,15}$/.test(value)) {
+                message = 'Please enter a valid phone number.';
+            } else if (field.type === 'number' && value !== '') {
+                const numericValue = Number(value);
+                if (Number.isNaN(numericValue)) {
+                    message = 'Please enter a valid number.';
+                } else if (field.min && numericValue < Number(field.min)) {
+                    message = `Value must be at least ${field.min}.`;
+                } else if (field.max && numericValue > Number(field.max)) {
+                    message = `Value must be at most ${field.max}.`;
+                }
+            } else if (field.minLength && value.length < Number(field.minLength)) {
+                message = `Minimum ${field.minLength} characters required.`;
+            } else if (field.name === 'password' && value && value.length < 8) {
+                message = 'Password must be at least 8 characters long.';
+            } else if ((field.name === 'confirmPassword' || field.id === 'confirmPassword') && value) {
+                const passwordField = document.getElementById('password');
+                if (passwordField && value !== passwordField.value) {
+                    message = 'Passwords do not match.';
+                }
+            } else if (field.name === 'description' && value && value.length < 20) {
+                message = 'Description must be at least 20 characters long.';
+            } else if (field.name === 'location' && value && value.length < 2) {
+                message = 'Location must be at least 2 characters long.';
+            } else if (field.name === 'name' && value && value.length < 2) {
+                message = 'Name must be at least 2 characters long.';
+            }
+
+            const checkIn = document.querySelector('input[name="checkin"]');
+            const checkOut = document.querySelector('input[name="checkout"]');
+            if ((field.name === 'checkin' || field.name === 'checkout') && checkIn && checkOut && checkIn.value && checkOut.value) {
+                if (new Date(checkOut.value) <= new Date(checkIn.value)) {
+                    message = 'Check-out date must be after the check-in date.';
+                }
+            }
+
+            setFieldError(field, message);
+            return !message;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('form').forEach((form) => {
+                form.setAttribute('novalidate', 'novalidate');
+
+                const formError = document.createElement('div');
+                formError.className = 'form-error hidden mt-2 text-sm text-red-600';
+                form.appendChild(formError);
+
+                const fields = form.querySelectorAll('input, textarea, select');
+
+                fields.forEach((field) => {
+                    if (!field.dataset.label && field.closest('div')) {
+                        const label = field.closest('div')?.querySelector('label');
+                        if (label) {
+                            field.dataset.label = label.textContent.replace('*', '').trim();
+                        }
+                    }
+
+                    field.addEventListener('blur', () => validateField(field));
+                    field.addEventListener('input', () => {
+                        field.dataset.touched = 'true';
+                        validateField(field);
+                    });
+                });
+
+                form.addEventListener('submit', (event) => {
+                    let valid = true;
+                    const errorBox = form.querySelector('.form-error');
+
+                    fields.forEach((field) => {
+                        const isValid = validateField(field);
+                        if (!isValid) valid = false;
+                    });
+
+                    const emailField = form.querySelector('input[name="email"]');
+                    const phoneField = form.querySelector('input[name="phone"]');
+                    if (emailField && phoneField && !emailField.value.trim() && !phoneField.value.trim()) {
+                        valid = false;
+                        setFieldError(emailField, 'Please enter an email or phone number.');
+                        setFieldError(phoneField, 'Please enter an email or phone number.');
+                    }
+
+                    if (!valid) {
+                        event.preventDefault();
+                        if (errorBox) {
+                            errorBox.textContent = 'Please fix the highlighted fields and try again.';
+                            errorBox.classList.remove('hidden');
+                        }
+                        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+                        if (firstInvalid) {
+                            firstInvalid.focus();
+                        }
+                        return;
+                    }
+
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        const originalText = submitButton.dataset.defaultText || submitButton.textContent.trim();
+                        submitButton.dataset.defaultText = originalText;
+                        submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>' + originalText;
+                    }
+                });
+            });
+        });
+    </script>
