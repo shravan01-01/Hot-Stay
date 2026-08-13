@@ -299,7 +299,7 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
     });
 
     await hotel.save();
-    res.redirect('/Hot-Stay/host/dashboard');
+    res.redirect('/Hot-Stay/home');
   } catch (error) {
     console.error('Error creating hosted property:', error);
     res.status(500).send('Error creating property');
@@ -307,12 +307,12 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
 });
 
 // Host dashboard - list hosted properties (all for now)
-app.get('/Hot-Stay/host/dashboard', async (req, res) => {
-    try {
-        const hotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
-        res.render('host_dashboard', { hotels });
-    } catch (error) {
-        console.error('Error loading host dashboard:', error);
-        res.status(500).send('Error loading dashboard');
-    }
-});
+// app.get('/Hot-Stay/host/hosted-list', async (req, res) => {
+//     try {
+//         const hotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
+//         res.render('host_dashboard', { hotels });
+//     } catch (error) {
+//         console.error('Error loading host dashboard:', error);
+//         res.status(500).send('Error loading dashboard');
+//     }
+// });
