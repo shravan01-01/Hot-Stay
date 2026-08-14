@@ -306,11 +306,23 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
   }
 });
 
-// Host dashboard - list hosted properties (all for now)
+// Host dashboard - list only the current user's hosted properties
 app.get('/Hot-Stay/host/hosted-list', async (req, res) => {
     try {
-        const hotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
-        res.render('host_dashboard', { hotels });
+        const currentUser = await User.findOne({}).lean();
+
+        if (!currentUser) {
+            return res.status(404).send('User not found');
+        }
+
+        const hotels = await Hotel.find({
+            $or: [
+                { hostEmail: currentUser.email },
+                { host: currentUser.name }
+            ]
+        }).sort({ createdAt: -1 }).lean();
+
+        res.render('hosted-list', { hotels, user: currentUser });
     } catch (error) {
         console.error('Error loading host dashboard:', error);
         res.status(500).send('Error loading dashboard');
