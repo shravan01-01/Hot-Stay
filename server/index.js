@@ -164,6 +164,7 @@ app.get("/Hot-Stay/home", async (req, res) => {
     res.render("home", { 
       hotels: hotels,
       selectedCategory: category || null,
+      id: req.query.id || null,
       propertyTypes: propertyTypes,
       searchFilters: {
         type: propertyType,
@@ -176,6 +177,7 @@ app.get("/Hot-Stay/home", async (req, res) => {
     res.render("home", { 
       hotels: [],
       selectedCategory: category || null,
+      id: req.query.id || null,
       error: 'Error loading hotels'
     });
   }
@@ -207,6 +209,7 @@ app.get('/Hot-Stay/booking/:id', async (req, res) => {
         res.render('booking', { 
             hotel: hotel, 
             similarHotels: similarHotels,
+            id: req.query.id || null
         });
     } catch (error) {
         console.error('Error reading hotel data:', error);
@@ -262,7 +265,7 @@ app.get('/Hot-Stay/Profile', async (req, res) => {
             new Date(b.bookingDate) - new Date(a.bookingDate)
         );
         
-        res.render('Profile', { user: userData, bookings: sortedBookings });
+        res.render('Profile', { user: userData, bookings: sortedBookings, id: req.query.id || null });
         
     } catch (error) {
         console.error('Error loading profile data:', error);
@@ -280,7 +283,7 @@ app.listen(3000, () => {
 // Host routes - allow users to list and create host properties
 // Show form to create a new hosted property
 app.get('/Hot-Stay/host/new', (req, res) => {
-  res.render('host_new');
+  res.render('host_new', { id: req.query.id || null });
 });
 
 // Save a new hosted property
@@ -321,7 +324,7 @@ app.get('/Hot-Stay/host/hosted-list', async (req, res) => {
         const allHotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
         const hotels = getHostedPropertiesForUser(allHotels, currentUser.email);
 
-        res.render('hosted-list', { hotels, user: currentUser });
+        res.render('hosted-list', { hotels, user: currentUser, id: req.query.id || null });
     } catch (error) {
         console.error('Error loading host dashboard:', error);
         res.status(500).send('Error loading dashboard');
@@ -342,7 +345,7 @@ app.get('/Hot-Stay/host/:id/edit', async (req, res) => {
       return res.status(403).send('You can only edit your own properties');
     }
 
-    res.render('host_edit', { hotel, user: currentUser });
+    res.render('host_edit', { hotel, user: currentUser, id: req.query.id || null });
   } catch (error) {
     console.error('Error loading property edit form:', error);
     res.status(500).send('Error loading edit form');
