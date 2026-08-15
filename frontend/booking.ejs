@@ -40,11 +40,11 @@
                         </span>
                     </div>
                     <div class="flex gap-4">
-                        <button class="text-text hover:text-primary transition-colors underline">
+                        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="text-text hover:text-primary transition-colors underline cursor-pointer">
                             <i class="fa-solid fa-arrow-up-from-bracket mr-1"></i> Share
                         </button>
-                        <button class="text-text hover:text-primary transition-colors underline">
-                            <i class="fa-regular fa-heart mr-1"></i> Save
+                        <button id="saveHotelBtn" onclick="toggleSaveHotel('<%= hotel._id %>')" class="text-text hover:text-primary transition-colors underline cursor-pointer">
+                            <i id="saveHotelIcon" class="fa-regular fa-heart mr-1"></i> <span id="saveHotelText">Save</span>
                         </button>
                     </div>
                 </div>
@@ -263,6 +263,31 @@
 
         <!-- Footer -->
         <%- include('./includes/foot'); %>
+
+        <script>
+            async function toggleSaveHotel(hotelId) {
+                try {
+                    const response = await fetch(`/Hot-Stay/hotel/${hotelId}/toggle-save`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        const icon = document.getElementById('saveHotelIcon');
+                        const text = document.getElementById('saveHotelText');
+                        if (data.isSaved) {
+                            icon.className = 'fa-solid fa-heart mr-1 text-red-500';
+                            text.textContent = 'Saved';
+                        } else {
+                            icon.className = 'fa-regular fa-heart mr-1';
+                            text.textContent = 'Save';
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error saving hotel:', error);
+                }
+            }
+        </script>
 
     </body>
 
