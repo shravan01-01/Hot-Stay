@@ -7,6 +7,7 @@ const Hotel = require('./models/Hotel'); //model for hotel data
 const User = require('./models/User'); //model for user data
 const Booking = require('./models/Booking'); //model for booking data
 const bcrypt = require("bcryptjs"); // for hashing passwords
+const { getHostedPropertiesForUser } = require('./hostUtils');
 
 const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/HotStay";
 mongoose.connect(mongoURI, {
@@ -285,6 +286,7 @@ app.get('/Hot-Stay/host/new', (req, res) => {
 // Save a new hosted property
 app.post('/Hot-Stay/host/new', async (req, res) => {
   try {
+    const currentUser = await User.findOne({}).lean();
     const { name, description, location, price, images, type, guests, categories, hostEmail } = req.body;
     const hotel = new Hotel({
       name,
@@ -295,7 +297,8 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
       type,
       guests: parseInt(guests) || 1,
       categories: categories ? categories.split(',').map(s => s.trim()) : [],
-      hostEmail
+      hostEmail: hostEmail || currentUser?.email || '',
+      host: currentUser?.name || 'Host'
     });
 
     await hotel.save();
@@ -315,16 +318,68 @@ app.get('/Hot-Stay/host/hosted-list', async (req, res) => {
             return res.status(404).send('User not found');
         }
 
-        const hotels = await Hotel.find({
-            $or: [
-                { hostEmail: currentUser.email },
-                { host: currentUser.name }
-            ]
-        }).sort({ createdAt: -1 }).lean();
+        const allHotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
+        const hotels = getHostedPropertiesForUser(allHotels, currentUser.email);
 
         res.render('hosted-list', { hotels, user: currentUser });
     } catch (error) {
         console.error('Error loading host dashboard:', error);
         res.status(500).send('Error loading dashboard');
     }
+});
+
+// Show form to edit an existing hosted property
+app.get('/Hot-Stay/host/:id/edit', async (req, res) => {
+  try {
+    const currentUser = await User.findOne({}).lean();
+    const hotel = await Hotel.findById(req.params.id).lean();
+
+    if (!hotel) {
+      return res.status(404).send('Property not found');
+    }
+
+    if (currentUser && hotel.hostEmail && hotel.hostEmail.toLowerCase() !== currentUser.email.toLowerCase()) {
+      return res.status(403).send('You can only edit your own properties');
+    }
+
+    res.render('host_edit', { hotel, user: currentUser });
+  } catch (error) {
+    console.error('Error loading property edit form:', error);
+    res.status(500).send('Error loading edit form');
+  }
+});
+
+// Update an existing hosted property
+app.post('/Hot-Stay/host/:id/edit', async (req, res) => {
+  try {
+    const currentUser = await User.findOne({}).lean();
+    const hotel = await Hotel.findById(req.params.id);
+
+    if (!hotel) {
+      return res.status(404).send('Property not found');
+    }
+
+    if (currentUser && hotel.hostEmail && hotel.hostEmail.toLowerCase() !== currentUser.email.toLowerCase()) {
+      return res.status(403).send('You can only edit your own properties');
+    }
+
+    const { name, description, location, price, images, type, guests, categories, hostEmail } = req.body;
+
+    hotel.name = name;
+    hotel.description = description;
+    hotel.location = location;
+    hotel.price = parseFloat(price) || 0;
+    hotel.images = images ? images.split(',').map(s => s.trim()) : hotel.images;
+    hotel.type = type;
+    hotel.guests = parseInt(guests) || hotel.guests || 1;
+    hotel.categories = categories ? categories.split(',').map(s => s.trim()) : hotel.categories;
+    hotel.hostEmail = hostEmail || hotel.hostEmail || currentUser?.email || '';
+    hotel.host = currentUser?.name || hotel.host || 'Host';
+
+    await hotel.save();
+    res.redirect('/Hot-Stay/host/hosted-list');
+  } catch (error) {
+    console.error('Error updating hosted property:', error);
+    res.status(500).send('Error updating property');
+  }
 });
