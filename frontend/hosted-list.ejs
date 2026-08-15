@@ -52,7 +52,10 @@
                                 <% } %>
                             </div>
 
-                            <a href="/Hot-Stay/booking/<%= hotel._id %>" class="inline-flex items-center text-sm font-semibold text-text hover:text-primary">View listing</a>
+                            <div class="flex items-center justify-between gap-3">
+                                <a href="/Hot-Stay/booking/<%= hotel._id %>" class="inline-flex items-center text-sm font-semibold text-text hover:text-primary">View listing</a>
+                                <a href="/Hot-Stay/host/<%= hotel._id %>/edit" class="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80">Edit</a>
+                            </div>
                         </div>
                     </article>
                 <% }) %>
