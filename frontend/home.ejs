@@ -143,7 +143,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     <% if(hotels && hotels.length > 0) { %>
                         <% hotels.forEach(hotel => { %>
-                            <a href="/Hot-Stay/booking/<%= hotel.id %>" class="group block">
+                            <a href="/Hot-Stay/booking/<%= hotel._id %>" class="group block">
                                 <div class="relative aspect-square rounded-xl overflow-hidden bg-gray-200 mb-3">
                                     <% if(hotel.images && hotel.images.length > 0) { %>
                                         <img src="<%= hotel.images[0] %>" alt="<%= hotel.name %>"

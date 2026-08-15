@@ -217,6 +217,86 @@ app.get('/Hot-Stay/booking/:id', async (req, res) => {
     }
 });
 
+// Create a new booking
+app.post('/Hot-Stay/booking/create', async (req, res) => {
+    try {
+        const { hotelId, hotelName, location, fullName, guestEmail, phone, checkIn, checkOut, guests, nights, totalPrice, pricePerNight, specialRequests, image } = req.body;
+
+        // Validation
+        if (!hotelId || !fullName || !guestEmail || !phone || !checkIn || !checkOut || !guests) {
+            return res.status(400).json({ 
+                success: false, 
+                message: 'Missing required fields' 
+            });
+        }
+
+        // Validate dates
+        const checkInDate = new Date(checkIn);
+        const checkOutDate = new Date(checkOut);
+        
+        if (checkOutDate <= checkInDate) {
+            return res.status(400).json({ 
+                success: false, 
+                message: 'Check-out date must be after check-in date' 
+            });
+        }
+
+        // Get current user
+        const currentUser = await User.findOne({}).lean();
+        
+        if (!currentUser) {
+            return res.status(401).json({ 
+                success: false, 
+                message: 'User not found. Please log in.' 
+            });
+        }
+
+        // Calculate nights if not provided
+        const calculatedNights = nights || Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+        const calculatedPrice = totalPrice || (calculatedNights * parseFloat(pricePerNight));
+
+        // Create booking
+        const booking = new Booking({
+            userId: currentUser._id.toString(),
+            hotelId: hotelId,
+            hotelName: hotelName,
+            location: location,
+            checkIn: checkInDate,
+            checkOut: checkOutDate,
+            guests: parseInt(guests),
+            nights: calculatedNights,
+            price: parseFloat(calculatedPrice),
+            status: 'Upcoming',
+            reviewed: false,
+            image: image,
+            bookingDate: new Date(),
+            guestName: fullName,
+            guestEmail: guestEmail,
+            phone: phone,
+            specialRequests: specialRequests || ''
+        });
+
+        await booking.save();
+
+        console.log('Booking created successfully:', booking._id);
+        
+        // Return success with booking ID
+        return res.status(201).json({ 
+            success: true, 
+            message: 'Booking confirmed!',
+            bookingId: booking._id,
+            redirectUrl: '/Hot-Stay/Profile'
+        });
+
+    } catch (error) {
+        console.error('Error creating booking:', error);
+        return res.status(500).json({ 
+            success: false, 
+            message: 'Error creating booking: ' + error.message 
+        });
+    }
+});
+
 
 app.get('/Hot-Stay/Profile', async (req, res) => {
     try {
