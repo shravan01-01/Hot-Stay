@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs"); // for hashing passwords
 const Hotel = require('./models/Hotel'); // model for hotel data
 const User = require('./models/User'); // model for user data
 const Booking = require('./models/Booking'); // model for booking data
-const { getHostedPropertiesForUser } = require('./hostUtils');
+const { getHostedPropertiesForUser } = require('./models/hostUtils');
 
 const app = express(); // create express app
 
@@ -109,14 +109,14 @@ function formatUserData(userDoc, userBookings) {
   const totalNights = userBookings.reduce((sum, b) => sum + (b.nights || 0), 0);
   const totalSpent = userBookings.reduce((sum, b) => sum + (b.price || 0), 0);
   const reviewedBookings = completedBookings.filter(b => b.reviewed).length;
-  
+
   // Calculate average rating from reviewed bookings
   const ratings = completedBookings
-      .filter(b => b.rating && !isNaN(b.rating))
-      .map(b => Number(b.rating));
-  const averageRating = ratings.length > 0 
-      ? (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1)
-      : null;
+    .filter(b => b.rating && !isNaN(b.rating))
+    .map(b => Number(b.rating));
+  const averageRating = ratings.length > 0
+    ? (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1)
+    : null;
 
   return {
     ...user,
@@ -168,9 +168,9 @@ function formatUserData(userDoc, userBookings) {
     totalNights: totalNights,
     reviewedBookings: reviewedBookings,
     averageRating: averageRating,
-    cancellationRate: userBookings.length > 0 
-        ? (cancelledBookings.length / userBookings.length * 100).toFixed(1)
-        : 0
+    cancellationRate: userBookings.length > 0
+      ? (cancelledBookings.length / userBookings.length * 100).toFixed(1)
+      : 0
   };
 }
 
@@ -185,7 +185,7 @@ app.get("/Hot-Stay", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.render("about");
-}); 
+});
 
 // Login page
 app.get("/Hot-Stay/login", (req, res) => {
@@ -296,10 +296,10 @@ app.get("/Hot-Stay/home", async (req, res) => {
   const propertyType = req.query.type;
   const guests = req.query.guests;
   const location = req.query.location;
-  
+
   try {
     let query = {};
-    
+
     // Build MongoDB query
     if (category) {
       query.categories = { $in: [category] };
@@ -313,14 +313,14 @@ app.get("/Hot-Stay/home", async (req, res) => {
     if (location && location.trim() !== '') {
       query.location = { $regex: location, $options: 'i' };
     }
-    
+
     const hotels = await Hotel.find(query).lean();
     const propertyTypes = [...new Set(hotels.map(h => h.type).filter(Boolean))];
-    
+
     const currentUser = await getCurrentUser(req);
     const savedHotelIds = (currentUser?.savedHotels || []).map(id => id.toString());
 
-    res.render("home", { 
+    res.render("home", {
       hotels: hotels,
       selectedCategory: category || null,
       id: currentUser ? currentUser._id.toString() : null,
@@ -334,7 +334,7 @@ app.get("/Hot-Stay/home", async (req, res) => {
     });
   } catch (error) {
     console.error('Error reading hotel data:', error);
-    res.render("home", { 
+    res.render("home", {
       hotels: [],
       selectedCategory: category || null,
       id: req.query.id || null,
@@ -346,114 +346,114 @@ app.get("/Hot-Stay/home", async (req, res) => {
 
 // Hotel Booking Detail Page
 app.get('/Hot-Stay/booking/:id', async (req, res) => {
-    try {
-        const hotel = await Hotel.findById(req.params.id).lean();
-        
-        if (!hotel) {
-            return res.status(404).send('Hotel not found');
-        }
-        
-        // Get similar hotels (same type or category)
-        const similarHotels = await Hotel.find({
-            $and: [
-                { _id: { $ne: hotel._id } },
-                {
-                    $or: [
-                        { type: hotel.type },
-                        { categories: { $in: hotel.categories || [] } }
-                    ]
-                }
-            ]
-        }).limit(6).lean();
-        
-        res.render('booking', { 
-            hotel: hotel, 
-            similarHotels: similarHotels,
-            id: req.query.id || null
-        });
-    } catch (error) {
-        console.error('Error reading hotel data:', error);
-        res.status(500).send('Error loading hotel data');
+  try {
+    const hotel = await Hotel.findById(req.params.id).lean();
+
+    if (!hotel) {
+      return res.status(404).send('Hotel not found');
     }
+
+    // Get similar hotels (same type or category)
+    const similarHotels = await Hotel.find({
+      $and: [
+        { _id: { $ne: hotel._id } },
+        {
+          $or: [
+            { type: hotel.type },
+            { categories: { $in: hotel.categories || [] } }
+          ]
+        }
+      ]
+    }).limit(6).lean();
+
+    res.render('booking', {
+      hotel: hotel,
+      similarHotels: similarHotels,
+      id: req.query.id || null
+    });
+  } catch (error) {
+    console.error('Error reading hotel data:', error);
+    res.status(500).send('Error loading hotel data');
+  }
 });
 
 // Create a new booking
 app.post('/Hot-Stay/booking/create', async (req, res) => {
-    try {
-        const { hotelId, hotelName, location, fullName, guestEmail, phone, checkIn, checkOut, guests, nights, totalPrice, pricePerNight, specialRequests, image } = req.body;
+  try {
+    const { hotelId, hotelName, location, fullName, guestEmail, phone, checkIn, checkOut, guests, nights, totalPrice, pricePerNight, specialRequests, image } = req.body;
 
-        // Validation
-        if (!hotelId || !fullName || !guestEmail || !phone || !checkIn || !checkOut || !guests) {
-            return res.status(400).json({ 
-                success: false, 
-                message: 'Missing required fields' 
-            });
-        }
-
-        // Validate dates
-        const checkInDate = new Date(checkIn);
-        const checkOutDate = new Date(checkOut);
-        
-        if (checkOutDate <= checkInDate) {
-            return res.status(400).json({ 
-                success: false, 
-                message: 'Check-out date must be after check-in date' 
-            });
-        }
-
-        // Get current user
-        const currentUser = await getCurrentUser(req);
-        
-        if (!currentUser) {
-            return res.status(401).json({ 
-                success: false, 
-                message: 'User not found. Please log in.' 
-            });
-        }
-
-        // Calculate nights if not provided
-        const calculatedNights = nights || Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
-        const calculatedPrice = totalPrice || (calculatedNights * parseFloat(pricePerNight));
-
-        // Create booking
-        const booking = new Booking({
-            userId: currentUser._id.toString(),
-            hotelId: hotelId,
-            hotelName: hotelName,
-            location: location,
-            checkIn: checkInDate,
-            checkOut: checkOutDate,
-            guests: parseInt(guests),
-            nights: calculatedNights,
-            price: parseFloat(calculatedPrice),
-            status: 'Upcoming',
-            reviewed: false,
-            image: image,
-            bookingDate: new Date(),
-            guestName: fullName,
-            guestEmail: guestEmail,
-            phone: phone,
-            specialRequests: specialRequests || ''
-        });
-
-        await booking.save();
-
-        console.log('Booking created successfully:', booking._id);
-        
-        return res.status(201).json({ 
-            success: true, 
-            message: 'Booking confirmed!',
-            bookingId: booking._id,
-            redirectUrl: '/Hot-Stay/Profile'
-        });
-
-    } catch (error) {
-        console.error('Error creating booking:', error);
-        return res.status(500).json({ 
-            success: false, 
-            message: 'Error creating booking: ' + error.message 
-        });
+    // Validation
+    if (!hotelId || !fullName || !guestEmail || !phone || !checkIn || !checkOut || !guests) {
+      return res.status(400).json({
+        success: false,
+        message: 'Missing required fields'
+      });
     }
+
+    // Validate dates
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+
+    if (checkOutDate <= checkInDate) {
+      return res.status(400).json({
+        success: false,
+        message: 'Check-out date must be after check-in date'
+      });
+    }
+
+    // Get current user
+    const currentUser = await getCurrentUser(req);
+
+    if (!currentUser) {
+      return res.status(401).json({
+        success: false,
+        message: 'User not found. Please log in.'
+      });
+    }
+
+    // Calculate nights if not provided
+    const calculatedNights = nights || Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+    const calculatedPrice = totalPrice || (calculatedNights * parseFloat(pricePerNight));
+
+    // Create booking
+    const booking = new Booking({
+      userId: currentUser._id.toString(),
+      hotelId: hotelId,
+      hotelName: hotelName,
+      location: location,
+      checkIn: checkInDate,
+      checkOut: checkOutDate,
+      guests: parseInt(guests),
+      nights: calculatedNights,
+      price: parseFloat(calculatedPrice),
+      status: 'Upcoming',
+      reviewed: false,
+      image: image,
+      bookingDate: new Date(),
+      guestName: fullName,
+      guestEmail: guestEmail,
+      phone: phone,
+      specialRequests: specialRequests || ''
+    });
+
+    await booking.save();
+
+    console.log('Booking created successfully:', booking._id);
+
+    return res.status(201).json({
+      success: true,
+      message: 'Booking confirmed!',
+      bookingId: booking._id,
+      redirectUrl: '/Hot-Stay/Profile'
+    });
+
+  } catch (error) {
+    console.error('Error creating booking:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error creating booking: ' + error.message
+    });
+  }
 });
 
 // ----------------------------------------------------
@@ -462,435 +462,435 @@ app.post('/Hot-Stay/booking/create', async (req, res) => {
 
 // Profile View Route
 app.get('/Hot-Stay/Profile', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        
-        if (!currentUser) {
-            return res.status(404).send('User not found');
-        }
-        
-        // Filter bookings for current user (match both ObjectId and string)
-        const userBookings = await Booking.find({
-            $or: [
-                { userId: currentUser._id.toString() },
-                { userId: currentUser._id }
-            ]
-        }).sort({ bookingDate: -1 }).lean();
-        
-        // If user has saved hotels, fetch them
-        let savedHotels = [];
-        if (currentUser.savedHotels && currentUser.savedHotels.length > 0) {
-            savedHotels = await Hotel.find({ _id: { $in: currentUser.savedHotels } }).lean();
-        }
-        
-        const userData = formatUserData(currentUser, userBookings);
-        
-        res.render('Profile', { 
-            user: userData, 
-            bookings: userBookings, 
-            savedHotels: savedHotels,
-            id: currentUser._id.toString(),
-            message: req.query.message || null,
-            activeTab: req.query.tab || 'bookings'
-        });
-        
-    } catch (error) {
-        console.error('Error loading profile data:', error);
-        res.status(500).send('Error loading profile data: ' + error.message);
+  try {
+    const currentUser = await getCurrentUser(req);
+
+    if (!currentUser) {
+      return res.status(404).send('User not found');
     }
+
+    // Filter bookings for current user (match both ObjectId and string)
+    const userBookings = await Booking.find({
+      $or: [
+        { userId: currentUser._id.toString() },
+        { userId: currentUser._id }
+      ]
+    }).sort({ bookingDate: -1 }).lean();
+
+    // If user has saved hotels, fetch them
+    let savedHotels = [];
+    if (currentUser.savedHotels && currentUser.savedHotels.length > 0) {
+      savedHotels = await Hotel.find({ _id: { $in: currentUser.savedHotels } }).lean();
+    }
+
+    const userData = formatUserData(currentUser, userBookings);
+
+    res.render('Profile', {
+      user: userData,
+      bookings: userBookings,
+      savedHotels: savedHotels,
+      id: currentUser._id.toString(),
+      message: req.query.message || null,
+      activeTab: req.query.tab || 'bookings'
+    });
+
+  } catch (error) {
+    console.error('Error loading profile data:', error);
+    res.status(500).send('Error loading profile data: ' + error.message);
+  }
 });
 
 // Update Profile Personal Information & Avatar
 app.post('/Hot-Stay/profile/update', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(404).json({ success: false, message: 'User not found' });
-        }
-
-        const {
-            firstName,
-            lastName,
-            username,
-            email,
-            phone,
-            dob,
-            bio,
-            street,
-            city,
-            state,
-            postalCode,
-            country,
-            avatar
-        } = req.body;
-
-        if (firstName) currentUser.firstName = firstName.trim();
-        if (lastName) currentUser.lastName = lastName.trim();
-        if (firstName || lastName) {
-            currentUser.name = `${currentUser.firstName || ''} ${currentUser.lastName || ''}`.trim() || currentUser.name;
-        }
-        if (username) currentUser.username = username.trim();
-        if (email) currentUser.email = email.trim().toLowerCase();
-        if (phone) currentUser.phone = phone.trim();
-        if (dob !== undefined) currentUser.dob = dob;
-        if (bio !== undefined) currentUser.bio = bio.trim();
-        if (avatar) currentUser.avatar = avatar;
-
-        // Update address
-        currentUser.address = {
-            street: street !== undefined ? street.trim() : (currentUser.address?.street || ''),
-            city: city !== undefined ? city.trim() : (currentUser.address?.city || ''),
-            state: state !== undefined ? state.trim() : (currentUser.address?.state || ''),
-            postalCode: postalCode !== undefined ? postalCode.trim() : (currentUser.address?.postalCode || ''),
-            country: country !== undefined ? country.trim() : (currentUser.address?.country || 'India')
-        };
-
-        await currentUser.save();
-
-        const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
-        if (isJson) {
-            return res.json({ success: true, message: 'Profile updated successfully', user: currentUser });
-        }
-        return res.redirect('/Hot-Stay/Profile?message=Profile+updated+successfully');
-    } catch (error) {
-        console.error('Error updating profile:', error);
-        return res.status(500).json({ success: false, message: 'Error updating profile: ' + error.message });
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+    const {
+      firstName,
+      lastName,
+      username,
+      email,
+      phone,
+      dob,
+      bio,
+      street,
+      city,
+      state,
+      postalCode,
+      country,
+      avatar
+    } = req.body;
+
+    if (firstName) currentUser.firstName = firstName.trim();
+    if (lastName) currentUser.lastName = lastName.trim();
+    if (firstName || lastName) {
+      currentUser.name = `${currentUser.firstName || ''} ${currentUser.lastName || ''}`.trim() || currentUser.name;
+    }
+    if (username) currentUser.username = username.trim();
+    if (email) currentUser.email = email.trim().toLowerCase();
+    if (phone) currentUser.phone = phone.trim();
+    if (dob !== undefined) currentUser.dob = dob;
+    if (bio !== undefined) currentUser.bio = bio.trim();
+    if (avatar) currentUser.avatar = avatar;
+
+    // Update address
+    currentUser.address = {
+      street: street !== undefined ? street.trim() : (currentUser.address?.street || ''),
+      city: city !== undefined ? city.trim() : (currentUser.address?.city || ''),
+      state: state !== undefined ? state.trim() : (currentUser.address?.state || ''),
+      postalCode: postalCode !== undefined ? postalCode.trim() : (currentUser.address?.postalCode || ''),
+      country: country !== undefined ? country.trim() : (currentUser.address?.country || 'India')
+    };
+
+    await currentUser.save();
+
+    const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
+    if (isJson) {
+      return res.json({ success: true, message: 'Profile updated successfully', user: currentUser });
+    }
+    return res.redirect('/Hot-Stay/Profile?message=Profile+updated+successfully');
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    return res.status(500).json({ success: false, message: 'Error updating profile: ' + error.message });
+  }
 });
 
 // Update Preferences
 app.post('/Hot-Stay/profile/preferences', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(404).json({ success: false, message: 'User not found' });
-        }
-
-        const {
-            roomType,
-            travelFrequency,
-            priceRange,
-            locBeach,
-            locMountain,
-            locCity,
-            locRural,
-            amenityPool,
-            amenityGym,
-            amenityRestaurant,
-            amenitySpa,
-            amenityWifi
-        } = req.body;
-
-        currentUser.preferences = {
-            roomType: roomType || currentUser.preferences?.roomType || 'Any',
-            travelFrequency: travelFrequency || currentUser.preferences?.travelFrequency || 'Occasionally',
-            priceRange: priceRange || currentUser.preferences?.priceRange || 'Mid-Range',
-            locations: {
-                beach: locBeach === true || locBeach === 'true' || locBeach === 'on',
-                mountain: locMountain === true || locMountain === 'true' || locMountain === 'on',
-                city: locCity === true || locCity === 'true' || locCity === 'on',
-                rural: locRural === true || locRural === 'true' || locRural === 'on'
-            },
-            amenities: {
-                pool: amenityPool === true || amenityPool === 'true' || amenityPool === 'on',
-                gym: amenityGym === true || amenityGym === 'true' || amenityGym === 'on',
-                restaurant: amenityRestaurant === true || amenityRestaurant === 'true' || amenityRestaurant === 'on',
-                spa: amenitySpa === true || amenitySpa === 'true' || amenitySpa === 'on',
-                wifi: amenityWifi === true || amenityWifi === 'true' || amenityWifi === 'on'
-            }
-        };
-
-        await currentUser.save();
-
-        const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
-        if (isJson) {
-            return res.json({ success: true, message: 'Preferences saved successfully', preferences: currentUser.preferences });
-        }
-        return res.redirect('/Hot-Stay/Profile?tab=preferences&message=Preferences+saved+successfully');
-    } catch (error) {
-        console.error('Error saving preferences:', error);
-        return res.status(500).json({ success: false, message: 'Error saving preferences: ' + error.message });
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+    const {
+      roomType,
+      travelFrequency,
+      priceRange,
+      locBeach,
+      locMountain,
+      locCity,
+      locRural,
+      amenityPool,
+      amenityGym,
+      amenityRestaurant,
+      amenitySpa,
+      amenityWifi
+    } = req.body;
+
+    currentUser.preferences = {
+      roomType: roomType || currentUser.preferences?.roomType || 'Any',
+      travelFrequency: travelFrequency || currentUser.preferences?.travelFrequency || 'Occasionally',
+      priceRange: priceRange || currentUser.preferences?.priceRange || 'Mid-Range',
+      locations: {
+        beach: locBeach === true || locBeach === 'true' || locBeach === 'on',
+        mountain: locMountain === true || locMountain === 'true' || locMountain === 'on',
+        city: locCity === true || locCity === 'true' || locCity === 'on',
+        rural: locRural === true || locRural === 'true' || locRural === 'on'
+      },
+      amenities: {
+        pool: amenityPool === true || amenityPool === 'true' || amenityPool === 'on',
+        gym: amenityGym === true || amenityGym === 'true' || amenityGym === 'on',
+        restaurant: amenityRestaurant === true || amenityRestaurant === 'true' || amenityRestaurant === 'on',
+        spa: amenitySpa === true || amenitySpa === 'true' || amenitySpa === 'on',
+        wifi: amenityWifi === true || amenityWifi === 'true' || amenityWifi === 'on'
+      }
+    };
+
+    await currentUser.save();
+
+    const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
+    if (isJson) {
+      return res.json({ success: true, message: 'Preferences saved successfully', preferences: currentUser.preferences });
+    }
+    return res.redirect('/Hot-Stay/Profile?tab=preferences&message=Preferences+saved+successfully');
+  } catch (error) {
+    console.error('Error saving preferences:', error);
+    return res.status(500).json({ success: false, message: 'Error saving preferences: ' + error.message });
+  }
 });
 
 // Update Settings (Communication & Privacy)
 app.post('/Hot-Stay/profile/settings', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(404).json({ success: false, message: 'User not found' });
-        }
-
-        const {
-            bookingUpdates,
-            promotions,
-            newsletter,
-            sms,
-            profileVisible,
-            reviewsPublic,
-            twoFactorEnabled
-        } = req.body;
-
-        currentUser.settings = {
-            communication: {
-                bookingUpdates: bookingUpdates === true || bookingUpdates === 'true' || bookingUpdates === 'on',
-                promotions: promotions === true || promotions === 'true' || promotions === 'on',
-                newsletter: newsletter === true || newsletter === 'true' || newsletter === 'on',
-                sms: sms === true || sms === 'true' || sms === 'on'
-            },
-            privacy: {
-                profileVisible: profileVisible === true || profileVisible === 'true' || profileVisible === 'on',
-                reviewsPublic: reviewsPublic === true || reviewsPublic === 'true' || reviewsPublic === 'on'
-            },
-            security: {
-                twoFactorEnabled: twoFactorEnabled === true || twoFactorEnabled === 'true' || twoFactorEnabled === 'on'
-            }
-        };
-
-        await currentUser.save();
-
-        const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
-        if (isJson) {
-            return res.json({ success: true, message: 'Settings saved successfully', settings: currentUser.settings });
-        }
-        return res.redirect('/Hot-Stay/Profile?tab=settings&message=Settings+saved+successfully');
-    } catch (error) {
-        console.error('Error saving settings:', error);
-        return res.status(500).json({ success: false, message: 'Error saving settings: ' + error.message });
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+    const {
+      bookingUpdates,
+      promotions,
+      newsletter,
+      sms,
+      profileVisible,
+      reviewsPublic,
+      twoFactorEnabled
+    } = req.body;
+
+    currentUser.settings = {
+      communication: {
+        bookingUpdates: bookingUpdates === true || bookingUpdates === 'true' || bookingUpdates === 'on',
+        promotions: promotions === true || promotions === 'true' || promotions === 'on',
+        newsletter: newsletter === true || newsletter === 'true' || newsletter === 'on',
+        sms: sms === true || sms === 'true' || sms === 'on'
+      },
+      privacy: {
+        profileVisible: profileVisible === true || profileVisible === 'true' || profileVisible === 'on',
+        reviewsPublic: reviewsPublic === true || reviewsPublic === 'true' || reviewsPublic === 'on'
+      },
+      security: {
+        twoFactorEnabled: twoFactorEnabled === true || twoFactorEnabled === 'true' || twoFactorEnabled === 'on'
+      }
+    };
+
+    await currentUser.save();
+
+    const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
+    if (isJson) {
+      return res.json({ success: true, message: 'Settings saved successfully', settings: currentUser.settings });
+    }
+    return res.redirect('/Hot-Stay/Profile?tab=settings&message=Settings+saved+successfully');
+  } catch (error) {
+    console.error('Error saving settings:', error);
+    return res.status(500).json({ success: false, message: 'Error saving settings: ' + error.message });
+  }
 });
 
 // Change Password
 app.post('/Hot-Stay/profile/change-password', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(404).json({ success: false, message: 'User not found' });
-        }
-
-        const { currentPassword, newPassword, confirmPassword } = req.body;
-
-        if (!currentPassword || !newPassword || !confirmPassword) {
-            return res.status(400).json({ success: false, message: 'All password fields are required' });
-        }
-
-        if (newPassword !== confirmPassword) {
-            return res.status(400).json({ success: false, message: 'New passwords do not match' });
-        }
-
-        if (newPassword.length < 6) {
-            return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long' });
-        }
-
-        // Verify current password
-        const isMatch = await bcrypt.compare(currentPassword, currentUser.password);
-        if (!isMatch) {
-            return res.status(401).json({ success: false, message: 'Incorrect current password' });
-        }
-
-        // Hash and save new password
-        currentUser.password = await bcrypt.hash(newPassword, 10);
-        await currentUser.save();
-
-        return res.json({ success: true, message: 'Password changed successfully' });
-    } catch (error) {
-        console.error('Error changing password:', error);
-        return res.status(500).json({ success: false, message: 'Error changing password: ' + error.message });
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+    const { currentPassword, newPassword, confirmPassword } = req.body;
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      return res.status(400).json({ success: false, message: 'All password fields are required' });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({ success: false, message: 'New passwords do not match' });
+    }
+
+    if (newPassword.length < 6) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long' });
+    }
+
+    // Verify current password
+    const isMatch = await bcrypt.compare(currentPassword, currentUser.password);
+    if (!isMatch) {
+      return res.status(401).json({ success: false, message: 'Incorrect current password' });
+    }
+
+    // Hash and save new password
+    currentUser.password = await bcrypt.hash(newPassword, 10);
+    await currentUser.save();
+
+    return res.json({ success: true, message: 'Password changed successfully' });
+  } catch (error) {
+    console.error('Error changing password:', error);
+    return res.status(500).json({ success: false, message: 'Error changing password: ' + error.message });
+  }
 });
 
 // Export User Profile Data as JSON download
 app.get('/Hot-Stay/profile/export-data', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(404).send('User not found');
-        }
-
-        const bookings = await Booking.find({
-            $or: [
-                { userId: currentUser._id.toString() },
-                { userId: currentUser._id }
-            ]
-        }).lean();
-
-        const exportData = {
-            exportDate: new Date().toISOString(),
-            profile: {
-                name: currentUser.name,
-                firstName: currentUser.firstName,
-                lastName: currentUser.lastName,
-                username: currentUser.username,
-                email: currentUser.email,
-                phone: currentUser.phone,
-                bio: currentUser.bio,
-                dob: currentUser.dob,
-                address: currentUser.address,
-                memberSince: currentUser.createdAt,
-                verified: currentUser.verified
-            },
-            preferences: currentUser.preferences,
-            settings: currentUser.settings,
-            bookings: bookings.map(b => ({
-                id: b._id,
-                hotelName: b.hotelName,
-                location: b.location,
-                checkIn: b.checkIn,
-                checkOut: b.checkOut,
-                guests: b.guests,
-                nights: b.nights,
-                price: b.price,
-                status: b.status,
-                rating: b.rating,
-                reviewText: b.reviewText,
-                bookingDate: b.bookingDate
-            }))
-        };
-
-        const jsonString = JSON.stringify(exportData, null, 2);
-        res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Content-Disposition', `attachment; filename="hotstay-profile-${currentUser.username || 'user'}.json"`);
-        return res.send(jsonString);
-    } catch (error) {
-        console.error('Error exporting profile data:', error);
-        return res.status(500).send('Error exporting data: ' + error.message);
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(404).send('User not found');
     }
+
+    const bookings = await Booking.find({
+      $or: [
+        { userId: currentUser._id.toString() },
+        { userId: currentUser._id }
+      ]
+    }).lean();
+
+    const exportData = {
+      exportDate: new Date().toISOString(),
+      profile: {
+        name: currentUser.name,
+        firstName: currentUser.firstName,
+        lastName: currentUser.lastName,
+        username: currentUser.username,
+        email: currentUser.email,
+        phone: currentUser.phone,
+        bio: currentUser.bio,
+        dob: currentUser.dob,
+        address: currentUser.address,
+        memberSince: currentUser.createdAt,
+        verified: currentUser.verified
+      },
+      preferences: currentUser.preferences,
+      settings: currentUser.settings,
+      bookings: bookings.map(b => ({
+        id: b._id,
+        hotelName: b.hotelName,
+        location: b.location,
+        checkIn: b.checkIn,
+        checkOut: b.checkOut,
+        guests: b.guests,
+        nights: b.nights,
+        price: b.price,
+        status: b.status,
+        rating: b.rating,
+        reviewText: b.reviewText,
+        bookingDate: b.bookingDate
+      }))
+    };
+
+    const jsonString = JSON.stringify(exportData, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', `attachment; filename="hotstay-profile-${currentUser.username || 'user'}.json"`);
+    return res.send(jsonString);
+  } catch (error) {
+    console.error('Error exporting profile data:', error);
+    return res.status(500).send('Error exporting data: ' + error.message);
+  }
 });
 
 // Cancel Booking
 app.post('/Hot-Stay/booking/:id/cancel', async (req, res) => {
-    try {
-        const booking = await Booking.findById(req.params.id);
-        if (!booking) {
-            return res.status(404).json({ success: false, message: 'Booking not found' });
-        }
-
-        booking.status = 'Cancelled';
-        await booking.save();
-
-        const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
-        if (isJson) {
-            return res.json({ success: true, message: 'Booking cancelled successfully', booking });
-        }
-        return res.redirect('/Hot-Stay/Profile?message=Booking+cancelled+successfully');
-    } catch (error) {
-        console.error('Error cancelling booking:', error);
-        return res.status(500).json({ success: false, message: 'Error cancelling booking: ' + error.message });
+  try {
+    const booking = await Booking.findById(req.params.id);
+    if (!booking) {
+      return res.status(404).json({ success: false, message: 'Booking not found' });
     }
+
+    booking.status = 'Cancelled';
+    await booking.save();
+
+    const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
+    if (isJson) {
+      return res.json({ success: true, message: 'Booking cancelled successfully', booking });
+    }
+    return res.redirect('/Hot-Stay/Profile?message=Booking+cancelled+successfully');
+  } catch (error) {
+    console.error('Error cancelling booking:', error);
+    return res.status(500).json({ success: false, message: 'Error cancelling booking: ' + error.message });
+  }
 });
 
 // Submit Review for Booking
 app.post('/Hot-Stay/booking/:id/review', async (req, res) => {
-    try {
-        const { rating, reviewText } = req.body;
-        const booking = await Booking.findById(req.params.id);
-        if (!booking) {
-            return res.status(404).json({ success: false, message: 'Booking not found' });
-        }
-
-        const ratingNum = Math.min(5, Math.max(1, parseFloat(rating) || 5));
-        booking.rating = ratingNum;
-        booking.reviewed = true;
-        booking.status = 'Completed';
-        booking.reviewText = reviewText ? reviewText.trim() : '';
-        booking.reviewComment = booking.reviewText;
-        booking.reviewDate = new Date();
-        await booking.save();
-
-        // Update hotel review count and rating if hotel exists
-        if (booking.hotelId && mongoose.Types.ObjectId.isValid(booking.hotelId)) {
-            const hotel = await Hotel.findById(booking.hotelId);
-            if (hotel) {
-                const hotelBookings = await Booking.find({ hotelId: booking.hotelId, reviewed: true });
-                const avgRating = hotelBookings.reduce((sum, b) => sum + (b.rating || 0), 0) / hotelBookings.length;
-                hotel.rating = parseFloat(avgRating.toFixed(1));
-                hotel.reviewCount = hotelBookings.length;
-                await hotel.save();
-            }
-        }
-
-        const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
-        if (isJson) {
-            return res.json({ success: true, message: 'Review submitted successfully', booking });
-        }
-        return res.redirect('/Hot-Stay/Profile?tab=reviews&message=Review+submitted+successfully');
-    } catch (error) {
-        console.error('Error submitting review:', error);
-        return res.status(500).json({ success: false, message: 'Error submitting review: ' + error.message });
+  try {
+    const { rating, reviewText } = req.body;
+    const booking = await Booking.findById(req.params.id);
+    if (!booking) {
+      return res.status(404).json({ success: false, message: 'Booking not found' });
     }
+
+    const ratingNum = Math.min(5, Math.max(1, parseFloat(rating) || 5));
+    booking.rating = ratingNum;
+    booking.reviewed = true;
+    booking.status = 'Completed';
+    booking.reviewText = reviewText ? reviewText.trim() : '';
+    booking.reviewComment = booking.reviewText;
+    booking.reviewDate = new Date();
+    await booking.save();
+
+    // Update hotel review count and rating if hotel exists
+    if (booking.hotelId && mongoose.Types.ObjectId.isValid(booking.hotelId)) {
+      const hotel = await Hotel.findById(booking.hotelId);
+      if (hotel) {
+        const hotelBookings = await Booking.find({ hotelId: booking.hotelId, reviewed: true });
+        const avgRating = hotelBookings.reduce((sum, b) => sum + (b.rating || 0), 0) / hotelBookings.length;
+        hotel.rating = parseFloat(avgRating.toFixed(1));
+        hotel.reviewCount = hotelBookings.length;
+        await hotel.save();
+      }
+    }
+
+    const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
+    if (isJson) {
+      return res.json({ success: true, message: 'Review submitted successfully', booking });
+    }
+    return res.redirect('/Hot-Stay/Profile?tab=reviews&message=Review+submitted+successfully');
+  } catch (error) {
+    console.error('Error submitting review:', error);
+    return res.status(500).json({ success: false, message: 'Error submitting review: ' + error.message });
+  }
 });
 
 // Toggle Saved Hotel (Wishlist)
 app.post('/Hot-Stay/hotel/:id/toggle-save', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(401).json({ success: false, message: 'Please log in to save hotels' });
-        }
-
-        const hotelId = req.params.id;
-        if (!mongoose.Types.ObjectId.isValid(hotelId)) {
-            return res.status(400).json({ success: false, message: 'Invalid hotel ID' });
-        }
-
-        if (!currentUser.savedHotels) {
-            currentUser.savedHotels = [];
-        }
-
-        const index = currentUser.savedHotels.findIndex(id => id.toString() === hotelId.toString());
-        let isSaved = false;
-
-        if (index > -1) {
-            // Remove from saved
-            currentUser.savedHotels.splice(index, 1);
-            isSaved = false;
-        } else {
-            // Add to saved
-            currentUser.savedHotels.push(hotelId);
-            isSaved = true;
-        }
-
-        await currentUser.save();
-
-        return res.json({ 
-            success: true, 
-            isSaved: isSaved, 
-            message: isSaved ? 'Hotel added to saved properties' : 'Hotel removed from saved properties' 
-        });
-    } catch (error) {
-        console.error('Error toggling saved hotel:', error);
-        return res.status(500).json({ success: false, message: 'Error saving hotel: ' + error.message });
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(401).json({ success: false, message: 'Please log in to save hotels' });
     }
+
+    const hotelId = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(hotelId)) {
+      return res.status(400).json({ success: false, message: 'Invalid hotel ID' });
+    }
+
+    if (!currentUser.savedHotels) {
+      currentUser.savedHotels = [];
+    }
+
+    const index = currentUser.savedHotels.findIndex(id => id.toString() === hotelId.toString());
+    let isSaved = false;
+
+    if (index > -1) {
+      // Remove from saved
+      currentUser.savedHotels.splice(index, 1);
+      isSaved = false;
+    } else {
+      // Add to saved
+      currentUser.savedHotels.push(hotelId);
+      isSaved = true;
+    }
+
+    await currentUser.save();
+
+    return res.json({
+      success: true,
+      isSaved: isSaved,
+      message: isSaved ? 'Hotel added to saved properties' : 'Hotel removed from saved properties'
+    });
+  } catch (error) {
+    console.error('Error toggling saved hotel:', error);
+    return res.status(500).json({ success: false, message: 'Error saving hotel: ' + error.message });
+  }
 });
 
 // Delete Account (Danger Zone)
 app.post('/Hot-Stay/profile/delete', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
-        if (!currentUser) {
-            return res.status(404).json({ success: false, message: 'User not found' });
-        }
-
-        // Delete user's bookings
-        await Booking.deleteMany({
-            $or: [
-                { userId: currentUser._id.toString() },
-                { userId: currentUser._id }
-            ]
-        });
-
-        // Delete user
-        await User.findByIdAndDelete(currentUser._id);
-
-        const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
-        if (isJson) {
-            return res.json({ success: true, message: 'Account deleted successfully', redirectUrl: '/Hot-Stay/register' });
-        }
-        return res.redirect('/Hot-Stay/register');
-    } catch (error) {
-        console.error('Error deleting account:', error);
-        return res.status(500).json({ success: false, message: 'Error deleting account: ' + error.message });
+  try {
+    const currentUser = await getCurrentUser(req);
+    if (!currentUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+    // Delete user's bookings
+    await Booking.deleteMany({
+      $or: [
+        { userId: currentUser._id.toString() },
+        { userId: currentUser._id }
+      ]
+    });
+
+    // Delete user
+    await User.findByIdAndDelete(currentUser._id);
+
+    const isJson = req.xhr || req.headers['content-type']?.includes('application/json') || req.headers.accept?.includes('application/json');
+    if (isJson) {
+      return res.json({ success: true, message: 'Account deleted successfully', redirectUrl: '/Hot-Stay/register' });
+    }
+    return res.redirect('/Hot-Stay/register');
+  } catch (error) {
+    console.error('Error deleting account:', error);
+    return res.status(500).json({ success: false, message: 'Error deleting account: ' + error.message });
+  }
 });
 
 // ----------------------------------------------------
@@ -930,21 +930,21 @@ app.post('/Hot-Stay/host/new', async (req, res) => {
 
 // Host dashboard - list only the current user's hosted properties
 app.get('/Hot-Stay/host/hosted-list', async (req, res) => {
-    try {
-        const currentUser = await getCurrentUser(req);
+  try {
+    const currentUser = await getCurrentUser(req);
 
-        if (!currentUser) {
-            return res.status(404).send('User not found');
-        }
-
-        const allHotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
-        const hotels = getHostedPropertiesForUser(allHotels, currentUser.email);
-
-        res.render('hosted-list', { hotels, user: currentUser, id: req.query.id || null });
-    } catch (error) {
-        console.error('Error loading host dashboard:', error);
-        res.status(500).send('Error loading dashboard');
+    if (!currentUser) {
+      return res.status(404).send('User not found');
     }
+
+    const allHotels = await Hotel.find({}).sort({ createdAt: -1 }).lean();
+    const hotels = getHostedPropertiesForUser(allHotels, currentUser.email);
+
+    res.render('hosted-list', { hotels, user: currentUser, id: req.query.id || null });
+  } catch (error) {
+    console.error('Error loading host dashboard:', error);
+    res.status(500).send('Error loading dashboard');
+  }
 });
 
 // Show form to edit an existing hosted property
